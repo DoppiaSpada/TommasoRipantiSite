@@ -13,14 +13,14 @@
   <style>
     :root {
       --bg-dark: #0f172a;
-      --bg-card: #ffffff;
-      --bg-slate: #f8fafc;
+      --bg-card: #0f172a;
+      --bg-slate: #1e293b;
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
       --primary-light: #eff6ff;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
       --accent-green: #10b981;
       --accent-amber: #f59e0b;
       --accent-cyan: #06b6d4;
@@ -82,6 +82,14 @@
       padding: 3px 8px;
       border-radius: 6px;
       border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .nav-avatar {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #334155;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .nav-links {
@@ -150,7 +158,7 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
       border-radius: 14px;
       overflow: hidden;
-      background: #ffffff;
+      background: var(--bg-dark);
       margin: 0 16px;
     }
 
@@ -163,7 +171,7 @@
       padding: 40px 52px;
       display: none;
       flex-direction: column;
-      background: #ffffff;
+      background: var(--bg-dark);
       opacity: 0;
       transition: opacity 0.25s ease-in-out;
     }
@@ -243,7 +251,7 @@
 
     .project-card p {
       font-size: 13px;
-      color: #334155;
+      color: #cbd5e1;
       line-height: 1.45;
     }
 
@@ -273,14 +281,14 @@
     }
 
     .site-btn.btn-outline {
-      background: #ffffff;
+      background: #1e293b;
       color: var(--text-main);
       border: 1px solid var(--border-color);
     }
 
     .site-btn.btn-outline:hover {
-      background: #f1f5f9;
-      border-color: #cbd5e1;
+      background: #334155;
+      border-color: #475569;
     }
 
     .site-btn.btn-mega {
@@ -445,6 +453,14 @@
 
     /* Print / PDF Styling */
     @media print {
+      :root {
+        --bg-dark: #ffffff;
+        --bg-slate: #fafafa;
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --border-color: #e2e8f0;
+      }
+
       body {
         background: #ffffff !important;
         padding: 0 !important;
@@ -480,6 +496,9 @@
       .project-card {
         border: 1px solid #ccc !important;
         background: #fafafa !important;
+      }
+      .project-card p {
+        color: #334155;
       }
       .visual-frame {
         border: 1px solid #999 !important;
@@ -542,20 +561,20 @@
   <!-- Top Navigation -->
   <nav class="site-nav">
     <a href="index.html" class="nav-brand">
+      <img class="nav-avatar" src="Items/My_Portrait.jpg" alt="">
       <span>Tommaso Ripanti</span>
-      <span class="badge">Portfolio Deck</span>
     </a>
+    <div class="nav-actions">
+      <button class="btn-pdf" onclick="window.print()" title="Download / Print Portfolio in PDF format">
+        <i class="fa-solid fa-file-pdf"></i> Download PDF
+      </button>
+    </div>
     <ul class="nav-links">
       <li class="nav-item"><a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a></li>
       <li class="nav-item active"><a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
       <li class="nav-item"><a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a></li>
       <li class="nav-item"><a href="dump.html"><i class="fa-solid fa-box-archive"></i> Dump</a></li>
     </ul>
-    <div class="nav-actions">
-      <button class="btn-pdf" onclick="window.print()" title="Download / Print Portfolio in PDF format">
-        <i class="fa-solid fa-file-pdf"></i> Download PDF
-      </button>
-    </div>
   </nav>
 
   <!-- Presentation Deck Wrapper -->
@@ -605,7 +624,7 @@
           </div>
           <div class="project-card">
             <h4><i class="fa-solid fa-university"></i> Master's in Cinema & Digital Media Engineering (LM-32)</h4>
-            <p>Politecnico di Torino | <b>2nd Year in Course (2025–Present)</b>. Advanced specialization in Real-Time 3D, Virtual Reality, Technical Art, Sound Engineering, and Digital Cinema.</p>
+            <p>Politecnico di Torino | <b>2nd Year in Course (2025–Present)</b>. Advanced specialization in Real-Time 3D, Virtual Reality, Technical Art, Sound Engineering (lab work on acoustic absorption, room modes, impulse-response measurements and simulation, microphone response, and STIPA; final presentation on infrasound), and Digital Cinema.</p>
             <div class="card-actions">
               <a href="https://mega.nz/file/CAtCQDbY#xIqnR8loRZ_uj8dmHwf7RWJzbYBl8U_k1jzNuhfxkUo" target="_blank" rel="noopener noreferrer" class="site-btn btn-outline">
                 <i class="fa-solid fa-file-pdf"></i> Download Exams & Grades
@@ -633,7 +652,7 @@
               </div>
               <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
                 <span style="font-size:12px; color:#4ade80; font-weight:700;"><i class="fa-solid fa-film"></i> Digital Cinema, Audio & Technical Art:</span><br>
-                <span style="font-size:11.5px; color:#cbd5e1;">Blender, DaVinci Resolve, Reaper, Pure Data, PCG, Lumen, Nanite, Insta360.</span>
+                <span style="font-size:11.5px; color:#cbd5e1;">Blender, DaVinci Resolve, PCG, Lumen, Nanite, Insta360. Reaper and Pure Data come from the separate Digital Audio Processing project La Contea, not Sound Engineering.</span>
               </div>
             </div>
           </div>
@@ -661,8 +680,7 @@
             <p>Created two MetaHumans using <b>Mesh-to-MetaHuman</b> with motion capture retargeting. Authored sandstorm and electrical discharge <b>Niagara VFX</b>, and staged cinematics with Sequencer and CineCameras.</p>
             <div class="card-actions">
               <a href="https://canva.link/8sp7wcbsur6oglg" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
-                <i class="fa-solid fa-display"></i> Canva Showcase
-              </a>
+                <i class="fa-solid fa-display"></i> View Deck Canva</a>
               <a href="https://mega.nz/file/WR9gHB6I#a9zZpcMk80iv3sp_qy2b8JZ0QB4Rq56upjf7zUt2UNU" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
                 <i class="fa-solid fa-video"></i> Video 1
               </a>
@@ -711,8 +729,7 @@
                 <i class="fa-brands fa-youtube"></i> Watch Trailer
               </a>
               <a href="https://canva.link/pnaqpevr8gbwxg5" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
-                <i class="fa-solid fa-display"></i> Canva Design Deck
-              </a>
+                <i class="fa-solid fa-display"></i> View Deck Canva</a>
             </div>
           </div>
         </div>
@@ -787,8 +804,7 @@
                 <i class="fa-brands fa-itch-io"></i> Project on itch.io
               </a>
               <a href="https://canva.link/kj3yk4rhyzxv7k5" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
-                <i class="fa-solid fa-display"></i> Pitch Deck
-              </a>
+                <i class="fa-solid fa-display"></i> View Deck Canva</a>
               <a href="https://mega.nz/file/bQl0hZ7R#hBScNC0eV4sTy6f3dvO7b5dlNYKqhJN4puDm607KOnQ" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
                 <i class="fa-solid fa-file-pdf"></i> Read Report
               </a>
@@ -953,8 +969,7 @@
                 <i class="fa-solid fa-file-pdf"></i> Final Documentation
               </a>
               <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
-                <i class="fa-solid fa-display"></i> Canva Presentation
-              </a>
+                <i class="fa-solid fa-display"></i> View Deck Canva</a>
             </div>
           </div>
         </div>
@@ -1036,8 +1051,7 @@
             <p>Produced complete game design documents (GDD), rapid playable prototypes, and laboratory exercises evaluating game balance and UX flow.</p>
             <div class="card-actions">
               <a href="https://canva.link/o5su76l1ja6ft3h" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
-                <i class="fa-solid fa-display"></i> View Canva Deck
-              </a>
+                <i class="fa-solid fa-display"></i> View Deck Canva</a>
               <a href="https://mega.nz/file/fIMmABra#u1M6mRo9XgU2utNxNW5ukVm8h08KoOBY7esuDDYH-3s" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
                 <i class="fa-solid fa-file-pdf"></i> Read Report
               </a>
@@ -1126,7 +1140,7 @@
                 <i class="fa-solid fa-file-pdf"></i> Internship Report (MEGA)
               </a>
               <a href="https://mega.nz/file/HF8nEIIb#OkBHSj5wGMBYTumFGodoWN0qRHS7lvwdVVCySAxGAZI" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
-                <i class="fa-solid fa-display"></i> Presentation (MEGA)
+                <i class="fa-solid fa-display"></i> View Project Presentation (MEGA)
               </a>
               <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
                 <i class="fa-solid fa-video"></i> Video Demo (MEGA)
@@ -1177,14 +1191,14 @@
             <p>Engineered RESTful backend microservices in <b>Python (FastAPI)</b> and reactive user interfaces in <b>Vue.js & AJAX</b> for the university racing team.</p>
           </div>
           <div class="project-card">
-            <h4><i class="fa-solid fa-share-nodes"></i> Social Media & Communication Strategy</h4>
-            <p>Media analytics, narrative content design, and multichannel publication strategies at Politecnico di Torino.</p>
+            <h4><i class="fa-solid fa-share-nodes"></i> Social Media - Disinformation on the Israeli-Palestinian Conflict in Italy</h4>
+            <p>Analyzed discussion of the Israeli-Palestinian conflict in Italy on X through mention and co-hashtag analysis, dominant accounts and information channels, qualitative narrative-positioning analysis, and targeted fact-checking.</p>
             <div class="card-actions">
               <a href="https://mega.nz/file/2EdAGCoD#xJC8JfAmtZVSUhn2rEK1oXVgCAM9a6BKOZKFkZ_I0EU" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
-                <i class="fa-solid fa-file-pdf"></i> Media Report (MEGA)
+                <i class="fa-solid fa-file-pdf"></i> Read Project Report (MEGA)
               </a>
               <a href="https://mega.nz/file/PB1gRaTT#Mt7hrR9_SKCmyiMLLiKsQrMpHvUWWdl_epYEx_Py2UY" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
-                <i class="fa-solid fa-display"></i> Presentation (MEGA)
+                <i class="fa-solid fa-display"></i> View Project Presentation (MEGA)
               </a>
             </div>
           </div>

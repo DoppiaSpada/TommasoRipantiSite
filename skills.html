@@ -12,17 +12,17 @@
   <style>
     :root {
       --primary: #0f172a;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --accent-light: #eff6ff;
-      --text: #334155;
-      --text-dark: #0f172a;
-      --text-muted: #64748b;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --tag-bg: #f1f5f9;
-      --nav-bg: rgba(255, 255, 255, 0.92);
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --accent-light: rgba(37, 99, 235, 0.16);
+      --text: #e2e8f0;
+      --text-dark: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg: #020617;
+      --card-bg: #0f172a;
+      --border: #1e293b;
+      --tag-bg: #1e293b;
+      --nav-bg: rgba(15, 23, 42, 0.95);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,6 +78,14 @@
       border: 1px solid #bfdbfe;
     }
 
+    .nav-avatar {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #334155;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -105,7 +113,7 @@
 
     .nav-item.active a {
       color: #ffffff;
-      background: var(--accent);
+      background: #2563eb;
     }
 
     .nav-actions {
@@ -118,7 +126,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #ffffff;
+      background: #1e293b;
       color: var(--text-dark);
       border: 1px solid var(--border);
       padding: 7px 14px;
@@ -183,12 +191,12 @@
       align-items: center;
       gap: 6px;
       padding: 5px 12px;
-      background: #f1f5f9;
+      background: #1e293b;
       color: var(--text-dark);
       font-size: 12px;
       font-weight: 600;
       border-radius: 20px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #334155;
     }
 
     .role-pill i {
@@ -318,7 +326,7 @@
       border-radius: 6px;
       font-size: 11.5px;
       font-weight: 500;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #334155;
       transition: all 0.15s ease;
     }
 
@@ -352,7 +360,6 @@
     @media (max-width: 768px) {
       body { padding-top: 64px; }
       .site-nav { padding: 0 16px; }
-      .nav-brand span.name { display: none; }
       .nav-item a { padding: 6px 10px; font-size: 13px; }
       .skills-header-card { padding: 20px; }
       .skills-header-card h1 { font-size: 24px; }
@@ -365,30 +372,25 @@
   <!-- Top Sticky Navigation Bar -->
   <nav class="site-nav">
     <a href="index.html" class="nav-brand">
+      <img class="nav-avatar" src="Items/My_Portrait.jpg" alt="">
       <span class="name">Tommaso Ripanti</span>
-      <span class="badge">Portfolio & CV</span>
     </a>
 
     <ul class="nav-links">
       <li class="nav-item">
-        <a href="cv.html"><i class="fa-solid fa-file-user"></i> CV</a>
+        <a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a>
       </li>
       <li class="nav-item">
-        <a href="portfolio.html"><i class="fa-solid fa-shapes"></i> Portfolio</a>
+        <a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a>
       </li>
       <li class="nav-item active">
-        <a href="skills.html"><i class="fa-solid fa-sliders"></i> Skills</a>
+        <a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a>
       </li>
       <li class="nav-item">
-        <a href="dump.html"><i class="fa-solid fa-folder-tree"></i> Dump</a>
+        <a href="dump.html"><i class="fa-solid fa-box-archive"></i> Dump</a>
       </li>
     </ul>
 
-    <div class="nav-actions">
-      <a href="cv.html" class="btn-nav-action">
-        <i class="fa-solid fa-arrow-left"></i> View CV
-      </a>
-    </div>
   </nav>
 
   <div class="container">
@@ -434,62 +436,59 @@
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">Unity (C#)</span>
-            <span class="tag highlight">Unreal Engine 5</span>
-            <span class="tag highlight">Cocos Creator</span>
+            <span class="tag">Unity Engine (C#)</span>
+            <span class="tag">Unreal Engine 5</span>
+            <span class="tag">Cocos Creator</span>
             <span class="tag">GameMaker</span>
+            <span class="tag">PCG Procedural Generation</span>
             <span class="tag">Lumen Ray Tracing</span>
-            <span class="tag">Nanite</span>
-            <span class="tag">MegaLights</span>
+            <span class="tag">MegaLights & Nanite</span>
             <span class="tag">Niagara VFX</span>
-            <span class="tag">Meta Quest VR</span>
           </div>
         </div>
 
         <!-- Card 2: Software Architecture & Design Patterns -->
         <div class="skill-card">
           <div class="skill-card-top">
-            <h3><i class="fa-solid fa-sitemap"></i> Software Architecture & Design</h3>
+            <h3><i class="fa-solid fa-sitemap"></i> Software Engineering & Architecture</h3>
             <p>Designing modular, maintainable, and high-performance software systems following industry patterns and formal software engineering processes.</p>
             <ul class="competencies">
               <li><b>MVP & Event-Driven Architecture:</b> ScriptableObject event channels in Unity for decoupled, leak-free game systems.</li>
               <li><b>Object-Oriented & Component Design:</b> SOLID principles, state machines, factory and observer patterns.</li>
-              <li><b>Formal Engineering:</b> Unified Process (RUP), domain modeling, comprehensive UML documentation (Use Cases, Class, Sequence diagrams).</li>
+              <li><b>Formal Engineering:</b> Unified Process (RUP), domain modeling, and comprehensive UML documentation (Use Cases, Class, Sequence diagrams).</li>
+              <li><b>Analysis & Mobile Development:</b> MATLAB and Simulink for mathematical computing; Android Studio and SDK for Android application development.</li>
               <li><b>Data Modeling:</b> Relational database schemas, normalization, ACID compliance, and query indexing.</li>
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">MVP Architecture</span>
-            <span class="tag highlight">ScriptableObjects</span>
-            <span class="tag">UML Modeling</span>
-            <span class="tag">Unified Process (RUP)</span>
-            <span class="tag">OOP / SOLID</span>
-            <span class="tag">State Machines</span>
-            <span class="tag">Relational SQL</span>
-            <span class="tag">Component-Based Design</span>
+            <span class="tag">MVP Architecture</span>
+            <span class="tag">ScriptableObjects</span>
+            <span class="tag">UML Modeling & RUP</span>
+            <span class="tag">SQL Relational DBs</span>
+            <span class="tag">MATLAB & Simulink</span>
+            <span class="tag">Android Studio / SDK</span>
           </div>
         </div>
 
         <!-- Card 3: Programming Languages & Backends -->
         <div class="skill-card">
           <div class="skill-card-top">
-            <h3><i class="fa-solid fa-code"></i> Programming Languages & Systems</h3>
-            <p>Strong polyglot foundation spanning low-level systems programming, high-level OOP languages, backend servers, and algorithmic logic.</p>
+            <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
+            <p>Programming experience across low-level systems, object-oriented languages, scripting, and application development.</p>
             <ul class="competencies">
               <li><b>C & C++:</b> Pointers, dynamic memory management, POSIX systems programming, multi-process IPC, file I/O.</li>
-              <li><b>Java & Apache Tomcat:</b> Object-oriented architecture, multi-threading, servlet programming, Enterprise backend patterns.</li>
+              <li><b>Java:</b> Object-oriented programming, multi-threading, and enterprise application development.</li>
               <li><b>Python:</b> FastAPI asynchronous microservices, REST APIs, automation, data manipulation.</li>
-              <li><b>Mathematical Computing:</b> MATLAB and Simulink for control systems, dynamic state estimation, and signal processing.</li>
+              <li><b>JavaScript & TypeScript:</b> Modern language features for browser, backend, and interactive application development.</li>
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">C / C++</span>
-            <span class="tag highlight">Java (Tomcat)</span>
-            <span class="tag highlight">C# (.NET)</span>
-            <span class="tag highlight">Python (FastAPI)</span>
-            <span class="tag">MATLAB & Simulink</span>
+            <span class="tag">C / C++</span>
+            <span class="tag">C# (.NET)</span>
+            <span class="tag">Java</span>
+            <span class="tag">Python (FastAPI)</span>
+            <span class="tag">JavaScript / TypeScript</span>
             <span class="tag">Bash / UNIX Shell</span>
-            <span class="tag">SQL</span>
             <span class="tag">Kotlin</span>
           </div>
         </div>
@@ -500,21 +499,24 @@
             <h3><i class="fa-solid fa-network-wired"></i> Web Technologies & Networking</h3>
             <p>Building responsive web clients and distributed real-time communication architectures for multiplayer games and enterprise applications.</p>
             <ul class="competencies">
-              <li><b>Frontend Development:</b> Responsive HTML5, CSS3, modern JavaScript (ES6+), Vue.js reactive components, React fundamentals.</li>
+              <li><b>Frontend Development:</b> Responsive HTML5 and CSS3 with Vue.js and React components.</li>
+              <li><b>Web Servers:</b> Java servlet and backend application deployment with Apache Tomcat.</li>
               <li><b>Real-Time Signaling:</b> WebSockets for full-duplex room management and state coordination.</li>
               <li><b>Peer-to-Peer Networking:</b> WebRTC DataChannels for ultra-low latency peer-to-peer multiplayer synchronization without dedicated relay servers.</li>
               <li><b>APIs & Protocols:</b> RESTful endpoints, AJAX asynchronous data exchange, TCP/UDP socket concepts.</li>
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">WebRTC P2P DataChannels</span>
-            <span class="tag highlight">WebSockets</span>
-            <span class="tag highlight">JavaScript / TypeScript</span>
+            <span class="tag">Apache Tomcat</span>
             <span class="tag">Vue.js</span>
-            <span class="tag">HTML5 / CSS3</span>
-            <span class="tag">RESTful APIs</span>
+            <span class="tag">React</span>
+            <span class="tag">WebRTC DataChannels P2P</span>
+            <span class="tag">WebSockets Signaling</span>
+            <span class="tag">HTTP / RESTful APIs</span>
+            <span class="tag">TCP / UDP</span>
             <span class="tag">AJAX</span>
             <span class="tag">Git / GitHub</span>
+            <span class="tag">HTML5 / CSS3</span>
           </div>
         </div>
 
@@ -531,14 +533,13 @@
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">Blender 3D</span>
-            <span class="tag highlight">Procedural Generation (PCG)</span>
-            <span class="tag highlight">3D Gaussian Splatting</span>
-            <span class="tag">RealityScan Photogrammetry</span>
-            <span class="tag">MetaHuman Rigging</span>
+            <span class="tag">Blender (Rigging & Anim)</span>
+            <span class="tag">MetaHuman Framework</span>
             <span class="tag">Motion Capture (MoCap)</span>
+            <span class="tag">RealityScan Photogrammetry</span>
+            <span class="tag">Postshot Gaussian Splatting</span>
             <span class="tag">Take Recorder & Sequencer</span>
-            <span class="tag">Krita / Inkscape</span>
+            <span class="tag">Linear Grammar & Splines</span>
           </div>
         </div>
 
@@ -551,18 +552,29 @@
               <li><b>Cinematography & Editing:</b> DaVinci Resolve color grading, multi-camera editing, Adobe After Effects visual compositing.</li>
               <li><b>On-Set Production:</b> RED Cinema Cameras, mirrorless cinema rigs, 3-point lighting setups, sound capture on set.</li>
               <li><b>Immersive Video:</b> Insta360 Pro / ONE X2 360° VR video recording, stitching, and interactive viewing setups.</li>
-              <li><b>Acoustics & DSP:</b> Reaper DAW multi-track mixing, Pure Data audio synthesis and real-time DSP, Ambisonics 360° spatial audio.</li>
+              <li><b>Audio Production & DSP:</b> Reaper DAW production and Pure Data synthesis/DSP from the separate Digital Audio Processing project La Contea; these tools were not used for Sound Engineering.</li>
             </ul>
           </div>
           <div class="skill-tags">
-            <span class="tag highlight">DaVinci Resolve</span>
-            <span class="tag highlight">Reaper DAW</span>
-            <span class="tag highlight">Pure Data (DSP)</span>
+            <span class="tag">DaVinci Resolve</span>
             <span class="tag">Adobe After Effects</span>
+            <span class="tag">Insta360 360-degree VR Video</span>
             <span class="tag">RED Cinema Cameras</span>
-            <span class="tag">Insta360 360° VR</span>
-            <span class="tag">Ambisonics Spatial Audio</span>
-            <span class="tag">Boom & Lavalier Mics</span>
+            <span class="tag">Reaper DAW</span>
+            <span class="tag">Pure Data (DSP)</span>
+            <span class="tag">Spatial Audio / Ambisonics</span>
+            <span class="tag">Lavalier & Boom Mics</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> AI Workflows & Analysis Tools</h3>
+            <p>Generative AI tools and custom workflows used to support research, development, and creative production.</p>
+          </div>
+          <div class="skill-tags">
+            <span class="tag">Claude AI Workflows</span>
+            <span class="tag">Gemini API & Custom Skills</span>
           </div>
         </div>
 
@@ -587,7 +599,7 @@
             <p>Ability to view complex challenges as cohesive systems, anticipating integration hurdles, edge cases, and architectural trade-offs early in design.</p>
             <ul class="competencies">
               <li><b>Architectural Planning:</b> Decomposing monolithic requirements into modular, loosely coupled subsystems before writing code.</li>
-              <li><b>Trade-off Analysis:</b> Objectively evaluating technical options (e.g. comparing client-server vs P2P latency trade-offs in <i>Spot Under Siege</i>).</li>
+              <li><b>Trade-off Analysis:</b> Objectively evaluating technical options (e.g. comparing client-server vs P2P latency trade-offs in <i>Spot Under Siege</i> ).</li>
               <li><b>Persistent Debugging:</b> Methodical root-cause investigation across network sockets, race conditions, and graphics pipeline bottlenecks.</li>
             </ul>
           </div>
@@ -606,7 +618,7 @@
             <h3><i class="fa-solid fa-people-group"></i> Multidisciplinary Teamwork</h3>
             <p>Proven track record of harmonizing technical and creative visions in collaborative student teams, game jams, and film productions.</p>
             <ul class="competencies">
-              <li><b>Cross-Functional Alignment:</b> Bridging the gap between programmers, 2D/3D artists, sound designers, and directors (e.g., Level Up Lab's <i>Spicy Mercante</i>).</li>
+              <li><b>Cross-Functional Alignment:</b> Bridging the gap between programmers, 2D/3D artists, sound designers, and directors (e.g., Level Up Lab's <i>Spicy Mercante</i> ).</li>
               <li><b>Agile Synchronization:</b> Active participation in standups, milestone reviews, sprint retrospectives, and version-controlled workflows.</li>
               <li><b>Constructive Feedback:</b> Conducting empathic code reviews and respectful art asset critiques to elevate team output.</li>
             </ul>
@@ -626,7 +638,7 @@
             <h3><i class="fa-solid fa-heart"></i> Player & Audience Empathy</h3>
             <p>User-centered mindset that designs game loops, UI feedback, and storytelling to evoke genuine emotional responses and intuitive accessibility.</p>
             <ul class="competencies">
-              <li><b>Emotional Metaphors:</b> Translating delicate human themes (e.g., Alzheimer's in <i>Blurred Mind</i>, wartime displacement in <i>Chaos Between Us</i>) into meaningful gameplay mechanics.</li>
+              <li><b>Emotional Metaphors:</b> Translating delicate human themes (e.g., Alzheimer's in <i>Blurred Mind</i> , wartime displacement in <i>Chaos Between Us</i>) into meaningful gameplay mechanics.</li>
               <li><b>UX & Accessibility:</b> Designing readable interfaces, clear signifiers, and satisfying feedback loops for players and users.</li>
               <li><b>Playtesting Analysis:</b> Observing playtesters, extracting actionable insights from friction points, and iterating game feel.</li>
             </ul>
@@ -668,7 +680,7 @@
             <ul class="competencies">
               <li><b>Visual Rhythm:</b> Applying composition rules, focal point lighting, color grading in cinema, and weight in 3D character animation.</li>
               <li><b>Acoustic Spatialization:</b> Crafting immersive soundscapes where distance attenuation and reverberation match physical architecture.</li>
-              <li><b>Narrative Timing:</b> Fine-tuning beat pauses, scene transitions, and voiceover pacing in radio and audiobook productions (<i>La Contea</i>).</li>
+              <li><b>Narrative Timing:</b> Fine-tuning beat pauses, scene transitions, and voiceover pacing in radio and audiobook productions (<i>La Contea</i> ).</li>
             </ul>
           </div>
           <div class="skill-tags">

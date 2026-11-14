@@ -12,17 +12,17 @@
   <style>
     :root {
       --primary: #0f172a;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --accent-light: #eff6ff;
-      --text: #334155;
-      --text-dark: #0f172a;
-      --text-muted: #64748b;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-      --tag-bg: #f1f5f9;
-      --nav-bg: rgba(255, 255, 255, 0.92);
+      --accent: #60a5fa;
+      --accent-hover: #3b82f6;
+      --accent-light: rgba(37, 99, 235, 0.16);
+      --text: #e2e8f0;
+      --text-dark: #f8fafc;
+      --text-muted: #94a3b8;
+      --bg: #020617;
+      --card-bg: #0f172a;
+      --border: #1e293b;
+      --tag-bg: #1e293b;
+      --nav-bg: rgba(15, 23, 42, 0.95);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,6 +78,14 @@
       border: 1px solid #bfdbfe;
     }
 
+    .nav-avatar {
+      width: 28px;
+      height: 28px;
+      border: 1px solid #334155;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -105,7 +113,7 @@
 
     .nav-item.active a {
       color: #ffffff;
-      background: var(--accent);
+      background: #2563eb;
     }
 
     .nav-actions {
@@ -118,7 +126,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #ffffff;
+      background: #1e293b;
       color: var(--text-dark);
       border: 1px solid var(--border);
       padding: 7px 14px;
@@ -304,7 +312,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: #f8fafc;
+      background: #1e293b;
       border: 1px solid var(--border);
       color: var(--text-dark);
       padding: 6px 12px;
@@ -321,8 +329,8 @@
     }
 
     .cert-link:hover {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: #2563eb;
+      border-color: #2563eb;
       color: #ffffff;
     }
 
@@ -337,7 +345,7 @@
     }
 
     .cert-link.highlight:hover {
-      background: var(--accent);
+      background: #2563eb;
       color: #ffffff;
     }
 
@@ -393,7 +401,6 @@
     @media (max-width: 768px) {
       body { padding-top: 64px; }
       .site-nav { padding: 0 16px; }
-      .nav-brand span.name { display: none; }
       .nav-item a { padding: 6px 10px; font-size: 13px; }
       .dump-header-card { padding: 20px; }
       .dump-header-card h1 { font-size: 24px; }
@@ -407,33 +414,17 @@
   <!-- Top Sticky Navigation Bar -->
   <nav class="site-nav">
     <a href="index.html" class="nav-brand">
+      <img class="nav-avatar" src="Items/My_Portrait.jpg" alt="">
       <span class="name">Tommaso Ripanti</span>
-      <span class="badge">Portfolio & CV</span>
     </a>
 
     <ul class="nav-links">
-      <li class="nav-item">
-        <a href="cv.html"><i class="fa-solid fa-file-user"></i> CV</a>
-      </li>
-      <li class="nav-item">
-        <a href="portfolio.html"><i class="fa-solid fa-shapes"></i> Portfolio</a>
-      </li>
-      <li class="nav-item">
-        <a href="skills.html"><i class="fa-solid fa-sliders"></i> Skills</a>
-      </li>
-      <li class="nav-item active">
-        <a href="dump.html"><i class="fa-solid fa-folder-tree"></i> Dump</a>
-      </li>
+      <li class="nav-item"><a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a></li>
+      <li class="nav-item"><a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
+      <li class="nav-item"><a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a></li>
+      <li class="nav-item active"><a href="dump.html"><i class="fa-solid fa-box-archive"></i> Dump</a></li>
     </ul>
 
-    <div class="nav-actions">
-      <a href="cv.html" class="btn-nav-action">
-        <i class="fa-solid fa-file-user"></i> View CV
-      </a>
-      <a href="portfolio.html" class="btn-nav-action">
-        <i class="fa-solid fa-shapes"></i> View Portfolio
-      </a>
-    </div>
   </nav>
 
   <div class="container">
@@ -442,450 +433,224 @@
     <header class="dump-header-card">
       <h1><i class="fa-solid fa-folder-open" style="color:var(--accent);"></i> Project Dump & Archive</h1>
       <p class="subtitle">
-        Exhaustive chronological registry of all personal, academic, and collaborative projects developed between 2019 and 2026. Every entry provides full contextual documentation, with direct single-file download links to MEGA archives, playable WebGL builds, itch.io pages, YouTube showcases, and interactive Canva presentations.
+        Exhaustive reverse-chronological registry of all personal, academic, and collaborative projects developed between 2019 and 2026. Every entry provides full contextual documentation, with direct single-file download links to MEGA archives, playable WebGL builds, itch.io pages, YouTube showcases, and interactive Canva presentations.
       </p>
       <div class="stats-bar">
         <div class="stat-badge"><i class="fa-solid fa-cube"></i> 37 Documented Projects</div>
         <div class="stat-badge"><i class="fa-solid fa-cloud-arrow-down"></i> 64 Direct Single-File MEGA Links</div>
         <div class="stat-badge"><i class="fa-solid fa-gamepad"></i> 3 Playable Unity WebGL Games</div>
-        <div class="stat-badge"><i class="fa-solid fa-arrow-down-1-9"></i> Chronological Development Order</div>
+        <div class="stat-badge"><i class="fa-solid fa-arrow-down-1-9"></i> Reverse Chronological Order</div>
       </div>
     </header>
 
-    <!-- SECTION: DEVELOPMENT EXPERIENCE & REAL PROJECTS (CHRONOLOGICAL) -->
+    <!-- SECTION: DEVELOPMENT EXPERIENCE & REAL PROJECTS (REVERSE CHRONOLOGICAL) -->
     <section>
       <h2 class="section-title">
         <i class="fa-solid fa-laptop-code"></i> Development Experience & Real Projects
       </h2>
 
-      <!-- YEAR 2019 -->
+                  <!-- YEAR 2026 -->
       <div class="year-separator">
-        <span>2019</span>
+        <span>2026</span>
         <hr>
       </div>
 
-      <!-- 1. Help!!! & Sword Labyrinth -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-dungeon"></i> Help!!! & Sword Labyrinth</span>
-          <span class="item-date">2019</span>
+          <span class="item-title"><i class="fa-solid fa-film"></i> Fatal</span>
+          <span class="item-date">2026</span>
         </div>
-        <div class="item-sub">Early 2D Game Development Experiments</div>
+        <div class="item-sub">Photography & Digital Cinema Project — Politecnico di Torino</div>
         <ul class="bullet-list">
-          <li>Early exploratory projects designed to master game loops, 2D player movement, collision detection, and procedural maze exploration mechanics. Served as the foundational stepping stones for game design and programming.</li>
+          <li>Creation of an Italian-language narrative short film, serving as screenwriter, script supervisor, and on-set coordinator. A nameless entity arrives at the edge of a field where agricultural workers toil in silence; seeking acceptance and community, he ultimately finds truth in his own reflection. Filmed with RED Cinema cameras and graded in DaVinci Resolve.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://mega.nz/file/TEUwgIhR#hrIa4nntw7UbbX_ma_9cVs3iQAazgNWBWQjR7JdD21c" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-zipper"></i> Help!!! Project Archive (MEGA)
+          <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-film"></i> Watch the Short Film (MEGA)
           </a>
-          <a href="https://mega.nz/file/XdlhlDiT#dXIfFRhIGXYJpJK9HNG8Hm41ym3HNZH8NCZqkGSXFU0" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-zipper"></i> Sword Labyrinth Archive (MEGA)
+          <a href="https://mega.nz/file/7YNC2B5B#-P9Q00B4OuBahfBi-CW4L7ytLOHNN6GGh2NQp2zYcg8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-lines"></i> Read the Screenplay & Script (MEGA)
           </a>
         </div>
       </div>
 
-      <!-- YEAR 2020 -->
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-brain"></i> Blurred Mind</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Game Design Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>2D pixel art puzzle-platform adventure developed in <b>Unity</b>, in the roles of game designer and programmer. Set in the fragmented memories of an elderly meteorologist suffering from Alzheimer's: through levels inspired by diary pages, the player relives different stages of life using character swapping and double jump mechanics.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://doppiaspada.itch.io/blurred-mind" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-brands fa-itch-io"></i> Project on itch.io
+          </a>
+          <a href="https://youtu.be/pVKov_hJsJs" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-youtube"></i> Watch Trailer on YouTube
+          </a>
+          <a href="https://canva.link/pnaqpevr8gbwxg5" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> View Deck Canva</a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-gamepad"></i> Unreal Engine Workflows and Micro-projects</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Technical Art and Interactive Systems — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Exploration of advanced real-time rendering pipelines in <b>Unreal Engine 5</b>. Implemented procedural environment distribution with <b>PCG (Procedural Content Generation)</b>, splines, and linear grammar.</li>
+          <li>Researched <b>MegaLights</b> with ray tracing, MetaHuman facial animations using the Take Recorder, RealityScan photogrammetry, and Postshot <b>3D Gaussian Splatting</b> for real-world environment capture.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://canva.link/8sp7wcbsur6oglg" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-display"></i> View Deck Canva</a>
+          <a href="https://mega.nz/file/WR9gHB6I#a9zZpcMk80iv3sp_qy2b8JZ0QB4Rq56upjf7zUt2UNU" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video 1: Gaussian Splatting (MEGA)
+          </a>
+          <a href="https://mega.nz/file/zMMkBazZ#O3XwFU7xmkw8y-MtXypFlecfbq69Ewu3aIYdKkDakHE" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video 2: MegaLights in UE5 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/7NFDnbqY#fZuERx7HhU3E4JETjUJeLPaedtzhX1-s2T5EhklrqYc" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video 3: MetaHuman & MoCap (MEGA)
+          </a>
+          <a href="https://mega.nz/file/vdVgGbgT#6Xrk7bltQ5OrZPNk-i6cT4dFR24-HmFf_wSI6vMKaPk" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video 4: PCG Environments (MEGA)
+          </a>
+          <a href="https://mega.nz/file/7FET2QiT#izYQDxLwnnTDmL9oinK_DmFVJSCYUPbPOvRRbpLx8uw" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video 5: Splines & Grammar (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-cube"></i> Copy of a 3D Animation ad (CRAI)</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Computer Animation Project in Blender</div>
+        <ul class="bullet-list">
+          <li>Recreation of a commercial for the supermarket brand CRAI in <b>Blender</b>. Handled 3D character modeling, skeletal rigging, weight painting, keyframe interpolation, dynamic shading, and rendering.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch 3D Animation Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-sliders"></i> Sound Engineering Laboratory</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Sound Engineering Laboratory Series — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>The six lab reports cover material sound absorption, acoustic modes in small rooms, impulse-response measurements in large spaces, microphone frequency response, speech intelligibility (STIPA), and impulse-response simulation compared with measurements. The final presentation explores infrasound and sounds below the threshold of hearing.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-display"></i> View Deck Canva</a>
+          <a href="https://mega.nz/file/OAEUiAxC#d6Py_Gn_a5mkwgUxtACahlRxK12U9eE1ZHkt-rGbyUg" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 1 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/eBcwWA5J#Av__7TUR-O_gyIqr495zpEBCJqHFOGjVh9BWoAJHpX0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 2 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/iF8xkZ4Z#wm-qR12JJeo53DYeO7CJmDNFipAXj5FJAGdcBDma-C4" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 3 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/nR9j3R4a#NJ6ew5Ivp2b4RU4a64xGhidK_S5kQfxknCEh4__KoqA" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 4 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/uNNl2RpR#t9rnJdTgjoSHrdQ2lEYED-eCNDls3-YvsVUR2nx5w40" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 5 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/3ZMgBQRJ#1fz-yREx7TTIbDoLq2euPOH0clPE3zBtUv1IFLnIvOY" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report 6 (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-scroll"></i> Game Thinking — Il Cortegiano</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Historical Serious Game Design & Prototyping</div>
+        <ul class="bullet-list">
+          <li>Serious game design based on Baldassarre Castiglione's Renaissance treatise 'Il Cortegiano'. Modeled courtly behavioral dynamics, moral reputation, and etiquette dilemmas. Developed interactive prototypes and extensive design documentation.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://canva.link/o5su76l1ja6ft3h" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-display"></i> View Deck Canva</a>
+          <a href="https://mega.nz/file/fIMmABra#u1M6mRo9XgU2utNxNW5ukVm8h08KoOBY7esuDDYH-3s" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Il Cortegiano Report (MEGA)
+          </a>
+          <a href="https://mega.nz/file/2F9XXRbR#g1jAsshLjuCGbvepQnofPEgUWxN483sp2ELmd5CFOPs" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Download Prototype (MEGA zip)
+          </a>
+          <a href="https://mega.nz/file/LAFUnTYL#cKfl9rh-eLrRYMJhzyAMnFgHe3foqLHhnciLdYHtPOo" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Game Thinking Ex 1 (MEGA)
+          </a>
+          <a href="https://mega.nz/file/aRkTjYpJ#P4L7D_xRHse7hY_tPH-GiQsLwYnODTZjMXU6zIkN8Xs" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Game Thinking Ex 2 (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- YEAR 2025 – Present -->
       <div class="year-separator">
-        <span>2020</span>
+        <span>2025 – Present</span>
         <hr>
       </div>
 
-      <!-- 2. PongZ -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i> PongZ</span>
-          <span class="item-date">2020</span>
+          <span class="item-title"><i class="fa-solid fa-graduation-cap"></i> Academic Progression — Politecnico di Torino</span>
+          <span class="item-date">2025 – Present</span>
         </div>
-        <div class="item-sub">2D Arcade Game Project</div>
+        <div class="item-sub">Master of Science in Cinema and Media Engineering</div>
         <ul class="bullet-list">
-          <li>A modern reimagining of the classic Pong arcade title. Developed custom 2D paddle controls, dynamic collision bounce physics, accelerating ball mechanics, and visual audio-reactive polish.</li>
+          <li>Official university self-certification document detailing exams passed, credits acquired, and active enrollment status in the Cinema and Media Engineering M.Sc. program at Politecnico di Torino.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://mega.nz/file/6VNzzCpJ#IFlx44JMTu0bHAwGVER3qVn8Vj8uJ6jxu0CF7_AdV2k" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
-          </a>
-          <a href="https://mega.nz/file/HNFyRZYI#XuBk3MVmfU1zbPiugEVS5aKWWyyyY9o_hq8-z3dBZrk" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-zipper"></i> Download Game Archive (MEGA)
+          <a href="https://mega.nz/file/CAtCQDbY#xIqnR8loRZ_uj8dmHwf7RWJzbYBl8U_k1jzNuhfxkUo" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-file-pdf"></i> View PoliTo Exam Self-Certification (MEGA)
           </a>
         </div>
       </div>
 
-      <!-- 3. PicturesExtractor -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-images"></i> PicturesExtractor</span>
-          <span class="item-date">2020</span>
-        </div>
-        <div class="item-sub">Cross-Platform Desktop Utility Tool</div>
-        <ul class="bullet-list">
-          <li>Standalone utility application built to automate batch image extraction from nested file directories. Features recursive folder scanning, filtering by media formats, and automatic export across Linux and macOS environments.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/KNUAxJCD#1JcvNowNvPFnFZJ-e7kSxitCi67E0yasil4iIfz9K5A" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-linux"></i> Download for Linux (MEGA zip)
-          </a>
-          <a href="https://mega.nz/file/OQ9SgCSL#KlpVI4HSBiLBWT9SyuxIXOMzDqnjMIdNjdt0htNvcAg" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-apple"></i> Download for macOS (MEGA zip)
-          </a>
-        </div>
-      </div>
-
-      <!-- 4. FCards -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-clone"></i> FCards</span>
-          <span class="item-date">2020</span>
-        </div>
-        <div class="item-sub">Cross-Platform Digital Flashcards Learning App</div>
-        <ul class="bullet-list">
-          <li>Desktop study application engineered for active recall and spaced repetition. Features custom deck creation, automated shuffling, answer verification, and multi-platform packaging for Windows and macOS.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/CB8wFQIB#XBP3anutQJKM8y-jfSP-Hch_YzdIG65hcvXyL9cS824" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Demo Video (MEGA)
-          </a>
-          <a href="https://mega.nz/file/nVVRgK4D#nYVwVZZ6Ar4WSv55esS930DFpNiSFSSN8szrAybQKSA" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-windows"></i> Download for Windows (MEGA zip)
-          </a>
-          <a href="https://mega.nz/file/aQ1wTQKb#oXHOC-ui9ouctD-ZdQmsRK6nPRkBgpqD2coLQHPWkOM" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-apple"></i> Download for macOS (MEGA zip)
-          </a>
-        </div>
-      </div>
-
-      <!-- 5. Snapcards -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-layer-group"></i> Snapcards</span>
-          <span class="item-date">2020</span>
-        </div>
-        <div class="item-sub">Digital Card Management & Memory Application</div>
-        <ul class="bullet-list">
-          <li>Card collection and memory training software designed to organize visual decks, categorize study cards, and practice memory retention through quick-fire card matching.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/GY0H3DjA#cqP8JAwbO-WHsdJV8n7YelaoRS6br5GdIX5Y6B22eMU" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-zipper"></i> Download Application Archive (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2021 -->
+      <!-- YEAR 2025 – 2026 -->
       <div class="year-separator">
-        <span>2021</span>
+        <span>2025 – 2026</span>
         <hr>
       </div>
 
-      <!-- 6. Jim The Cactus -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-seedling"></i> Jim The Cactus</span>
-          <span class="item-date">2021</span>
+          <span class="item-title"><i class="fa-solid fa-pepper-hot"></i> Spicy Mercante</span>
+          <span class="item-date">2025 – 2026</span>
         </div>
-        <div class="item-sub">2D Unity WebGL Platformer</div>
+        <div class="item-sub">Project with Level Up Lab, the PoliTo Student Game Development Team</div>
         <ul class="bullet-list">
-          <li>Charming 2D precision platformer created in Unity featuring hand-crafted character animations, spikes and hazard avoidance, responsive jump physics, and direct in-browser WebGL playability.</li>
+          <li><b>Software Architecture:</b> Proposed and implemented a hybrid <b>MVP + Event-Driven model based on ScriptableObjects in Unity</b>.</li>
+          <li><b>Gameplay Engineering:</b> Developed the spice-grinding minigame with mouse rotation input, biome-based NPC customer spawning, market trading, and herbarium documentation.</li>
         </ul>
         <div class="btn-group">
-          <a href="JimTheCactus1/JimTheCactus1.html" class="cert-link highlight">
-            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
+          <a href="https://federicocolombo12.itch.io/spicy-mercante" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-brands fa-itch-io"></i> Play on itch.io
           </a>
-          <a href="https://mega.nz/file/CMMS1Dib#7Dh03SK0MTi4F_fEbSCGo34qpgo1EqD7ABXw4sPvBFk" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          <a href="https://canva.link/kj3yk4rhyzxv7k5" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> View Deck Canva</a>
+          <a href="https://mega.nz/file/bQl0hZ7R#hBScNC0eV4sTy6f3dvO7b5dlNYKqhJN4puDm607KOnQ" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Technical Project Report (MEGA)
           </a>
-        </div>
-      </div>
-
-      <!-- 7. Dona Game 1 -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-ghost"></i> Dona Game 1</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">2D Arcade Unity WebGL Game</div>
-        <ul class="bullet-list">
-          <li>First chapter in the Dona Game series created in Unity, focusing on fast-paced arcade avoidance, dynamic score tracking, projectile dodging mechanics, and WebGL browser integration.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="DonaGame1/index.html" class="cert-link highlight">
-            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
-          </a>
-        </div>
-      </div>
-
-      <!-- 8. Tap Bird -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-dove"></i> Tap Bird</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Mobile Arcade Game for Android</div>
-        <ul class="bullet-list">
-          <li>Fast-paced mobile arcade game engineered for Android devices, featuring single-tap impulse physics, procedural gap generation, collision detection, and score caching.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/6YkUjS7R#TV840fQqJz6SNx0dhn00rojHXwBObCoa-aS1-2Qh6zA" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
-          </a>
-          <a href="https://mega.nz/file/yBlW1RaQ#tNLpRY67ZVof1RU2rLKX39sR4k_4EDup5mCZbif36j8" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 9. Jolly Cube -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-cubes-stacked"></i> Jolly Cube</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Mobile Puzzle Game for Android</div>
-        <ul class="bullet-list">
-          <li>Isometric 3D mobile puzzle game built around spatial geometry, cubic rotational movement, grid navigation, and intuitive touch swipe gestures.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/3QN0XIqY#hTSfkItX181FrAAK_K7KenaRBWwOkxXVgKbw23w2Wxg" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
-          </a>
-          <a href="https://mega.nz/file/PYFXVBiB#tNLpRY67ZVof1RU2rLKX39sR4k_4EDup5mCZbif36j8" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 10. CrazySlip -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-shoe-prints"></i> CrazySlip</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Fast-Paced Mobile Reflex Game</div>
-        <ul class="bullet-list">
-          <li>Addictive reflex and friction challenge testing player reaction times on low-traction surfaces, featuring unpredictable momentum changes and obstacle swarms.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/bBFUlIpb#N_6mfANqH1DByZ_K38JdJIgu3wV-pWlMXn2AwmjUBz0" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 11. Rebellion King -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-chess-king"></i> Rebellion King</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Published Mobile Strategy & Action Game</div>
-        <ul class="bullet-list">
-          <li>Tactical combat and fortress defense game published on the Aptoide app store. Features unit commanding, tactical lane progression, and stylized medieval warfare.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://rebellionking.en.aptoide.com/app" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-store"></i> View on Aptoide App Store
-          </a>
-        </div>
-      </div>
-
-      <!-- 12. The Marsh -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-water"></i> The Marsh</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Atmospheric 3D Environment Exploration Demo</div>
-        <ul class="bullet-list">
-          <li>Real-time 3D environment exploration experiment focusing on volumetric fog, muddy terrain displacement, dynamic lighting mood, and spatial ambient sound design.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/jQVCVQ6a#klsFNYdwUcAiC5vuR5F6FgXIaBEBHlpnumO0sui2PW4" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Showcase Video (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 13. Premio Galileo Literary Competition -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-feather-pointed"></i> Premio Galileo Literary Competition</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">Published Science Communication Story</div>
-        <ul class="bullet-list">
-          <li>Science-fiction and scientific dissemination short story recognized in the prestigious national Premio Galileo literary competition and selected for publication in national press.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/TJkiGKZC#eNyv3aaQzwpFffuC0yBu644FwChIP6MImijI7YX8x6M" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-book-open"></i> Read Original Short Story (MEGA)
-          </a>
-          <a href="https://mega.nz/file/GMshHZQa#6q80XLYPvHHpimWmYFKYbuIHG_WeMtVvZKYc5n_4voI" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-newspaper"></i> Read Press Feature Article (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 14. SongBridge Terni Festival -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-music"></i> SongBridge Terni Festival</span>
-          <span class="item-date">2021</span>
-        </div>
-        <div class="item-sub">International Choral Music Festival Audio Production</div>
-        <ul class="bullet-list">
-          <li>Multi-track choral audio recording, frequency equalization, spatial balancing, and acoustic mastering for the international SongBridge choral festival held in Terni.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/6B0RzDwC#1FE-XyPcQNtWP7ZYUaBeChmMq1GhRA63kCht43MorvY" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-headphones"></i> Listen to Final Audio Production (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2021-2022 -->
-      <div class="year-separator">
-        <span>2021 – 2022</span>
-        <hr>
-      </div>
-
-      <!-- 15. Corso di realizzazione di un videogioco -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-chalkboard-user"></i> Corso di realizzazione di un videogioco</span>
-          <span class="item-date">2021 – 2022</span>
-        </div>
-        <div class="item-sub">Educational Game Development Curriculum & Mentorship</div>
-        <ul class="bullet-list">
-          <li>Designed and taught an intensive course introducing high school students to video game creation fundamentals, covering game loops, C# scripting, sprite rigging, and audio integration in Unity.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/bNcl0KiL#Rjhf7XhASXiKgWUimWTvEU8ztwHZXXbeD_yGY_9peS8" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-display"></i> Course Presentation Slides (MEGA)
-          </a>
-          <a href="https://mega.nz/file/7Ac3lARY#RhzzSEzO7nq2rb24_hmcSAR9Oz8Kf06Wzd5BAf70T3A" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-image"></i> Course Banner & Visual Materials (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 16. Dona Game 2 -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-shield-halved"></i> Dona Game 2</span>
-          <span class="item-date">2021 – 2022</span>
-        </div>
-        <div class="item-sub">Advanced 2D Unity WebGL Game</div>
-        <ul class="bullet-list">
-          <li>Enhanced sequel featuring progressive difficulty curves, responsive particle feedback, custom sprite art, dynamic audio integration, and browser WebGL compilation.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="Dona_Game/Dona_Game.html" class="cert-link highlight">
-            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
-          </a>
-          <a href="https://mega.nz/file/7YFDFQaB#a2PlnXPJ8C-R3GFmn9zvJICpM6Vo-cn3oX3SsSYlJvU" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Watch Final Result Video (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2022 -->
-      <div class="year-separator">
-        <span>2022</span>
-        <hr>
-      </div>
-
-      <!-- 17. KrinoHub -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-network-wired"></i> KrinoHub</span>
-          <span class="item-date">2022</span>
-        </div>
-        <div class="item-sub">Academic & Productivity Platform Concept</div>
-        <ul class="bullet-list">
-          <li>UI/UX concept and architectural model for a centralized platform designed to connect university students, facilitate shared notes, and manage peer project collaboration.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/OMVRQKzB#LHqqcWrSb0aqQwUv9578FrHxiTRZ4rwivd_aZM0V5ME" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-image"></i> View Concept Showcase Image (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 18. ExpenseTracker -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-wallet"></i> ExpenseTracker</span>
-          <span class="item-date">2022</span>
-        </div>
-        <div class="item-sub">Personal Finance & Budget Management Application</div>
-        <ul class="bullet-list">
-          <li>Personal desktop financial tracking tool featuring category-based spending visualization, income vs expense auditing, and exportable financial summaries.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/WBUHDDrA#v6fSG-fc_GZtCu4gbto43fIw0ADrpJ5IUosxykyDIwU" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch Showcase Video (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 19. Cambridge English First B2 -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-certificate"></i> Cambridge English: First (FCE) B2</span>
-          <span class="item-date">2022</span>
-        </div>
-        <div class="item-sub">Official English Language Certification</div>
-        <ul class="bullet-list">
-          <li>Certified upper-intermediate English proficiency (CEFR Level B2) issued by Cambridge Assessment English, confirming professional fluency in technical communication, reading, and listening.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/vYFBiS5J#hV_5rzkKRtF-Rrsq1yNomH6mf_2PZbVYNXP0TT87Hew" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-award"></i> View Cambridge B2 Certificate (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2022-2023 -->
-      <div class="year-separator">
-        <span>2022 – 2023</span>
-        <hr>
-      </div>
-
-      <!-- 20. Warehouse Management System -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-warehouse"></i> Warehouse Management System (WMS)</span>
-          <span class="item-date">2022 – 2023</span>
-        </div>
-        <div class="item-sub">Project with the Unibo Motorsport Student Racing Team</div>
-        <ul class="bullet-list">
-          <li>Implemented RESTful backend microservices in <b>Python (FastAPI)</b> and reactive user interfaces in <b>JavaScript, AJAX, and Vue.js</b> for the racing team's Warehouse Management System. The platform tracks automotive parts, tools, and assembly states for racing car and motorcycle prototypes.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://corsi.unibo.it/laurea/IngegneriaInformatica/insegnamenti/piano/2025/9254/000/000/2022" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-graduation-cap"></i> View Academic Study Context (UniBo)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2024 -->
-      <div class="year-separator">
-        <span>2024</span>
-        <hr>
-      </div>
-
-      <!-- 21. Automatic Control Laboratory Project -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-sliders"></i> Automatic Control Laboratory Project</span>
-          <span class="item-date">2024</span>
-        </div>
-        <div class="item-sub">Dynamic Systems Modeling & Simulation — University of Bologna</div>
-        <ul class="bullet-list">
-          <li>Rigorous engineering project at UniBo modeling continuous dynamic physical systems in <b>MATLAB and Simulink</b>. Formulated state-space representations, analyzed stability margins, and designed closed-loop feedback controllers and state observers.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/OcEgmboJ#6dM4YNJk9FeoyqDNlxc_uDDyH8pMzvSRWtUdIAFWPsQ" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-file-pdf"></i> Read Technical Laboratory Report (MEGA)
+          <a href="https://mega.nz/file/nZMUkJjB#nNRPw4P6l6epUGGSARR2Besy8iFjTGieyiWhu0Pb3DI" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-lines"></i> Post-Mortem Analysis (MEGA)
           </a>
         </div>
       </div>
@@ -896,8 +661,7 @@
         <hr>
       </div>
 
-      <!-- 22. Healthy Helper -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-heart-pulse"></i> Healthy Helper</span>
           <span class="item-date">2025</span>
@@ -913,8 +677,7 @@
         </div>
       </div>
 
-      <!-- 23. Serious Game for the Sea Museum of Trieste -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-compass"></i> Serious Game for the Sea Museum of Trieste</span>
           <span class="item-date">2025</span>
@@ -940,8 +703,7 @@
         </div>
       </div>
 
-      <!-- 24. Spot Under Siege -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-tower-broadcast"></i> Spot Under Siege</span>
           <span class="item-date">2025</span>
@@ -967,25 +729,7 @@
         </div>
       </div>
 
-      <!-- 25. Autocertificazione Esami PoliTo -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-graduation-cap"></i> Academic Progression — Politecnico di Torino</span>
-          <span class="item-date">2025 – Present</span>
-        </div>
-        <div class="item-sub">Master of Science in Cinema and Media Engineering</div>
-        <ul class="bullet-list">
-          <li>Official university self-certification document detailing exams passed, credits acquired, and active enrollment status in the Cinema and Media Engineering M.Sc. program at Politecnico di Torino.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/CAtCQDbY#xIqnR8loRZ_uj8dmHwf7RWJzbYBl8U_k1jzNuhfxkUo" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-file-pdf"></i> View PoliTo Exam Self-Certification (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 26. Chaos Between Us -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-vr-cardboard"></i> Chaos Between Us</span>
           <span class="item-date">2025</span>
@@ -1004,60 +748,7 @@
         </div>
       </div>
 
-      <!-- 27. Copy of a 3D Animation ad (CRAI) -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-cube"></i> Copy of a 3D Animation ad (CRAI)</span>
-          <span class="item-date">2025</span>
-        </div>
-        <div class="item-sub">Computer Animation Project in Blender</div>
-        <ul class="bullet-list">
-          <li>Recreation of a commercial for the supermarket brand CRAI in <b>Blender</b>. Handled 3D character modeling, skeletal rigging, weight painting, keyframe interpolation, dynamic shading, and rendering.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-video"></i> Watch 3D Animation Video (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 28. Ingegneria del Suono Laboratory -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-sliders"></i> Ingegneria del Suono Laboratory</span>
-          <span class="item-date">2025</span>
-        </div>
-        <div class="item-sub">Sound Engineering Laboratory Series — Politecnico di Torino</div>
-        <ul class="bullet-list">
-          <li>Comprehensive practical laboratory series exploring digital audio theory, sound synthesis in <b>Pure Data</b>, multi-track mixing in <b>Reaper DAW</b>, equalization, dynamic compression, and spatial microphone configurations.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-display"></i> Interactive Canva Presentation
-          </a>
-          <a href="https://mega.nz/file/OAEUiAxC#d6Py_Gn_a5mkwgUxtACahlRxK12U9eE1ZHkt-rGbyUg" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 1 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/eBcwWA5J#Av__7TUR-O_gyIqr495zpEBCJqHFOGjVh9BWoAJHpX0" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 2 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/iF8xkZ4Z#wm-qR12JJeo53DYeO7CJmDNFipAXj5FJAGdcBDma-C4" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 3 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/nR9j3R4a#NJ6ew5Ivp2b4RU4a64xGhidK_S5kQfxknCEh4__KoqA" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 4 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/uNNl2RpR#t9rnJdTgjoSHrdQ2lEYED-eCNDls3-YvsVUR2nx5w40" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 5 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/3ZMgBQRJ#1fz-yREx7TTIbDoLq2euPOH0clPE3zBtUv1IFLnIvOY" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Report 6 (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- 29. La Contea -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-headphones"></i> La Contea</span>
           <span class="item-date">2025</span>
@@ -1079,8 +770,7 @@
         </div>
       </div>
 
-      <!-- 30. Risonanze -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-circle-nodes"></i> Risonanze</span>
           <span class="item-date">2025</span>
@@ -1099,8 +789,7 @@
         </div>
       </div>
 
-      <!-- 31. El Valentin -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
           <span class="item-title"><i class="fa-solid fa-tree"></i> El Valentin</span>
           <span class="item-date">2025</span>
@@ -1119,171 +808,437 @@
         </div>
       </div>
 
-      <!-- 32. Social Media & Communication Strategy -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-share-nodes"></i> Social Media & Communication Strategy</span>
+          <span class="item-title"><i class="fa-solid fa-share-nodes"></i> Social Media - Disinformation on the Israeli-Palestinian Conflict in Italy</span>
           <span class="item-date">2025</span>
         </div>
-        <div class="item-sub">Digital Strategy & Audience Communication Project</div>
+        <div class="item-sub">Social Media Course Project - Politecnico di Torino</div>
         <ul class="bullet-list">
-          <li>Comprehensive communication plan analyzing social platforms, target demographics, publication cadence, visual brand consistency, and community growth metrics.</li>
+          <li>Analysis of how the Israeli-Palestinian conflict is discussed on X in Italy. The project combines quantitative mention and co-hashtag analysis of dominant accounts and information channels with qualitative analysis of narratives, positioning and alignment, followed by targeted fact-checking.</li>
         </ul>
         <div class="btn-group">
           <a href="https://mega.nz/file/PB1gRaTT#Mt7hrR9_SKCmyiMLLiKsQrMpHvUWWdl_epYEx_Py2UY" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-display"></i> View Strategy Presentation (MEGA)
+            <i class="fa-solid fa-display"></i> View Project Presentation (MEGA)
           </a>
           <a href="https://mega.nz/file/2EdAGCoD#xJC8JfAmtZVSUhn2rEK1oXVgCAM9a6BKOZKFkZ_I0EU" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Read Strategy Report (MEGA)
+            <i class="fa-solid fa-file-pdf"></i> Read Project Report (MEGA)
           </a>
         </div>
       </div>
 
-      <!-- 33. Game Thinking — Il Cortegiano -->
-      <div class="timeline-item">
-        <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-scroll"></i> Game Thinking — Il Cortegiano</span>
-          <span class="item-date">2025</span>
-        </div>
-        <div class="item-sub">Historical Serious Game Design & Prototyping</div>
-        <ul class="bullet-list">
-          <li>Serious game design based on Baldassarre Castiglione's Renaissance treatise 'Il Cortegiano'. Modeled courtly behavioral dynamics, moral reputation, and etiquette dilemmas. Developed interactive prototypes and extensive design documentation.</li>
-        </ul>
-        <div class="btn-group">
-          <a href="https://canva.link/o5su76l1ja6ft3h" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-display"></i> Interactive Canva Presentation
-          </a>
-          <a href="https://mega.nz/file/fIMmABra#u1M6mRo9XgU2utNxNW5ukVm8h08KoOBY7esuDDYH-3s" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Il Cortegiano Report (MEGA)
-          </a>
-          <a href="https://mega.nz/file/2F9XXRbR#g1jAsshLjuCGbvepQnofPEgUWxN483sp2ELmd5CFOPs" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-zipper"></i> Download Prototype (MEGA zip)
-          </a>
-          <a href="https://mega.nz/file/LAFUnTYL#cKfl9rh-eLrRYMJhzyAMnFgHe3foqLHhnciLdYHtPOo" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Game Thinking Ex 1 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/aRkTjYpJ#P4L7D_xRHse7hY_tPH-GiQsLwYnODTZjMXU6zIkN8Xs" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Game Thinking Ex 2 (MEGA)
-          </a>
-        </div>
-      </div>
-
-      <!-- YEAR 2025-2026 -->
+      <!-- YEAR 2024 -->
       <div class="year-separator">
-        <span>2025 – 2026</span>
+        <span>2024</span>
         <hr>
       </div>
 
-      <!-- 34. Spicy Mercante -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-pepper-hot"></i> Spicy Mercante</span>
-          <span class="item-date">2025 – 2026</span>
+          <span class="item-title"><i class="fa-solid fa-sliders"></i> Automatic Control Laboratory Project</span>
+          <span class="item-date">2024</span>
         </div>
-        <div class="item-sub">Project with Level Up Lab, the PoliTo Student Game Development Team</div>
+        <div class="item-sub">Dynamic Systems Modeling & Simulation — University of Bologna</div>
         <ul class="bullet-list">
-          <li><b>Software Architecture:</b> Proposed and implemented a hybrid <b>MVP + Event-Driven model based on ScriptableObjects in Unity</b>.</li>
-          <li><b>Gameplay Engineering:</b> Developed the spice-grinding minigame with mouse rotation input, biome-based NPC customer spawning, market trading, and herbarium documentation.</li>
+          <li>Rigorous engineering project at UniBo modeling continuous dynamic physical systems in <b>MATLAB and Simulink</b>. Formulated state-space representations, analyzed stability margins, and designed closed-loop feedback controllers and state observers.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://federicocolombo12.itch.io/spicy-mercante" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-brands fa-itch-io"></i> Play on itch.io
-          </a>
-          <a href="https://canva.link/kj3yk4rhyzxv7k5" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-display"></i> Interactive Canva Presentation
-          </a>
-          <a href="https://mega.nz/file/bQl0hZ7R#hBScNC0eV4sTy6f3dvO7b5dlNYKqhJN4puDm607KOnQ" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-pdf"></i> Technical Project Report (MEGA)
-          </a>
-          <a href="https://mega.nz/file/nZMUkJjB#nNRPw4P6l6epUGGSARR2Besy8iFjTGieyiWhu0Pb3DI" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-lines"></i> Post-Mortem Analysis (MEGA)
+          <a href="https://mega.nz/file/OcEgmboJ#6dM4YNJk9FeoyqDNlxc_uDDyH8pMzvSRWtUdIAFWPsQ" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-file-pdf"></i> Read Technical Laboratory Report (MEGA)
           </a>
         </div>
       </div>
 
-      <!-- YEAR 2026 -->
+      <!-- YEAR 2022 – 2023 -->
       <div class="year-separator">
-        <span>2026</span>
+        <span>2022 – 2023</span>
         <hr>
       </div>
 
-      <!-- 35. Fatal -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-film"></i> Fatal</span>
-          <span class="item-date">2026</span>
+          <span class="item-title"><i class="fa-solid fa-warehouse"></i> Warehouse Management System (WMS)</span>
+          <span class="item-date">2022 – 2023</span>
         </div>
-        <div class="item-sub">Photography & Digital Cinema Project — Politecnico di Torino</div>
+        <div class="item-sub">Project with the Unibo Motorsport Student Racing Team</div>
         <ul class="bullet-list">
-          <li>Creation of an Italian-language narrative short film, serving as screenwriter, script supervisor, and on-set coordinator. A nameless entity arrives at the edge of a field where agricultural workers toil in silence; seeking acceptance and community, he ultimately finds truth in his own reflection. Filmed with RED Cinema cameras and graded in DaVinci Resolve.</li>
+          <li>Implemented RESTful backend microservices in <b>Python (FastAPI)</b> and reactive user interfaces in <b>JavaScript, AJAX, and Vue.js</b> for the racing team's Warehouse Management System. The platform tracks automotive parts, tools, and assembly states for racing car and motorcycle prototypes.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-film"></i> Watch the Short Film (MEGA)
-          </a>
-          <a href="https://mega.nz/file/7YNC2B5B#-P9Q00B4OuBahfBi-CW4L7ytLOHNN6GGh2NQp2zYcg8" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-file-lines"></i> Read the Screenplay & Script (MEGA)
+          <a href="https://corsi.unibo.it/laurea/IngegneriaInformatica/insegnamenti/piano/2025/9254/000/000/2022" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-graduation-cap"></i> View Academic Study Context (UniBo)
           </a>
         </div>
       </div>
 
-      <!-- 36. Blurred Mind -->
-      <div class="timeline-item">
+      <!-- YEAR 2022 -->
+      <div class="year-separator">
+        <span>2022</span>
+        <hr>
+      </div>
+
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-brain"></i> Blurred Mind</span>
-          <span class="item-date">2026</span>
+          <span class="item-title"><i class="fa-solid fa-network-wired"></i> KrinoHub</span>
+          <span class="item-date">2022</span>
         </div>
-        <div class="item-sub">Game Design Project — Politecnico di Torino</div>
+        <div class="item-sub">Academic & Productivity Platform Concept</div>
         <ul class="bullet-list">
-          <li>2D pixel art puzzle-platform adventure developed in <b>Unity</b>, in the roles of game designer and programmer. Set in the fragmented memories of an elderly meteorologist suffering from Alzheimer's: through levels inspired by diary pages, the player relives different stages of life using character swapping and double jump mechanics.</li>
+          <li>UI/UX concept and architectural model for a centralized platform designed to connect university students, facilitate shared notes, and manage peer project collaboration.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://doppiaspada.itch.io/blurred-mind" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-brands fa-itch-io"></i> Project on itch.io
-          </a>
-          <a href="https://youtu.be/pVKov_hJsJs" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-brands fa-youtube"></i> Watch Trailer on YouTube
-          </a>
-          <a href="https://canva.link/pnaqpevr8gbwxg5" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-display"></i> Interactive Canva Presentation
+          <a href="https://mega.nz/file/OMVRQKzB#LHqqcWrSb0aqQwUv9578FrHxiTRZ4rwivd_aZM0V5ME" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-image"></i> View Concept Showcase Image (MEGA)
           </a>
         </div>
       </div>
 
-      <!-- 37. Unreal Engine Workflows and Micro-projects -->
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="item-header">
-          <span class="item-title"><i class="fa-solid fa-gamepad"></i> Unreal Engine Workflows and Micro-projects</span>
-          <span class="item-date">2026</span>
+          <span class="item-title"><i class="fa-solid fa-wallet"></i> ExpenseTracker</span>
+          <span class="item-date">2022</span>
         </div>
-        <div class="item-sub">Technical Art and Interactive Systems — Politecnico di Torino</div>
+        <div class="item-sub">Personal Finance & Budget Management Application</div>
         <ul class="bullet-list">
-          <li>Exploration of advanced real-time rendering pipelines in <b>Unreal Engine 5</b>. Implemented procedural environment distribution with <b>PCG (Procedural Content Generation)</b>, splines, and linear grammar.</li>
-          <li>Researched <b>MegaLights</b> with ray tracing, MetaHuman facial animations using the Take Recorder, RealityScan photogrammetry, and Postshot <b>3D Gaussian Splatting</b> for real-world environment capture.</li>
+          <li>Personal desktop financial tracking tool featuring category-based spending visualization, income vs expense auditing, and exportable financial summaries.</li>
         </ul>
         <div class="btn-group">
-          <a href="https://canva.link/8sp7wcbsur6oglg" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
-            <i class="fa-solid fa-display"></i> Interactive Canva Presentation
-          </a>
-          <a href="https://mega.nz/file/WR9gHB6I#a9zZpcMk80iv3sp_qy2b8JZ0QB4Rq56upjf7zUt2UNU" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Video 1: Gaussian Splatting (MEGA)
-          </a>
-          <a href="https://mega.nz/file/zMMkBazZ#O3XwFU7xmkw8y-MtXypFlecfbq69Ewu3aIYdKkDakHE" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Video 2: MegaLights in UE5 (MEGA)
-          </a>
-          <a href="https://mega.nz/file/7NFDnbqY#fZuERx7HhU3E4JETjUJeLPaedtzhX1-s2T5EhklrqYc" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Video 3: MetaHuman & MoCap (MEGA)
-          </a>
-          <a href="https://mega.nz/file/vdVgGbgT#6Xrk7bltQ5OrZPNk-i6cT4dFR24-HmFf_wSI6vMKaPk" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Video 4: PCG Environments (MEGA)
-          </a>
-          <a href="https://mega.nz/file/7FET2QiT#izYQDxLwnnTDmL9oinK_DmFVJSCYUPbPOvRRbpLx8uw" target="_blank" rel="noopener noreferrer" class="cert-link">
-            <i class="fa-solid fa-video"></i> Video 5: Splines & Grammar (MEGA)
+          <a href="https://mega.nz/file/WBUHDDrA#v6fSG-fc_GZtCu4gbto43fIw0ADrpJ5IUosxykyDIwU" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Showcase Video (MEGA)
           </a>
         </div>
       </div>
 
-    </section>
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-certificate"></i> Cambridge English: First (FCE) B2</span>
+          <span class="item-date">2022</span>
+        </div>
+        <div class="item-sub">Official English Language Certification</div>
+        <ul class="bullet-list">
+          <li>Certified upper-intermediate English proficiency (CEFR Level B2) issued by Cambridge Assessment English, confirming professional fluency in technical communication, reading, and listening.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/vYFBiS5J#hV_5rzkKRtF-Rrsq1yNomH6mf_2PZbVYNXP0TT87Hew" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-award"></i> View Cambridge B2 Certificate (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- YEAR 2021 – 2022 -->
+      <div class="year-separator">
+        <span>2021 – 2022</span>
+        <hr>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-chalkboard-user"></i> Corso di realizzazione di un videogioco</span>
+          <span class="item-date">2021 – 2022</span>
+        </div>
+        <div class="item-sub">Educational Game Development Curriculum & Mentorship</div>
+        <ul class="bullet-list">
+          <li>Designed and taught an intensive course introducing high school students to video game creation fundamentals, covering game loops, C# scripting, sprite rigging, and audio integration in Unity.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/bNcl0KiL#Rjhf7XhASXiKgWUimWTvEU8ztwHZXXbeD_yGY_9peS8" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-display"></i> Course Presentation Slides (MEGA)
+          </a>
+          <a href="https://mega.nz/file/7Ac3lARY#RhzzSEzO7nq2rb24_hmcSAR9Oz8Kf06Wzd5BAf70T3A" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-image"></i> Course Banner & Visual Materials (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-shield-halved"></i> Dona Game 2</span>
+          <span class="item-date">2021 – 2022</span>
+        </div>
+        <div class="item-sub">Advanced 2D Unity WebGL Game</div>
+        <ul class="bullet-list">
+          <li>Enhanced sequel featuring progressive difficulty curves, responsive particle feedback, custom sprite art, dynamic audio integration, and browser WebGL compilation.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="Dona_Game/Dona_Game.html" class="cert-link highlight">
+            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
+          </a>
+          <a href="https://mega.nz/file/7YFDFQaB#a2PlnXPJ8C-R3GFmn9zvJICpM6Vo-cn3oX3SsSYlJvU" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Watch Final Result Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- YEAR 2021 -->
+      <div class="year-separator">
+        <span>2021</span>
+        <hr>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-seedling"></i> Jim The Cactus</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">2D Unity WebGL Platformer</div>
+        <ul class="bullet-list">
+          <li>Charming 2D precision platformer created in Unity featuring hand-crafted character animations, spikes and hazard avoidance, responsive jump physics, and direct in-browser WebGL playability.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="JimTheCactus1/JimTheCactus1.html" class="cert-link highlight">
+            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
+          </a>
+          <a href="https://mega.nz/file/CMMS1Dib#7Dh03SK0MTi4F_fEbSCGo34qpgo1EqD7ABXw4sPvBFk" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-ghost"></i> Dona Game 1</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">2D Arcade Unity WebGL Game</div>
+        <ul class="bullet-list">
+          <li>First chapter in the Dona Game series created in Unity, focusing on fast-paced arcade avoidance, dynamic score tracking, projectile dodging mechanics, and WebGL browser integration.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="DonaGame1/index.html" class="cert-link highlight">
+            <i class="fa-solid fa-gamepad"></i> Play Directly in Browser (WebGL)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-dove"></i> Tap Bird</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Mobile Arcade Game for Android</div>
+        <ul class="bullet-list">
+          <li>Fast-paced mobile arcade game engineered for Android devices, featuring single-tap impulse physics, procedural gap generation, collision detection, and score caching.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/6YkUjS7R#TV840fQqJz6SNx0dhn00rojHXwBObCoa-aS1-2Qh6zA" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          </a>
+          <a href="https://mega.nz/file/yBlW1RaQ#tNLpRY67ZVof1RU2rLKX39sR4k_4EDup5mCZbif36j8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-cubes-stacked"></i> Jolly Cube</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Mobile Puzzle Game for Android</div>
+        <ul class="bullet-list">
+          <li>Isometric 3D mobile puzzle game built around spatial geometry, cubic rotational movement, grid navigation, and intuitive touch swipe gestures.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/3QN0XIqY#hTSfkItX181FrAAK_K7KenaRBWwOkxXVgKbw23w2Wxg" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          </a>
+          <a href="https://mega.nz/file/PYFXVBiB#tNLpRY67ZVof1RU2rLKX39sR4k_4EDup5mCZbif36j8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-shoe-prints"></i> CrazySlip</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Fast-Paced Mobile Reflex Game</div>
+        <ul class="bullet-list">
+          <li>Addictive reflex and friction challenge testing player reaction times on low-traction surfaces, featuring unpredictable momentum changes and obstacle swarms.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/bBFUlIpb#N_6mfANqH1DByZ_K38JdJIgu3wV-pWlMXn2AwmjUBz0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-android"></i> Download Android APK (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-chess-king"></i> Rebellion King</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Published Mobile Strategy & Action Game</div>
+        <ul class="bullet-list">
+          <li>Tactical combat and fortress defense game published on the Aptoide app store. Features unit commanding, tactical lane progression, and stylized medieval warfare.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://rebellionking.en.aptoide.com/app" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-store"></i> View on Aptoide App Store
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-water"></i> The Marsh</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Atmospheric 3D Environment Exploration Demo</div>
+        <ul class="bullet-list">
+          <li>Real-time 3D environment exploration experiment focusing on volumetric fog, muddy terrain displacement, dynamic lighting mood, and spatial ambient sound design.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/jQVCVQ6a#klsFNYdwUcAiC5vuR5F6FgXIaBEBHlpnumO0sui2PW4" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Showcase Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-feather-pointed"></i> Premio Galileo Literary Competition</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">Published Science Communication Story</div>
+        <ul class="bullet-list">
+          <li>Science-fiction and scientific dissemination short story recognized in the prestigious national Premio Galileo literary competition and selected for publication in national press.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/TJkiGKZC#eNyv3aaQzwpFffuC0yBu644FwChIP6MImijI7YX8x6M" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-book-open"></i> Read Original Short Story (MEGA)
+          </a>
+          <a href="https://mega.nz/file/GMshHZQa#6q80XLYPvHHpimWmYFKYbuIHG_WeMtVvZKYc5n_4voI" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-newspaper"></i> Read Press Feature Article (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-music"></i> SongBridge Terni Festival</span>
+          <span class="item-date">2021</span>
+        </div>
+        <div class="item-sub">International Choral Music Festival Audio Production</div>
+        <ul class="bullet-list">
+          <li>Multi-track choral audio recording, frequency equalization, spatial balancing, and acoustic mastering for the international SongBridge choral festival held in Terni.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/6B0RzDwC#1FE-XyPcQNtWP7ZYUaBeChmMq1GhRA63kCht43MorvY" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-headphones"></i> Listen to Final Audio Production (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- YEAR 2020 -->
+      <div class="year-separator">
+        <span>2020</span>
+        <hr>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-table-tennis-paddle-ball"></i> PongZ</span>
+          <span class="item-date">2020</span>
+        </div>
+        <div class="item-sub">2D Arcade Game Project</div>
+        <ul class="bullet-list">
+          <li>A modern reimagining of the classic Pong arcade title. Developed custom 2D paddle controls, dynamic collision bounce physics, accelerating ball mechanics, and visual audio-reactive polish.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/6VNzzCpJ#IFlx44JMTu0bHAwGVER3qVn8Vj8uJ6jxu0CF7_AdV2k" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          </a>
+          <a href="https://mega.nz/file/HNFyRZYI#XuBk3MVmfU1zbPiugEVS5aKWWyyyY9o_hq8-z3dBZrk" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Download Game Archive (MEGA)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-images"></i> PicturesExtractor</span>
+          <span class="item-date">2020</span>
+        </div>
+        <div class="item-sub">Cross-Platform Desktop Utility Tool</div>
+        <ul class="bullet-list">
+          <li>Standalone utility application built to automate batch image extraction from nested file directories. Features recursive folder scanning, filtering by media formats, and automatic export across Linux and macOS environments.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/KNUAxJCD#1JcvNowNvPFnFZJ-e7kSxitCi67E0yasil4iIfz9K5A" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-linux"></i> Download for Linux (MEGA zip)
+          </a>
+          <a href="https://mega.nz/file/OQ9SgCSL#KlpVI4HSBiLBWT9SyuxIXOMzDqnjMIdNjdt0htNvcAg" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-apple"></i> Download for macOS (MEGA zip)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-clone"></i> FCards</span>
+          <span class="item-date">2020</span>
+        </div>
+        <div class="item-sub">Cross-Platform Digital Flashcards Learning App</div>
+        <ul class="bullet-list">
+          <li>Desktop study application engineered for active recall and spaced repetition. Features custom deck creation, automated shuffling, answer verification, and multi-platform packaging for Windows and macOS.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/CB8wFQIB#XBP3anutQJKM8y-jfSP-Hch_YzdIG65hcvXyL9cS824" target="_blank" rel="noopener noreferrer" class="cert-link highlight">
+            <i class="fa-solid fa-video"></i> Watch Demo Video (MEGA)
+          </a>
+          <a href="https://mega.nz/file/nVVRgK4D#nYVwVZZ6Ar4WSv55esS930DFpNiSFSSN8szrAybQKSA" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-windows"></i> Download for Windows (MEGA zip)
+          </a>
+          <a href="https://mega.nz/file/aQ1wTQKb#oXHOC-ui9ouctD-ZdQmsRK6nPRkBgpqD2coLQHPWkOM" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-apple"></i> Download for macOS (MEGA zip)
+          </a>
+        </div>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-layer-group"></i> Snapcards</span>
+          <span class="item-date">2020</span>
+        </div>
+        <div class="item-sub">Digital Card Management & Memory Application</div>
+        <ul class="bullet-list">
+          <li>Card collection and memory training software designed to organize visual decks, categorize study cards, and practice memory retention through quick-fire card matching.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/GY0H3DjA#cqP8JAwbO-WHsdJV8n7YelaoRS6br5GdIX5Y6B22eMU" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Download Application Archive (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- YEAR 2019 -->
+      <div class="year-separator">
+        <span>2019</span>
+        <hr>
+      </div>
+
+<div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title"><i class="fa-solid fa-dungeon"></i> Help!!! & Sword Labyrinth</span>
+          <span class="item-date">2019</span>
+        </div>
+        <div class="item-sub">Early 2D Game Development Experiments</div>
+        <ul class="bullet-list">
+          <li>Early exploratory projects designed to master game loops, 2D player movement, collision detection, and procedural maze exploration mechanics. Served as the foundational stepping stones for game design and programming.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/TEUwgIhR#hrIa4nntw7UbbX_ma_9cVs3iQAazgNWBWQjR7JdD21c" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Help!!! Project Archive (MEGA)
+          </a>
+          <a href="https://mega.nz/file/XdlhlDiT#dXIfFRhIGXYJpJK9HNG8Hm41ym3HNZH8NCZqkGSXFU0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Sword Labyrinth Archive (MEGA)
+          </a>
+        </div>
+      </div>
+
+</section>
 
     <!-- Footer Note with Clear Online Website Reference -->
     <div class="online-reference">
