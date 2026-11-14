@@ -1,61 +1,719 @@
 <!DOCTYPE html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="m_style.css">
-        <title>Tommaso Ripanti's portfolio</title> 
-    </head>
-    <body>
-        <div class="parent_box flex_r_s_s">
-            <div class="side_content">
-                <h2>Tommaso Ripanti</h2>
-                <div>
-                    <img src="Items/My_Portrait.jpg" alt="My portrait">
-                </div>
-            </div>
-            <div class="main_content">
-                <div class="nav_bar">
-                    <ul class="nav justify-content-end nav-tabs">
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="index.html">Who I am</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="skills.html">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="carousel.html">Carousel</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="works.html">Works</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="text_content">
-                    <p>
-                        <h3>My IT skills</h3> 
-                        <ul>
-                            <li>> Java, SQL, unix-oriented C and shell scripting deeply learned at the university</li>
-                            <li>> Html, css, javascript previusly worked with but currently being enhanced at the university</li>
-                            <li>> Matlab tecnology currently studied at the university</li>
-                            <li>> Good self-taught knowledge of Unity engine and C#</li>
-                            <li>> Mid self-taught knowledge of GitHub</li>
-                            <li>> Mid self-taught knowledge of graphics / 3D Modelling software such as Krita, Inkscape, Blender</li>
-                            <li>> Low / mid knowledge of GameMaker 2D engine</li>
-                            <li>> Low / mid knowledge of python and PHP</li>
-                            <li>> Low / mid knowledge of android studio, android API, xml and kotlin</li>
-                            <li>> Low / mid knowledge of python fast-api and javascript vue.js frameworks</li>
-                        </ul>
-                        <br>
-                    </p>
-                    <p>
-                        <h3>My Language proficiencies:</h3> 
-                        <ul>
-                            <li>> Italian: mother-tongue</li>
-                            <li>> English: Cambridge B2 level</li>
-                        </ul>
-                    </p>
-                </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Tommaso Ripanti</title>
+  <meta name="description" content="Technical and Soft Skills profile of Tommaso Ripanti: Game Programming, Software Engineering, 3D Art, Animation, Audio and Video Production.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+      --nav-bg: rgba(255, 255, 255, 0.92);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 72px;
+      padding-bottom: 50px;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-brand .badge {
+      font-size: 11px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item a:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .nav-item.active a {
+      color: #ffffff;
+      background: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: var(--text-dark);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-action:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* Header Profile Card */
+    .skills-header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .skills-header-card h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .skills-header-card p.subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 850px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .roles-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .role-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: #f1f5f9;
+      color: var(--text-dark);
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 20px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .role-pill i {
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* Section Structure */
+    .section-block {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-title i {
+      color: var(--accent);
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+      border-color: #bfdbfe;
+    }
+
+    .skill-card-top {
+      margin-bottom: 14px;
+    }
+
+    .skill-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .skill-card h3 i {
+      font-size: 16px;
+      color: var(--accent);
+      width: 20px;
+      text-align: center;
+    }
+
+    .skill-card p {
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .skill-card ul.competencies {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+
+    .skill-card ul.competencies li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .skill-card ul.competencies li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--text);
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+      transition: all 0.15s ease;
+    }
+
+    .tag.highlight {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+      border-color: #bfdbfe;
+    }
+
+    /* Online Reference Footer */
+    .online-reference {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .online-reference a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .online-reference a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body { padding-top: 64px; }
+      .site-nav { padding: 0 16px; }
+      .nav-brand span.name { display: none; }
+      .nav-item a { padding: 6px 10px; font-size: 13px; }
+      .skills-header-card { padding: 20px; }
+      .skills-header-card h1 { font-size: 24px; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <span class="name">Tommaso Ripanti</span>
+      <span class="badge">Portfolio & CV</span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-item">
+        <a href="cv.html"><i class="fa-solid fa-file-user"></i> CV</a>
+      </li>
+      <li class="nav-item">
+        <a href="portfolio.html"><i class="fa-solid fa-shapes"></i> Portfolio</a>
+      </li>
+      <li class="nav-item active">
+        <a href="skills.html"><i class="fa-solid fa-sliders"></i> Skills</a>
+      </li>
+      <li class="nav-item">
+        <a href="dump.html"><i class="fa-solid fa-folder-tree"></i> Dump</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="cv.html" class="btn-nav-action">
+        <i class="fa-solid fa-arrow-left"></i> View CV
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Header Card -->
+    <header class="skills-header-card">
+      <h1><i class="fa-solid fa-layer-group" style="color:var(--accent);"></i> Technical & Professional Skills</h1>
+      <p class="subtitle">
+        Structured overview of technical competencies, engineering methodologies, digital media toolchains, and interpersonal abilities acquired across the Polytechnic University of Turin (PoliTo), the University of Bologna (UniBo), student engineering teams, and real-world applied projects.
+      </p>
+      <div class="roles-pills">
+        <span class="role-pill"><i class="fa-solid fa-code"></i> Software Programmer</span>
+        <span class="role-pill"><i class="fa-solid fa-sitemap"></i> Software Designer</span>
+        <span class="role-pill"><i class="fa-solid fa-gamepad"></i> Game Designer</span>
+        <span class="role-pill"><i class="fa-solid fa-laptop-code"></i> Game Programmer</span>
+        <span class="role-pill"><i class="fa-solid fa-photo-film"></i> Video & Audio Editor</span>
+        <span class="role-pill"><i class="fa-solid fa-person-running"></i> Animator</span>
+        <span class="role-pill"><i class="fa-solid fa-cube"></i> 3D Artist</span>
+      </div>
+    </header>
+
+    <!-- SECTION 1: HARD SKILLS -->
+    <section class="section-block">
+      <h2 class="section-title">
+        <i class="fa-solid fa-gears"></i> Hard Skills
+      </h2>
+      <p class="section-desc">
+        Specialized engineering practices, programming languages, real-time engines, audio/video toolchains, and 3D pipelines.
+      </p>
+
+      <div class="skills-grid">
+
+        <!-- Card 1: Game Engines & Real-Time 3D -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-gamepad"></i> Game Engines & Real-Time 3D</h3>
+            <p>End-to-end game production covering gameplay scripting, level assembly, rendering pipelines, physics tuning, and multiplatform deployment.</p>
+            <ul class="competencies">
+              <li><b>Unity Engine (C#):</b> Desktop, WebGL, Android, VR builds; custom physics, UI systems, particle effects, and profiling.</li>
+              <li><b>Unreal Engine 5:</b> Blueprint visual scripting, C++ integration, Lumen global illumination, Nanite virtual geometry, MegaLights, and Niagara VFX.</li>
+              <li><b>Cocos Creator:</b> Lightweight 2D/3D web and mobile game engineering with modern TypeScript.</li>
+              <li><b>VR & XR:</b> Meta Quest SDK, desktop VR interactive mechanics, spatial interaction paradigms.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Unity (C#)</span>
+            <span class="tag highlight">Unreal Engine 5</span>
+            <span class="tag highlight">Cocos Creator</span>
+            <span class="tag">GameMaker</span>
+            <span class="tag">Lumen Ray Tracing</span>
+            <span class="tag">Nanite</span>
+            <span class="tag">MegaLights</span>
+            <span class="tag">Niagara VFX</span>
+            <span class="tag">Meta Quest VR</span>
+          </div>
         </div>
-    </body>
+
+        <!-- Card 2: Software Architecture & Design Patterns -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-sitemap"></i> Software Architecture & Design</h3>
+            <p>Designing modular, maintainable, and high-performance software systems following industry patterns and formal software engineering processes.</p>
+            <ul class="competencies">
+              <li><b>MVP & Event-Driven Architecture:</b> ScriptableObject event channels in Unity for decoupled, leak-free game systems.</li>
+              <li><b>Object-Oriented & Component Design:</b> SOLID principles, state machines, factory and observer patterns.</li>
+              <li><b>Formal Engineering:</b> Unified Process (RUP), domain modeling, comprehensive UML documentation (Use Cases, Class, Sequence diagrams).</li>
+              <li><b>Data Modeling:</b> Relational database schemas, normalization, ACID compliance, and query indexing.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">MVP Architecture</span>
+            <span class="tag highlight">ScriptableObjects</span>
+            <span class="tag">UML Modeling</span>
+            <span class="tag">Unified Process (RUP)</span>
+            <span class="tag">OOP / SOLID</span>
+            <span class="tag">State Machines</span>
+            <span class="tag">Relational SQL</span>
+            <span class="tag">Component-Based Design</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Programming Languages & Backends -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-code"></i> Programming Languages & Systems</h3>
+            <p>Strong polyglot foundation spanning low-level systems programming, high-level OOP languages, backend servers, and algorithmic logic.</p>
+            <ul class="competencies">
+              <li><b>C & C++:</b> Pointers, dynamic memory management, POSIX systems programming, multi-process IPC, file I/O.</li>
+              <li><b>Java & Apache Tomcat:</b> Object-oriented architecture, multi-threading, servlet programming, Enterprise backend patterns.</li>
+              <li><b>Python:</b> FastAPI asynchronous microservices, REST APIs, automation, data manipulation.</li>
+              <li><b>Mathematical Computing:</b> MATLAB and Simulink for control systems, dynamic state estimation, and signal processing.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">C / C++</span>
+            <span class="tag highlight">Java (Tomcat)</span>
+            <span class="tag highlight">C# (.NET)</span>
+            <span class="tag highlight">Python (FastAPI)</span>
+            <span class="tag">MATLAB & Simulink</span>
+            <span class="tag">Bash / UNIX Shell</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Kotlin</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Web Technologies & Real-Time Networking -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-network-wired"></i> Web Technologies & Networking</h3>
+            <p>Building responsive web clients and distributed real-time communication architectures for multiplayer games and enterprise applications.</p>
+            <ul class="competencies">
+              <li><b>Frontend Development:</b> Responsive HTML5, CSS3, modern JavaScript (ES6+), Vue.js reactive components, React fundamentals.</li>
+              <li><b>Real-Time Signaling:</b> WebSockets for full-duplex room management and state coordination.</li>
+              <li><b>Peer-to-Peer Networking:</b> WebRTC DataChannels for ultra-low latency peer-to-peer multiplayer synchronization without dedicated relay servers.</li>
+              <li><b>APIs & Protocols:</b> RESTful endpoints, AJAX asynchronous data exchange, TCP/UDP socket concepts.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">WebRTC P2P DataChannels</span>
+            <span class="tag highlight">WebSockets</span>
+            <span class="tag highlight">JavaScript / TypeScript</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">AJAX</span>
+            <span class="tag">Git / GitHub</span>
+          </div>
+        </div>
+
+        <!-- Card 5: 3D Modeling, Animation & Technical Art -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-cubes"></i> 3D Modeling, Animation & Tech Art</h3>
+            <p>Complete asset production pipelines from polygon modeling and texturing to skeletal rigging, procedural generation, and next-gen capture.</p>
+            <ul class="competencies">
+              <li><b>3D Modeling & Animation (Blender):</b> Box modeling, topology, UV unwrapping, PBR shading, character rigging, keyframe & graph animation.</li>
+              <li><b>Unreal Engine Procedural Tech:</b> Procedural Content Generation (PCG), Spline-based environment layout, Linear Grammar distribution.</li>
+              <li><b>Advanced Capture:</b> RealityScan (photogrammetry), Postshot (3D Gaussian Splatting for real-world scene reconstruction).</li>
+              <li><b>Characters & Motion:</b> MetaHuman framework customization, Motion Capture (MoCap) cleanup, Unreal Engine Take Recorder & Sequencer.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Blender 3D</span>
+            <span class="tag highlight">Procedural Generation (PCG)</span>
+            <span class="tag highlight">3D Gaussian Splatting</span>
+            <span class="tag">RealityScan Photogrammetry</span>
+            <span class="tag">MetaHuman Rigging</span>
+            <span class="tag">Motion Capture (MoCap)</span>
+            <span class="tag">Take Recorder & Sequencer</span>
+            <span class="tag">Krita / Inkscape</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Video Production, Cinema & Spatial Audio -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-photo-film"></i> Video Production & Spatial Audio</h3>
+            <p>Hands-on cinematic production, camera operation, non-linear post-production, digital signal processing (DSP), and 3D spatial acoustics.</p>
+            <ul class="competencies">
+              <li><b>Cinematography & Editing:</b> DaVinci Resolve color grading, multi-camera editing, Adobe After Effects visual compositing.</li>
+              <li><b>On-Set Production:</b> RED Cinema Cameras, mirrorless cinema rigs, 3-point lighting setups, sound capture on set.</li>
+              <li><b>Immersive Video:</b> Insta360 Pro / ONE X2 360° VR video recording, stitching, and interactive viewing setups.</li>
+              <li><b>Acoustics & DSP:</b> Reaper DAW multi-track mixing, Pure Data audio synthesis and real-time DSP, Ambisonics 360° spatial audio.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">DaVinci Resolve</span>
+            <span class="tag highlight">Reaper DAW</span>
+            <span class="tag highlight">Pure Data (DSP)</span>
+            <span class="tag">Adobe After Effects</span>
+            <span class="tag">RED Cinema Cameras</span>
+            <span class="tag">Insta360 360° VR</span>
+            <span class="tag">Ambisonics Spatial Audio</span>
+            <span class="tag">Boom & Lavalier Mics</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: SOFT SKILLS -->
+    <section class="section-block">
+      <h2 class="section-title">
+        <i class="fa-solid fa-users-gear"></i> Soft Skills
+      </h2>
+      <p class="section-desc">
+        Interpersonal, organizational, communication, and cognitive proficiencies refined in agile team settings, student associations, and film crews.
+      </p>
+
+      <div class="skills-grid">
+
+        <!-- Soft Skill 1: Systems Thinking & Architectural Rigor -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-sitemap"></i> Systems Thinking & Problem Solving</h3>
+            <p>Ability to view complex challenges as cohesive systems, anticipating integration hurdles, edge cases, and architectural trade-offs early in design.</p>
+            <ul class="competencies">
+              <li><b>Architectural Planning:</b> Decomposing monolithic requirements into modular, loosely coupled subsystems before writing code.</li>
+              <li><b>Trade-off Analysis:</b> Objectively evaluating technical options (e.g. comparing client-server vs P2P latency trade-offs in <i>Spot Under Siege</i>).</li>
+              <li><b>Persistent Debugging:</b> Methodical root-cause investigation across network sockets, race conditions, and graphics pipeline bottlenecks.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Analytical Rigor</span>
+            <span class="tag highlight">Architectural Vision</span>
+            <span class="tag">Decoupled Systems</span>
+            <span class="tag">Root-Cause Debugging</span>
+            <span class="tag">Performance Profiling</span>
+          </div>
+        </div>
+
+        <!-- Soft Skill 2: Multidisciplinary Collaboration -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-people-group"></i> Multidisciplinary Teamwork</h3>
+            <p>Proven track record of harmonizing technical and creative visions in collaborative student teams, game jams, and film productions.</p>
+            <ul class="competencies">
+              <li><b>Cross-Functional Alignment:</b> Bridging the gap between programmers, 2D/3D artists, sound designers, and directors (e.g., Level Up Lab's <i>Spicy Mercante</i>).</li>
+              <li><b>Agile Synchronization:</b> Active participation in standups, milestone reviews, sprint retrospectives, and version-controlled workflows.</li>
+              <li><b>Constructive Feedback:</b> Conducting empathic code reviews and respectful art asset critiques to elevate team output.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Cross-Functional Sync</span>
+            <span class="tag highlight">Agile Collaboration</span>
+            <span class="tag">Active Listening</span>
+            <span class="tag">Team Cohesion</span>
+            <span class="tag">Git Conflict Resolution</span>
+          </div>
+        </div>
+
+        <!-- Soft Skill 3: Player Empathy & Narrative Psychology -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-heart"></i> Player & Audience Empathy</h3>
+            <p>User-centered mindset that designs game loops, UI feedback, and storytelling to evoke genuine emotional responses and intuitive accessibility.</p>
+            <ul class="competencies">
+              <li><b>Emotional Metaphors:</b> Translating delicate human themes (e.g., Alzheimer's in <i>Blurred Mind</i>, wartime displacement in <i>Chaos Between Us</i>) into meaningful gameplay mechanics.</li>
+              <li><b>UX & Accessibility:</b> Designing readable interfaces, clear signifiers, and satisfying feedback loops for players and users.</li>
+              <li><b>Playtesting Analysis:</b> Observing playtesters, extracting actionable insights from friction points, and iterating game feel.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">User-Centric Design</span>
+            <span class="tag highlight">Emotional Metaphor</span>
+            <span class="tag">Iterative Playtesting</span>
+            <span class="tag">Game Feel Tuning</span>
+            <span class="tag">Narrative Pacing</span>
+          </div>
+        </div>
+
+        <!-- Soft Skill 4: Technical Communication & Mentorship -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-chalkboard-user"></i> Technical Communication & Mentorship</h3>
+            <p>Articulating intricate technical concepts with clarity to both specialized technical peers and non-technical stakeholders or students.</p>
+            <ul class="competencies">
+              <li><b>Documentation:</b> Authoring rigorous academic theses, engineering post-mortems, and technical design documents (GDD/TDD).</li>
+              <li><b>Public Speaking:</b> Delivering thesis defenses, game pitch presentations, and project walkthroughs with confidence.</li>
+              <li><b>Educational Mentorship:</b> Guided high school students through game development principles, fostering enthusiasm for computer science.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Technical Writing</span>
+            <span class="tag highlight">Public Speaking</span>
+            <span class="tag">Mentorship & Teaching</span>
+            <span class="tag">Presentation Design</span>
+            <span class="tag">GDD / TDD Authoring</span>
+          </div>
+        </div>
+
+        <!-- Soft Skill 5: Aesthetic & Acoustic Sensibility -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Aesthetic & Acoustic Sensibility</h3>
+            <p>Harmonizing technical precision with aesthetic rhythm, color composition, acoustic dynamics, and dramatic pacing.</p>
+            <ul class="competencies">
+              <li><b>Visual Rhythm:</b> Applying composition rules, focal point lighting, color grading in cinema, and weight in 3D character animation.</li>
+              <li><b>Acoustic Spatialization:</b> Crafting immersive soundscapes where distance attenuation and reverberation match physical architecture.</li>
+              <li><b>Narrative Timing:</b> Fine-tuning beat pauses, scene transitions, and voiceover pacing in radio and audiobook productions (<i>La Contea</i>).</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Visual Sensitivity</span>
+            <span class="tag highlight">Acoustic Precision</span>
+            <span class="tag">Pacing & Timing</span>
+            <span class="tag">Color Harmony</span>
+            <span class="tag">Dramatic Staging</span>
+          </div>
+        </div>
+
+        <!-- Soft Skill 6: Adaptability & Continuous Learning -->
+        <div class="skill-card">
+          <div class="skill-card-top">
+            <h3><i class="fa-solid fa-compass"></i> Adaptability & Continuous Learning</h3>
+            <p>Thriving in fast-evolving technical landscapes through independent research, autonomous prototyping, and agile tool adoption.</p>
+            <ul class="competencies">
+              <li><b>Bleeding-Edge Tech:</b> Rapidly mastering emerging paradigms such as UE5 MegaLights, 3D Gaussian Splatting, and AI agent frameworks.</li>
+              <li><b>Polyglot Versatility:</b> Transitioning fluidly between languages and environments (C++, Java, C#, Python, TypeScript, UNIX).</li>
+              <li><b>Self-Reliance:</b> Diving into official documentation, RFC specifications, and source code to overcome technical roadblocks.</li>
+            </ul>
+          </div>
+          <div class="skill-tags">
+            <span class="tag highlight">Fast Learner</span>
+            <span class="tag highlight">Autonomous Research</span>
+            <span class="tag">Technological Agility</span>
+            <span class="tag">Resourcefulness</span>
+            <span class="tag">Curiosity-Driven</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer Note with Clear Online Website Reference -->
+    <div class="online-reference">
+      <p>
+        Online interactive version: <a href="https://doppiaspada.github.io/MyWorks/skills.html" target="_blank">https://doppiaspada.github.io/MyWorks/skills.html</a>
+      </p>
+      <p style="font-size:11px; color:#94a3b8; margin-top:6px;">
+        Designed and developed by Tommaso Ripanti. All referenced projects, media, and source documents are copyrighted by their respective authors.
+      </p>
+    </div>
+
+  </div>
+
+</body>
 </html>

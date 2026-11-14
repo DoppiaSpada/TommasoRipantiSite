@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Deck — Tommaso Ripanti</title>
+  <meta name="description" content="Interactive visual portfolio deck of Tommaso Ripanti - Projects in Game Development, Unreal Engine, Virtual Reality, 3D Animation, and Immersive Media.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #ffffff;
+      --bg-slate: #f8fafc;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-cyan: #06b6d4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #020617;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 30px;
+      overflow-x: hidden;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1e293b;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-brand .badge {
+      font-size: 11px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item a:hover {
+      color: #60a5fa;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item.active a {
+      color: #ffffff;
+      background: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-pdf:hover {
+      background: #334155;
+      border-color: #475569;
+    }
+
+    /* Deck Container */
+    .deck-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      margin: 0 16px;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 40px 52px;
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .eyebrow {
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .content-area {
+      flex: 1;
+      display: flex;
+      gap: 28px;
+      align-items: stretch;
+      width: 100%;
+      min-height: 0;
+    }
+
+    .col-left {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: flex-start;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .col-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    /* Cards */
+    .project-card {
+      background: var(--bg-slate);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    .project-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-card p {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .site-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .site-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .site-btn.btn-outline {
+      background: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .site-btn.btn-outline:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .site-btn.btn-mega {
+      background: #d9242b;
+      color: #ffffff;
+    }
+
+    .site-btn.btn-mega:hover {
+      background: #b91c1c;
+    }
+
+    .site-btn.btn-yt {
+      background: #dc2626;
+      color: #ffffff;
+    }
+
+    .site-btn.btn-canva {
+      background: #7c3aed;
+      color: #ffffff;
+    }
+
+    /* Visual Frame for Embeds */
+    .visual-frame {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: #0f172a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .frame-header {
+      background: #1e293b;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #334155;
+      font-size: 12px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .frame-title {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .frame-body {
+      flex: 1;
+      position: relative;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .frame-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .frame-body img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Slide Title Card styles */
+    .portrait {
+      position: absolute;
+      top: 48px;
+      right: 56px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3b82f6;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Deck Navigation Controls */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1280px;
+      margin-top: 14px;
+      padding: 0 16px;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .ctrl-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .ctrl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0f172a;
+      color: #ffffff;
+      border: 1px solid #334155;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .ctrl-btn:hover:not(:disabled) {
+      background: #1e293b;
+      border-color: #60a5fa;
+    }
+
+    .ctrl-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .dots-container {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .slide-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #334155;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .slide-dot.active {
+      background: #60a5fa;
+      width: 22px;
+      border-radius: 6px;
+    }
+
+    /* Print / PDF Styling */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #000000 !important;
+      }
+      .site-nav, .deck-controls {
+        display: none !important;
+      }
+      .deck-wrapper {
+        box-shadow: none !important;
+        border: none !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+      .slide {
+        position: relative !important;
+        display: flex !important;
+        opacity: 1 !important;
+        height: 100vh !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        padding: 40px !important;
+        background: #ffffff !important;
+      }
+      #slide1 {
+        background: #0f172a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .project-card {
+        border: 1px solid #ccc !important;
+        background: #fafafa !important;
+      }
+      .visual-frame {
+        border: 1px solid #999 !important;
+      }
+      .card-actions, .site-btn {
+        display: none !important;
+      }
+      .print-footer {
+        display: block !important;
+        position: absolute;
+        bottom: 16px;
+        left: 40px;
+        right: 40px;
+        text-align: center;
+        font-size: 11px;
+        color: #666;
+        border-top: 1px solid #ddd;
+        padding-top: 6px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .deck-wrapper {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 700px;
+      }
+      .slide {
+        position: relative;
+        display: none;
+        height: auto;
+        padding: 24px 20px;
+      }
+      .slide.active {
+        display: flex;
+      }
+      .content-area {
+        flex-direction: column;
+      }
+      .portrait {
+        width: 80px;
+        height: 80px;
+        top: 24px;
+        right: 24px;
+      }
+      #slide1 {
+        padding: 32px 20px !important;
+      }
+      .visual-frame {
+        height: 320px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <span>Tommaso Ripanti</span>
+      <span class="badge">Portfolio Deck</span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a></li>
+      <li class="nav-item active"><a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
+      <li class="nav-item"><a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a></li>
+      <li class="nav-item"><a href="dump.html"><i class="fa-solid fa-box-archive"></i> Dump</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-pdf" onclick="window.print()" title="Download / Print Portfolio in PDF format">
+        <i class="fa-solid fa-file-pdf"></i> Download PDF
+      </button>
+    </div>
+  </nav>
+
+  <!-- Presentation Deck Wrapper -->
+  <div class="deck-wrapper">
+
+    <!-- SLIDE 1: Title Slide -->
+    <div class="slide active" id="slide1" style="background:#0f172a; justify-content:center; padding:56px;">
+      <img class="portrait" src="Items/My_Portrait.jpg" alt="Profile photo of Tommaso Ripanti">
+      <p class="eyebrow" style="color:#60a5fa; max-width:560px;">PORTFOLIO SHOWCASE</p>
+      <h1 style="font-size:42px; font-weight:700; color:#ffffff; margin-bottom:12px; line-height:1.15; max-width:560px;">
+        Tommaso Ripanti
+      </h1>
+      <p style="font-size:18px; font-weight:600; color:#38bdf8; margin-bottom:20px; max-width:560px;">
+        Bachelor of Science in Computer Engineering & Master's Student in Cinema and Digital Media Engineering
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:20px; border-top:1px solid #334155; padding-top:24px; align-items:center;">
+        <div style="border-left:3px solid #2563eb; padding-left:14px;">
+          <p style="font-size:14px; font-weight:700; color:#ffffff;">Politecnico di Torino (LM-32, 2nd Year)</p>
+          <p style="font-size:13px; color:#94a3b8;">Alma Mater Studiorum – Università di Bologna (L-8 | 109/110)</p>
+        </div>
+        <div style="margin-left:auto; display:flex; flex-wrap:wrap; gap:12px 18px; font-size:13px; color:#cbd5e1;">
+          <span><i class="fa-solid fa-envelope" style="color:#60a5fa;"></i> tommaso.rip03@gmail.com</span>
+          <span><i class="fa-solid fa-graduation-cap" style="color:#60a5fa;"></i> s360404@studenti.polito.it</span>
+          <span><i class="fa-solid fa-phone" style="color:#60a5fa;"></i> +39 392 0486668</span>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 2: Academic Background -->
+    <div class="slide" id="slide2">
+      <p class="eyebrow">ACADEMIC BACKGROUND & COMPETENCIES</p>
+      <h2 class="slide-title">Computer Engineering & Digital Media Engineering</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-graduation-cap"></i> Bachelor's in Computer Engineering (L-8)</h4>
+            <p>University of Bologna | <b>Graduate in Engineering (109/110, 2022–2025)</b>. Applied Thesis on real-time multiplayer browser architecture comparing WebSockets signaling and WebRTC DataChannels.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/WBtEHBoQ#Gv0Ay5gFDfJJttsbMloN4xBv9gh_Ti7qJbRhX8SFbr0" target="_blank" rel="noopener noreferrer" class="site-btn btn-outline">
+                <i class="fa-solid fa-file-pdf"></i> Degree Certificate & Exams
+              </a>
+              <a href="https://corsi.unibo.it/laurea/IngegneriaInformatica/insegnamenti/piano/2025/9254/000/000/2022" target="_blank" rel="noopener noreferrer" class="site-btn btn-outline">
+                <i class="fa-solid fa-list"></i> UniBo Study Plan
+              </a>
+            </div>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-university"></i> Master's in Cinema & Digital Media Engineering (LM-32)</h4>
+            <p>Politecnico di Torino | <b>2nd Year in Course (2025–Present)</b>. Advanced specialization in Real-Time 3D, Virtual Reality, Technical Art, Sound Engineering, and Digital Cinema.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/CAtCQDbY#xIqnR8loRZ_uj8dmHwf7RWJzbYBl8U_k1jzNuhfxkUo" target="_blank" rel="noopener noreferrer" class="site-btn btn-outline">
+                <i class="fa-solid fa-file-pdf"></i> Download Exams & Grades
+              </a>
+              <a href="https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa_2019.vis?p_coorte=2026&p_sdu=37&p_cds=488" target="_blank" rel="noopener noreferrer" class="site-btn btn-outline">
+                <i class="fa-solid fa-list"></i> PoliTo Study Plan
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Core Skills Overview</span>
+            </div>
+            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:16px; gap:10px;">
+              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
+                <span style="font-size:12px; color:#60a5fa; font-weight:700;"><i class="fa-solid fa-gamepad"></i> Game Dev & 3D Engines:</span><br>
+                <span style="font-size:11.5px; color:#cbd5e1;">Unity (C#), Unreal Engine 5, Cocos Creator, MVP + ScriptableObjects.</span>
+              </div>
+              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
+                <span style="font-size:12px; color:#38bdf8; font-weight:700;"><i class="fa-solid fa-code"></i> Software & Web Engineering:</span><br>
+                <span style="font-size:11.5px; color:#cbd5e1;">C, C++, Java (Tomcat), Python (FastAPI), Vue.js, React, WebSockets, WebRTC P2P.</span>
+              </div>
+              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
+                <span style="font-size:12px; color:#4ade80; font-weight:700;"><i class="fa-solid fa-film"></i> Digital Cinema, Audio & Technical Art:</span><br>
+                <span style="font-size:11.5px; color:#cbd5e1;">Blender, DaVinci Resolve, Reaper, Pure Data, PCG, Lumen, Nanite, Insta360.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 3: Technical Art in Unreal Engine -->
+    <div class="slide" id="slide3">
+      <p class="eyebrow">POLITO TECHNICAL ART PROJECT • 2026</p>
+      <h2 class="slide-title">Unreal Engine Workflows and Micro-projects</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-mountain-sun"></i> Procedural World Building</h4>
+            <p>Post-apocalyptic sci-fi desert environment with an abandoned laboratory. Distributed vegetation and rocks with <b>PCG</b>; built modular piping with <b>Linear Grammar Tool</b> and splines; decals and boolean geometry for volumetric light shafts.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-bolt"></i> Lighting & Rendering Pipeline</h4>
+            <p>Integrated <b>Lumen hardware ray tracing, MegaLights, Nanite, and Runtime Virtual Textures</b>. Diagnosed and resolved World Partition light leaking, optimizing GPU draw calls and performance.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-person-rays"></i> MetaHumans, VFX & Photogrammetry</h4>
+            <p>Created two MetaHumans using <b>Mesh-to-MetaHuman</b> with motion capture retargeting. Authored sandstorm and electrical discharge <b>Niagara VFX</b>, and staged cinematics with Sequencer and CineCameras.</p>
+            <div class="card-actions">
+              <a href="https://canva.link/8sp7wcbsur6oglg" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
+                <i class="fa-solid fa-display"></i> Canva Showcase
+              </a>
+              <a href="https://mega.nz/file/WR9gHB6I#a9zZpcMk80iv3sp_qy2b8JZ0QB4Rq56upjf7zUt2UNU" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Video 1
+              </a>
+              <a href="https://mega.nz/file/zMMkBazZ#O3XwFU7xmkw8y-MtXypFlecfbq69Ewu3aIYdKkDakHE" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Video 2
+              </a>
+              <a href="https://mega.nz/file/7NFDnbqY#fZuERx7HhU3E4JETjUJeLPaedtzhX1-s2T5EhklrqYc" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Video 3
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Canva Technical Showcase Embed</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://www.canva.com/design/DAHWGH8f52c/dc6VyIkElukZZ_Wpegy4wA/view?embed" title="Technical Art in Unreal Engine on Canva" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 4: Blurred Mind -->
+    <div class="slide" id="slide4">
+      <p class="eyebrow">POLITO GAME DESIGN PROJECT • 2026</p>
+      <h2 class="slide-title">Blurred Mind — 2D Pixel Art Puzzle-Platformer</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-brain"></i> Narrative & Metaphorical Design</h4>
+            <p>Set inside the fragmented diary pages of an elderly meteorologist living with Alzheimer's disease. The game guides the player across life stages, translating memory fragmentation and retrieval into mechanics.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-gamepad"></i> Gameplay Mechanics (Unity 2D)</h4>
+            <p>Programmed character swapping and double jumps as core metaphors for overcoming cognitive barriers. Features custom 2D physics, animation state machines, and responsive level design.</p>
+            <div class="card-actions">
+              <a href="https://doppiaspada.itch.io/blurred-mind" target="_blank" rel="noopener noreferrer" class="site-btn">
+                <i class="fa-brands fa-itch-io"></i> Project on itch.io
+              </a>
+              <a href="https://youtu.be/pVKov_hJsJs" target="_blank" rel="noopener noreferrer" class="site-btn btn-yt">
+                <i class="fa-brands fa-youtube"></i> Watch Trailer
+              </a>
+              <a href="https://canva.link/pnaqpevr8gbwxg5" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
+                <i class="fa-solid fa-display"></i> Canva Design Deck
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Blurred Mind • Gameplay Video</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://www.youtube.com/embed/pVKov_hJsJs?rel=0" title="Blurred Mind Gameplay Video" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 5: Chaos Between Us -->
+    <div class="slide" id="slide5">
+      <p class="eyebrow">POLITO VIRTUAL REALITY PROJECT • 2025</p>
+      <h2 class="slide-title">Chaos Between Us — Desktop VR Narrative Experience</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-vr-cardboard"></i> Narrative VR Experience</h4>
+            <p>Desktop-based VR narrative adventure built in <b>Unity</b>: the protagonist navigates a war-devastated environment searching for their captured brother, confronting emotional dialogue encounters and uncovering an uncompromising truth.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-users"></i> Authors & Team Collaboration</h4>
+            <p>Authors: Martina Cifarelli, Marco Giannone, Alice Pianigiani, Tommaso Ripanti, Martina Serazio. Role: VR Game Designer & Gameplay Programmer.</p>
+            <div class="card-actions">
+              <a href="https://mgiannone.itch.io/chaos-between-us" target="_blank" rel="noopener noreferrer" class="site-btn">
+                <i class="fa-brands fa-itch-io"></i> Project on itch.io
+              </a>
+              <a href="https://youtu.be/8mVPTMjnibQ" target="_blank" rel="noopener noreferrer" class="site-btn btn-yt">
+                <i class="fa-brands fa-youtube"></i> Watch on YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Chaos Between Us • Video Showcase</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://www.youtube.com/embed/8mVPTMjnibQ?rel=0" title="Chaos Between Us Video" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 6: Spicy Mercante -->
+    <div class="slide" id="slide6">
+      <p class="eyebrow">LEVEL UP LAB STUDENT TEAM • 2025–2026</p>
+      <h2 class="slide-title">Spicy Mercante — Cozy Management in a Vibrant Bazaar</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-store"></i> Game Concept & Gameplay</h4>
+            <p>In Spicy Mercante, the player manages a Middle Eastern bazaar stall: growing, grinding, and selling spices to satisfy whimsical customer demands in an atmospheric cozy setting.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-diagram-project"></i> MVP + ScriptableObjects Architecture</h4>
+            <p>Proposed and built a hybrid <b>MVP + Event-Driven model based on ScriptableObjects</b> in Unity 2D (C#). Developed the spice-grinding minigame with mouse rotation input, biome-based NPC spawning, and dynamic market inventory.</p>
+            <div class="card-actions">
+              <a href="https://federicocolombo12.itch.io/spicy-mercante" target="_blank" rel="noopener noreferrer" class="site-btn">
+                <i class="fa-brands fa-itch-io"></i> Project on itch.io
+              </a>
+              <a href="https://canva.link/kj3yk4rhyzxv7k5" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
+                <i class="fa-solid fa-display"></i> Pitch Deck
+              </a>
+              <a href="https://mega.nz/file/bQl0hZ7R#hBScNC0eV4sTy6f3dvO7b5dlNYKqhJN4puDm607KOnQ" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Read Report
+              </a>
+              <a href="https://mega.nz/file/nZMUkJjB#nNRPw4P6l6epUGGSARR2Besy8iFjTGieyiWhu0Pb3DI" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-lines"></i> Post-Mortem
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Spicy Mercante • Itch.io Key Artwork</span>
+            </div>
+            <div class="frame-body">
+              <img src="https://img.itch.zone/aW1nLzI3ODcyNTQ5LnBuZw==/original/BNSCXD.png" alt="Spicy Mercante Cover Art" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 7: CRAI 3D Animation -->
+    <div class="slide" id="slide7">
+      <p class="eyebrow">POLITO COMPUTER ANIMATION PROJECT • 2025</p>
+      <h2 class="slide-title">Copy of a 3D Animation ad (Crai)</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-cubes"></i> 3D Character Rigging & Animation</h4>
+            <p>Faithful replication of a commercial 3D animated advertisement by CRAI in <b>Blender</b>. Focused on character bone rigging, weight painting, pose-to-pose keyframing, timeline curves, and physics simulation.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-users"></i> Authors & Technical Contributions</h4>
+            <p>Authors: Marco Cuffaro, Matteo Curseri, Andrea Pantaleo, Tommaso Ripanti. Handled rigging constraints, weight painting adjustments, and scene lighting/shading setup.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Watch 3D Animation (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">CRAI 3D Animation Preview</span>
+            </div>
+            <div class="frame-body" style="background:#1e293b; color:#94a3b8; flex-direction:column; text-align:center; padding:24px;">
+              <i class="fa-solid fa-film" style="font-size:48px; color:#60a5fa; margin-bottom:12px;"></i>
+              <p style="font-size:14px; color:#cbd5e1; font-weight:600;">3D Animation Video Render (Blender)</p>
+              <p style="font-size:12px; margin-top:6px; max-width:320px;">Pose-to-pose character animation, procedural shading, and cloth physics.</p>
+              <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:14px;">
+                <i class="fa-solid fa-play"></i> Watch Full Animation on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 8: Risonanze -->
+    <div class="slide" id="slide8">
+      <p class="eyebrow">POLITO IMMERSIVE CINEMA 360° • 2025</p>
+      <h2 class="slide-title">Risonanze — 360° VR Orchestral Documentary</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-vr-cardboard"></i> Immersive 360° Filming</h4>
+            <p>Filmed with <b>Insta360</b> at the "Giuseppe Verdi" Conservatory in Turin, conducted by Maestro Giuseppe Ratti. Explores the brain's emotional and neurological response to classical orchestral pieces.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-headphones"></i> Spatial Audio & Ambisonics</h4>
+            <p>Designed and mastered spatial audio to place the viewer directly inside the orchestra, preserving binaural acoustic directionality and dynamic range.</p>
+            <div class="card-actions">
+              <a href="https://youtu.be/oAJdwwZye1o" target="_blank" rel="noopener noreferrer" class="site-btn btn-yt">
+                <i class="fa-brands fa-youtube"></i> Watch on YouTube (360° VR)
+              </a>
+              <a href="https://mega.nz/file/zYMEmJAB#Z9pKlXlpTWx860hbQsVul8oINwLWkPwWmG18XGpPdPA" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-download"></i> Download 360° Video (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Risonanze • 360° Video Embed</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://www.youtube.com/embed/oAJdwwZye1o?rel=0" title="Risonanze 360 Video" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 9: El Valentin -->
+    <div class="slide" id="slide9">
+      <p class="eyebrow">POLITO IMMERSIVE CINEMA 360° • 2025</p>
+      <h2 class="slide-title">El Valentin — 360° VR Documentary</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-tree"></i> Parco del Valentino Exploration</h4>
+            <p>Immersive 360° short film exploring the historical and natural facets of Parco del Valentino in Turin. Filmed on location using <b>Insta360</b> rigs and color-graded in <b>DaVinci Resolve</b>.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-volume-high"></i> Spatial Sound Design</h4>
+            <p>Sound design highlights natural soundscapes and environmental ambience mixed for immersive VR headsets and spatial headphones.</p>
+            <div class="card-actions">
+              <a href="https://youtu.be/-M6YlF9_Zh4" target="_blank" rel="noopener noreferrer" class="site-btn btn-yt">
+                <i class="fa-brands fa-youtube"></i> Watch on YouTube (360° VR)
+              </a>
+              <a href="https://mega.nz/file/qVUwWLrQ#BKviqpiVsBr21FIb6pZrj51RqLGbjEb4Z_wMnutnCc4" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-download"></i> Download 360° Video (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">El Valentin • 360° Video Embed</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://www.youtube.com/embed/-M6YlF9_Zh4?rel=0" title="El Valentin 360 Video" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 10: La Contea -->
+    <div class="slide" id="slide10">
+      <p class="eyebrow">POLITO DIGITAL AUDIO PROCESSING • 2025</p>
+      <h2 class="slide-title">La Contea — Sound Design & Audiobook Production</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-book-open"></i> Tolkien Audiobook Adaptation</h4>
+            <p>Audiobook production of J.R.R. Tolkien's "The Lord of the Rings" prologue and the Ring Verse. Engineered in <b>Reaper</b> and <b>Pure Data</b> with multi-track voice acting, foley, and acoustic ambiance.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-sliders"></i> Digital Signal Processing & Staging</h4>
+            <p>Applied parametric equalizers, dynamic multiband compression, and convolution reverbs to emulate the comforting rural atmosphere of the Shire.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/KJ10lR7C#c-fKhDQTk9dioqp5uSTWh5qLPBXgIV_LkfU_FJ85UU0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-headphones"></i> Listen to Audiobook (MEGA)
+              </a>
+              <a href="https://mega.nz/file/uEc03awT#CanrciTMIfU5pSYp52fQuYuL9l6BOhepv8UHBgHqLYk" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Introductory Doc
+              </a>
+              <a href="https://mega.nz/file/3ItlyYjC#RiqrKr2VzT3KIpDZuLuMjEFZ7EBGrW2dBXqFkHqKaG4" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Final Documentation
+              </a>
+              <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
+                <i class="fa-solid fa-display"></i> Canva Presentation
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">La Contea • Audio Production Showcase</span>
+            </div>
+            <div class="frame-body" style="background:#1e293b; color:#cbd5e1; flex-direction:column; padding:24px; text-align:center;">
+              <i class="fa-solid fa-music" style="font-size:54px; color:#4ade80; margin-bottom:14px;"></i>
+              <p style="font-size:15px; font-weight:700; color:#ffffff;">Audiobook Product: La Contea</p>
+              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Produced in Reaper & Pure Data using custom sound design and DSP chains.</p>
+              <a href="https://mega.nz/file/KJ10lR7C#c-fKhDQTk9dioqp5uSTWh5qLPBXgIV_LkfU_FJ85UU0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+                <i class="fa-solid fa-play"></i> Play Audio Track on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 11: Fatal -->
+    <div class="slide" id="slide11">
+      <p class="eyebrow">POLITO DIGITAL CINEMA & PHOTOGRAPHY • 2026</p>
+      <h2 class="slide-title">Fatal — Cinematic Short Film</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-clapperboard"></i> Screenwriting & Script Supervision</h4>
+            <p>Written and script-supervised as an Italian narrative short film. The symbolic drama depicts an invisible entity that reaches a quiet rural field seeking belonging, only to discover identity in its own reflection.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-camera"></i> Production & Camera Rigging</h4>
+            <p>Participated in field cinematography, lighting design, script continuity, and timeline synchronization using digital cinema standards.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-film"></i> Watch Short Film (MEGA)
+              </a>
+              <a href="https://mega.nz/file/7YNC2B5B#-P9Q00B4OuBahfBi-CW4L7ytLOHNN6GGh2NQp2zYcg8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-lines"></i> Read Original Script (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Fatal • Short Film Player</span>
+            </div>
+            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
+              <i class="fa-solid fa-video" style="font-size:52px; color:#f43f5e; margin-bottom:14px;"></i>
+              <p style="font-size:15px; font-weight:700; color:#ffffff;">Fatal — Short Film</p>
+              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Original Italian dramatic short film produced at Politecnico di Torino.</p>
+              <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+                <i class="fa-solid fa-play"></i> Stream Short Film on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 12: Game Thinking - Il Cortegiano -->
+    <div class="slide" id="slide12">
+      <p class="eyebrow">POLITO GAME THINKING PROJECT • 2025</p>
+      <h2 class="slide-title">Game Thinking — Il Cortegiano & Design Framework</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-chess"></i> Game Design Methodology</h4>
+            <p>Systematic study of game dynamics, feedback loops, and player motivation models. Formulated mechanics balancing courtly diplomacy and strategic conflict in <i>Il Cortegiano</i>.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-puzzle-piece"></i> Prototype & Analytical Exercises</h4>
+            <p>Produced complete game design documents (GDD), rapid playable prototypes, and laboratory exercises evaluating game balance and UX flow.</p>
+            <div class="card-actions">
+              <a href="https://canva.link/o5su76l1ja6ft3h" target="_blank" rel="noopener noreferrer" class="site-btn btn-canva">
+                <i class="fa-solid fa-display"></i> View Canva Deck
+              </a>
+              <a href="https://mega.nz/file/fIMmABra#u1M6mRo9XgU2utNxNW5ukVm8h08KoOBY7esuDDYH-3s" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Read Report
+              </a>
+              <a href="https://mega.nz/file/2F9XXRbR#g1jAsshLjuCGbvepQnofPEgUWxN483sp2ELmd5CFOPs" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-zipper"></i> Prototype ZIP
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Game Thinking • Canva Presentation</span>
+            </div>
+            <div class="frame-body">
+              <iframe src="https://canva.link/o5su76l1ja6ft3h" title="Game Thinking on Canva" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 13: Spot Under Siege (Bachelor's Thesis) -->
+    <div class="slide" id="slide13">
+      <p class="eyebrow">UNIBO APPLIED BACHELOR'S THESIS • 2025</p>
+      <h2 class="slide-title">Spot Under Siege — WebSocket & WebRTC Multiplayer Game</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-network-wired"></i> Distributed Multiplayer Architecture</h4>
+            <p>Built in <b>Cocos Creator</b> with a backend in <b>Java on Apache Tomcat</b>. Evaluated client-server WebSockets signaling against peer-to-peer <b>WebRTC DataChannels</b> for low-latency browser gaming.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-chart-line"></i> Thesis Research & Performance Benchmarks</h4>
+            <p>Advisor: Prof. Paolo Bellavista. Benchmarked message latency, packet loss, bandwidth consumption, and NAT traversal under various real-world networking constraints.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/XcUjBAhA#QTG8WV6hiCOg6ZqB8p17L_OuqWUtwH50nE9kQshIOo8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Read Thesis Dissertation (MEGA)
+              </a>
+              <a href="https://mega.nz/file/CMsF0DTI#zZdVFYKKMcekp4r6t7jnYl9rM3cO1zG23y4N0VFcK7g" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-display"></i> Thesis Defense Deck (MEGA)
+              </a>
+              <a href="https://mega.nz/file/KNdxCBwQ#Djvj02XuCzi4yL_Fj81BOf_R74rBP6jZHsuOR2AI4S0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Spot Under Siege • Video Showcase</span>
+            </div>
+            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
+              <i class="fa-solid fa-gamepad" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
+              <p style="font-size:15px; font-weight:700; color:#ffffff;">Multiplayer Cocos Creator Gameplay</p>
+              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Real-time gameplay showcase demonstrating WebSockets & WebRTC P2P networking.</p>
+              <a href="https://mega.nz/file/KNdxCBwQ#Djvj02XuCzi4yL_Fj81BOf_R74rBP6jZHsuOR2AI4S0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+                <i class="fa-solid fa-play"></i> Watch Video on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 14: Serious Game Sea Museum of Trieste -->
+    <div class="slide" id="slide14">
+      <p class="eyebrow">UNIBO CURRICULAR INTERNSHIP • 2025</p>
+      <h2 class="slide-title">Serious Game for the Sea Museum of Trieste</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-anchor"></i> Museum Exhibition Serious Game</h4>
+            <p>Developed with <b>Indici Opponibili</b> for the Trieste museum interactive exhibition tour in <b>Cocos Creator</b>. Features interdependent gameplay: top-down platform exploration and maritime history quizzes.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-briefcase"></i> Professional Internship Delivery</h4>
+            <p>Engineered UI systems, optimized memory footprint for public kiosk display, and produced full technical post-mortem documentation and client presentations.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/qNUkjZDA#TIuGA5wiAYNtgW0bcvKemSkH3o-UQc6mgU09vVWEkm0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Internship Report (MEGA)
+              </a>
+              <a href="https://mega.nz/file/HF8nEIIb#OkBHSj5wGMBYTumFGodoWN0qRHS7lvwdVVCySAxGAZI" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-display"></i> Presentation (MEGA)
+              </a>
+              <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-video"></i> Video Demo (MEGA)
+              </a>
+              <a href="https://mega.nz/file/eA8inJaY#QIfIRzEjHHuUnUW53EODTABOYxP21OHzdzc-5h1wY4I" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-certificate"></i> Reference Letter
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Sea Museum Serious Game Demo</span>
+            </div>
+            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
+              <i class="fa-solid fa-ship" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
+              <p style="font-size:15px; font-weight:700; color:#ffffff;">Serious Game Demo Video</p>
+              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Interactive museum exhibition game combining platforming and nautical trivia.</p>
+              <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+                <i class="fa-solid fa-play"></i> Watch Game Demo on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 15: Software Engineering & Additional Works -->
+    <div class="slide" id="slide15">
+      <p class="eyebrow">SOFTWARE ENGINEERING & MOTORSPORT • 2022–2025</p>
+      <h2 class="slide-title">Healthy Helper, WMS & Digital Media</h2>
+      <div class="content-area">
+        <div class="col-left">
+          <div class="project-card">
+            <h4><i class="fa-solid fa-notes-medical"></i> Healthy Helper — Healthcare Portal (RUP & UML)</h4>
+            <p>Designed a digital medical record system following RUP methodology. Complete UML analysis and functional demo in <b>Java (Apache Tomcat)</b>, HTML5, CSS3, and JavaScript.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/qA9jmTCI#GAYdCfHwWDPDrLahfFjiMvOuRrvbWK9UW_GqqAobcnE" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Read Healthy Helper Report (MEGA)
+              </a>
+            </div>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-car"></i> Unibo Motorsport — Warehouse Management System</h4>
+            <p>Engineered RESTful backend microservices in <b>Python (FastAPI)</b> and reactive user interfaces in <b>Vue.js & AJAX</b> for the university racing team.</p>
+          </div>
+          <div class="project-card">
+            <h4><i class="fa-solid fa-share-nodes"></i> Social Media & Communication Strategy</h4>
+            <p>Media analytics, narrative content design, and multichannel publication strategies at Politecnico di Torino.</p>
+            <div class="card-actions">
+              <a href="https://mega.nz/file/2EdAGCoD#xJC8JfAmtZVSUhn2rEK1oXVgCAM9a6BKOZKFkZ_I0EU" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-file-pdf"></i> Media Report (MEGA)
+              </a>
+              <a href="https://mega.nz/file/PB1gRaTT#Mt7hrR9_SKCmyiMLLiKsQrMpHvUWWdl_epYEx_Py2UY" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega">
+                <i class="fa-solid fa-display"></i> Presentation (MEGA)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="visual-frame">
+            <div class="frame-header">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="frame-title">Software Engineering Architecture Preview</span>
+            </div>
+            <div class="frame-body" style="background:#1e293b; color:#cbd5e1; flex-direction:column; padding:24px; text-align:center;">
+              <i class="fa-solid fa-diagram-project" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
+              <p style="font-size:15px; font-weight:700; color:#ffffff;">Full-Stack & Systems Architecture</p>
+              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">UML Use Case Models, Class Hierarchies, Sequence Diagrams, and REST APIs.</p>
+              <a href="https://mega.nz/file/qA9jmTCI#GAYdCfHwWDPDrLahfFjiMvOuRrvbWK9UW_GqqAobcnE" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+                <i class="fa-solid fa-file-pdf"></i> Open Full Report on MEGA
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+    <!-- SLIDE 16: Final Slide & Contact -->
+    <div class="slide" id="slide16" style="background:#0f172a; justify-content:center; padding:56px; text-align:center; align-items:center;">
+      <p class="eyebrow" style="color:#60a5fa; margin-bottom:12px;">THANK YOU FOR VIEWING</p>
+      <h2 style="font-size:38px; font-weight:700; color:#ffffff; margin-bottom:16px;">
+        Let's Connect & Create
+      </h2>
+      <p style="font-size:16px; color:#cbd5e1; max-width:620px; line-height:1.6; margin-bottom:28px;">
+        Explore the comprehensive curriculum, specialized skill matrix, and chronologically organized project dump on the website:
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:32px;">
+        <a href="index.html" class="site-btn" style="padding:10px 18px; font-size:13px;">
+          <i class="fa-solid fa-file-invoice"></i> View Full CV
+        </a>
+        <a href="skills.html" class="site-btn" style="padding:10px 18px; font-size:13px; background:#06b6d4;">
+          <i class="fa-solid fa-screwdriver-wrench"></i> View Skills Matrix
+        </a>
+        <a href="dump.html" class="site-btn" style="padding:10px 18px; font-size:13px; background:#10b981;">
+          <i class="fa-solid fa-box-archive"></i> View Project Dump
+        </a>
+      </div>
+
+      <div style="border-top:1px solid #334155; padding-top:20px; width:100%; max-width:640px; display:flex; flex-wrap:wrap; justify-content:space-around; font-size:13px; color:#94a3b8;">
+        <span><i class="fa-solid fa-envelope" style="color:#60a5fa;"></i> tommaso.rip03@gmail.com</span>
+        <span><i class="fa-brands fa-linkedin" style="color:#60a5fa;"></i> <a href="https://linkedin.com/in/tommaso-ripanti" target="_blank" style="color:#60a5fa; text-decoration:none;">tommaso-ripanti</a></span>
+        <span><i class="fa-solid fa-globe" style="color:#60a5fa;"></i> <a href="https://doppiaspada.github.io/MyWorks/portfolio.html" target="_blank" style="color:#60a5fa; text-decoration:none;">doppiaspada.github.io</a></span>
+      </div>
+      <div class="print-footer" style="display:none;">Online version: https://doppiaspada.github.io/MyWorks/portfolio.html</div>
+    </div>
+
+  </div>
+
+  <!-- Deck Controls -->
+  <div class="deck-controls">
+    <div id="slideIndicator">Slide 1 / 16</div>
+    <div class="dots-container" id="dotsContainer"></div>
+    <div class="ctrl-btns">
+      <button class="ctrl-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+      <button class="ctrl-btn" id="nextBtn" onclick="nextSlide()">Next <i class="fa-solid fa-chevron-right"></i></button>
+      <button class="ctrl-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+    </div>
+  </div>
+
+  <script>
+    const totalSlides = 16;
+    let currentSlide = 1;
+
+    // Create dot indicators
+    const dotsContainer = document.getElementById('dotsContainer');
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `slide-dot ${i === 1 ? 'active' : ''}`;
+      dot.onclick = () => showSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((slide, i) => {
+        if (i + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      // Update dots
+      document.querySelectorAll('.slide-dot').forEach((dot, i) => {
+        if (i + 1 === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+
+      document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function toggleFullscreen() {
+      const wrapper = document.querySelector('.deck-wrapper');
+      if (!document.fullscreenElement) {
+        wrapper.requestFullscreen().catch(err => {
+          alert(`Fullscreen request failed: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Touch Swipe for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const deck = document.querySelector('.deck-wrapper');
+    deck.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    deck.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) prevSlide();
+    }, false);
+
+    // Initialize
+    showSlide(1);
+  </script>
+
+</body>
+</html>

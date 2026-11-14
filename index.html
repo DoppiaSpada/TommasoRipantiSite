@@ -1,65 +1,1168 @@
 <!DOCTYPE html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="m_style.css">
-        <title>Tommaso Ripanti's portfolio</title> 
-    </head>
-    <body>
-        <div class="parent_box flex_r_s_s">
-            <div class="side_content">
-                <h2>Tommaso Ripanti</h2>
-                <div>
-                    <img src="Items/My_Portrait.jpg" alt="My portrait">
-                </div>
-            </div>
-            <div class="main_content">
-                <div class="nav_bar">
-                    <ul class="nav justify-content-end nav-tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="index.html">Who I am</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="skills.html">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="carousel.html">Carousel</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="works.html">Works</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="text_content">
-                    <p>
-                        <b>Welcome!</b> You are on <b>Tommaso Ripanti</b>’s portfolio page.
-                        This website tells you more about me, showcases my main projects and highlights miscellaneous works I have accomplished up to now.
-                        Take a glance at the menu sections above and at my brief presentation below too!
-                    </p>
-                    <p>Last but not least, <b>may your surfing be enjoyable!</b></p>
-                    <br>
-                    <p>
-                        <h3>Just few words to introduce myself</h3>
-                        <ul>
-                            <li>> Born in Terni, Umbria, Italy. 22 years old.</li>
-                            <li>> Graduated from the scientific Renato Donatelli high school in Terni</li>
-                            <li>> Graduated in IT engineering (bachelor degree) from the <b>Alma Mater Studiorum of Bologna</b></li>
-                            <li>> Currently attending the <b>Politecnico of Torino</b> for master degree in Cinema and digital media engineering.</li>
-                            <li>> Been a member of the IT department of <b>Unibo Motorsport</b> for few months (university team for building race car and motorbike)</li>
-                            <li>> I'm a member of <b>Level Up Lab</b> (university team for developing videogames)</li>
-                        </ul>  
-                    </p>
-                    <br>
-                    <p>
-                        <h3>Contact me:</h3>
-                        <ul>
-                            <li>> <b>E-mail:</b> <a href="mailto:tommaso.rip03@gmail.com">tommaso.rip03@gmail.com</a></li>
-                            <li>> <b>Linkedin:</b> <a href="https://www.linkedin.com/in/tommaso-ripanti-6a61b032a/">Tommaso Ripanti</a></li>
-                            <li>> <b>Facebook:</b> <a href="https://www.facebook.com/tommaso.ripanti.12327">Tommaso Ripanti</a></li>
-                        </ul>  
-                    </p>
-                </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - Tommaso Ripanti</title>
+  <meta name="description" content="Curriculum Vitae of Tommaso Ripanti - Software Programmer, Game Designer & Programmer, 3D Artist, Video & Audio Editor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-light: #eff6ff;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+      --nav-bg: rgba(255, 255, 255, 0.92);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      padding-top: 72px;
+      padding-bottom: 40px;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-brand .badge {
+      font-size: 11px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-item a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item a:hover {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .nav-item.active a {
+      color: #ffffff;
+      background: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-pdf:hover {
+      background: #1e293b;
+    }
+
+    /* CV Container */
+    .cv-container {
+      max-width: 960px;
+      margin: 20px auto 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      padding: 48px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .candidate-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .candidate-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.35;
+    }
+
+    .candidate-photo {
+      width: 104px;
+      height: 104px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 3px solid var(--accent-light);
+      border-radius: 50%;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      width: 16px;
+    }
+
+    .contact-item a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+
+    .summary-text {
+      font-size: 14.5px;
+      color: var(--text);
+      background: #f8fafc;
+      padding: 20px 22px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      text-align: justify;
+    }
+
+    .summary-text p {
+      margin-bottom: 12px;
+    }
+
+    .summary-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .item-date {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--tag-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+    }
+
+    .item-sub {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 8px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 13.5px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #bfdbfe;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cert-link:hover {
+      background: #dbeafe;
+      color: var(--accent-hover);
+    }
+
+    .skills-category {
+      margin-bottom: 22px;
+    }
+
+    .skills-category-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+
+    .skill-block h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-block h4 i {
+      color: var(--accent);
+    }
+
+    .skill-block p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--text-dark);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .online-reference {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 12px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .online-reference a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Print Stylesheet for PDF */
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        color: #000;
+      }
+      .site-nav {
+        display: none !important;
+      }
+      .cv-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+      }
+      .btn-group, .cert-link {
+        display: none !important;
+      }
+      .summary-text {
+        background: #fff;
+        border-left: 3px solid #000;
+        padding: 8px 12px;
+      }
+      .skill-block {
+        background: #fff;
+        border: 1px solid #ccc;
+      }
+      .online-reference {
+        display: block !important;
+        font-size: 11px;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cv-container {
+        padding: 24px 18px;
+        margin: 10px;
+      }
+      .header-top {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none; /* simple mobile fallback or flex */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <span>Tommaso Ripanti</span>
+      <span class="badge">Curriculum Vitae</span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item active"><a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a></li>
+      <li class="nav-item"><a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
+      <li class="nav-item"><a href="skills.html"><i class="fa-solid fa-screwdriver-wrench"></i> Skills</a></li>
+      <li class="nav-item"><a href="dump.html"><i class="fa-solid fa-box-archive"></i> Dump</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-pdf" onclick="window.print()" title="Download / Print CV in PDF format">
+        <i class="fa-solid fa-file-pdf"></i> Download PDF
+      </button>
+    </div>
+  </nav>
+
+  <div class="cv-container">
+    <header>
+      <div class="header-top">
+        <div>
+          <h1 class="candidate-name">Tommaso Ripanti</h1>
+          <div class="candidate-title">
+            Bachelor of Science in Computer Engineering (L-8)<br>
+            Master's Student in Cinema and Digital Media Engineering (LM-32)
+          </div>
         </div>
-    </body>
+        <img class="candidate-photo" src="Items/My_Portrait.jpg" alt="Profile photo of Tommaso Ripanti">
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:tommaso.rip03@gmail.com">tommaso.rip03@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <a href="mailto:s360404@studenti.polito.it">s360404@studenti.polito.it</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <span>+39 392 0486668</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Turin, Italy</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-globe"></i>
+          <a href="https://doppiaspada.github.io/MyWorks/cv.html" target="_blank">doppiaspada.github.io/MyWorks</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="https://linkedin.com/in/tommaso-ripanti" target="_blank">linkedin.com/in/tommaso-ripanti</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT ME -->
+    <section>
+      <h2 class="section-title">ABOUT ME</h2>
+      <div class="summary-text">
+        <p>
+          I hold a Bachelor's degree in <b>Computer Engineering (L-8)</b> from the University of Bologna (graduated with 109/110) and I am currently in the 2nd year of my Master's degree in <b>Cinema and Digital Media Engineering (LM-32)</b> at Politecnico di Torino. My profile stands at the intersection between robust software engineering and creative digital media, developed across seven interconnected professional domains:
+        </p>
+        <p>
+          As a <b>Software Programmer & Engineer</b>, I write high-performance, maintainable code in <b>C, C++, Java, Python, and JavaScript</b> across environments such as Node.js, Apache Tomcat, and FastAPI. In enterprise and networking projects (WMS for Unibo Motorsport, Healthy Helper, PicturesExtractor), I applied core hard skills in data structures, relational databases, RESTful APIs, and multithreading, backed by soft skills in rigorous debugging, analytical problem solving, and software reliability.
+        </p>
+        <p>
+          As a <b>Software Designer</b>, I architect modular systems following the RUP methodology and UML modeling. In my Bachelor's thesis (<i>Spot Under Siege</i>), I designed a distributed browser-based architecture comparing client-server and peer-to-peer <b>WebRTC DataChannels</b> with <b>WebSocket</b> signaling. In <i>Spicy Mercante</i>, I designed a hybrid <b>MVP + Event-Driven model based on ScriptableObjects</b> in Unity, exercising soft skills in systems thinking, architectural vision, and requirement analysis.
+        </p>
+        <p>
+          As a <b>Game Designer</b>, I translate psychological and narrative concepts into compelling game mechanics. In <i>Blurred Mind</i>, I designed metaphor-driven platforming mechanics that evoke the fragmented memories of an elderly meteorologist suffering from Alzheimer's. In <i>Chaos Between Us</i>, I directed a narrative VR desktop experience depicting the search for a lost sibling, and in <i>Game Thinking</i> (Il Cortegiano), I formulated core engagement loops. My soft skills emphasize player empathy, creative storytelling, and iterative playtesting.
+        </p>
+        <p>
+          As a <b>Game Programmer</b>, I develop real-time gameplay, AI, and networking in <b>Unity (C#), Unreal Engine 5, and Cocos Creator</b>. My accomplishments include mouse-rotation mechanics, biome-dependent procedural NPC spawning, and market economies in <i>Spicy Mercante</i>, character swapping in <i>Blurred Mind</i>, and mobile arcade games on Android (<i>Rebellion King</i>, <i>Jolly Cube</i>, <i>Tap Bird</i>), grounded in agile collaboration in student game teams (Level Up Lab).
+        </p>
+        <p>
+          As a <b>Video and Audio Editor</b>, I master complete production pipelines from shooting with <b>RED cinema cameras, Insta360 360° cameras, and boom/lavalier microphones</b> to post-production in <b>DaVinci Resolve</b>, <b>Adobe After Effects</b>, <b>Reaper</b>, and <b>Pure Data</b>. I directed spatial audio ambisonics and editing for immersive 360° VR documentaries (<i>Risonanze</i> at the Turin Conservatory, <i>El Valentin</i>) and produced the fantasy audiobook <i>La Contea</i>, drawing on soft skills in narrative pacing, acute auditory perception, and attention to sensory detail.
+        </p>
+        <p>
+          As an <b>Animator</b> and <b>3D / Technical Artist</b>, I bridge technical constraints and artistic vision. In Blender, I executed full-character rigging, weight painting, pose-to-pose animation, and physics simulations for a commercial ad (<i>CRAI 3D Animation</i>). In Unreal Engine 5, I built end-to-end Technical Art pipelines: procedural environments with <b>PCG</b> and Linear Grammar, lighting and optimization with <b>Lumen, MegaLights, Nanite, and RVT</b>, MetaHuman creation with <b>MoCap</b> and Mesh-to-MetaHuman, photogrammetry via <b>RealityScan</b>, Gaussian splatting via <b>Postshot</b>, and custom <b>Niagara VFX</b>. Furthermore, I leverage <b>Claude</b> and <b>Gemini</b> AI workflows (instructions, context architectures, skills, connectors) to boost production velocity.
+        </p>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Master's Degree in Cinema and Digital Media Engineering (LM-32)</span>
+          <span class="item-date">2025 – Present (2nd Year)</span>
+        </div>
+        <div class="item-sub">Politecnico di Torino</div>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/CAtCQDbY#xIqnR8loRZ_uj8dmHwf7RWJzbYBl8U_k1jzNuhfxkUo" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Download exams and grades
+          </a>
+          <a href="https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa_2019.vis?p_coorte=2026&p_sdu=37&p_cds=488" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-graduation-cap"></i> View PoliTo Study Plan
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Bachelor's Degree in Computer Engineering (L-8) — Graduate in Engineering</span>
+          <span class="item-date">2022 – 2025</span>
+        </div>
+        <div class="item-sub">Alma Mater Studiorum – University of Bologna | Grade: 109 / 110</div>
+        <ul class="bullet-list">
+          <li><b>Applied Thesis:</b> <i>"Development of a multiplayer game based on WebSocket and WebRTC technologies"</i> (Advisor: Prof. Paolo Bellavista). Comparative architectural evaluation between client-server and P2P data communication in <b>Cocos Creator</b> with a backend in <b>Java on Apache Tomcat</b>, WebSockets signaling, and WebRTC DataChannels.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/XcUjBAhA#QTG8WV6hiCOg6ZqB8p17L_OuqWUtwH50nE9kQshIOo8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Read Bachelor Thesis
+          </a>
+          <a href="https://mega.nz/file/CMsF0DTI#zZdVFYKKMcekp4r6t7jnYl9rM3cO1zG23y4N0VFcK7g" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Thesis Presentation
+          </a>
+          <a href="https://mega.nz/file/WBtEHBoQ#Gv0Ay5gFDfJJttsbMloN4xBv9gh_Ti7qJbRhX8SFbr0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-certificate"></i> Degree Certificate & Exams
+          </a>
+          <a href="https://corsi.unibo.it/laurea/IngegneriaInformatica/insegnamenti/piano/2025/9254/000/000/2022" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-graduation-cap"></i> View Unibo Study Plan
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">High School Diploma in Scientific Studies</span>
+          <span class="item-date">2017 – 2022</span>
+        </div>
+        <div class="item-sub">Liceo Scientifico "Renato Donatelli" – Terni (TR) | Grade: 100 / 100</div>
+        <ul class="bullet-list">
+          <li><b>IT & Project Activities:</b> Creator and instructor of a game development course in Unity and C# for high school students (2021-2022); developer of <i>Dona Game v1/v2</i> for Open Days; winner of the national "Premio Galileo" science popularization award; Team Informatics Olympiads.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">B2 First English Certification</span>
+          <span class="item-date">2022</span>
+        </div>
+        <div class="item-sub">Cambridge Assessment English</div>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/vYFBiS5J#hV_5rzkKRtF-Rrsq1yNomH6mf_2PZbVYNXP0TT87Hew" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-certificate"></i> Download certificate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVELOPMENT EXPERIENCE & REAL PROJECTS -->
+    <section>
+      <h2 class="section-title">Development Experience & Real Projects</h2>
+
+      <!-- Unreal Engine Workflows -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Unreal Engine Workflows and Micro-projects</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Technical Art Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li><b>World Building & Procedural Generation:</b> Built a post-apocalyptic sci-fi abandoned laboratory within a desert environment. Implemented procedural vegetation, rocks, and foliage with <b>PCG</b>, modular piping with <b>Linear Grammar Tool</b> and splines, and geometric boolean cuts with decals for volumetric light shafts.</li>
+          <li><b>Rendering & Lighting Pipeline:</b> Integrated <b>Lumen with hardware ray tracing, MegaLights, Nanite, and Runtime Virtual Textures</b>. Diagnosed and resolved World Partition lighting leaks and optimized GPU draw calls and memory footprint.</li>
+          <li><b>MetaHumans, Cinematics & VFX:</b> Created and animated two MetaHumans combining <b>Mesh to MetaHuman</b> with motion capture pipelines. Directed a cinematic using <b>Sequencer, Take Recorder, and CineCameras</b>. Experimented with <b>RealityScan photogrammetry</b> and <b>Postshot Gaussian Splatting</b>, and authored custom <b>Niagara VFX</b> (sandstorm and electrical discharge).</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://canva.link/8sp7wcbsur6oglg" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Project Showcase on Canva
+          </a>
+          <a href="https://mega.nz/file/WR9gHB6I#a9zZpcMk80iv3sp_qy2b8JZ0QB4Rq56upjf7zUt2UNU" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Showcase 1
+          </a>
+          <a href="https://mega.nz/file/zMMkBazZ#O3XwFU7xmkw8y-MtXypFlecfbq69Ewu3aIYdKkDakHE" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Showcase 2
+          </a>
+          <a href="https://mega.nz/file/7NFDnbqY#fZuERx7HhU3E4JETjUJeLPaedtzhX1-s2T5EhklrqYc" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Showcase 3
+          </a>
+          <a href="https://mega.nz/file/vdVgGbgT#6Xrk7bltQ5OrZPNk-i6cT4dFR24-HmFf_wSI6vMKaPk" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Showcase 4
+          </a>
+          <a href="https://mega.nz/file/7FET2QiT#izYQDxLwnnTDmL9oinK_DmFVJSCYUPbPOvRRbpLx8uw" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Showcase 5
+          </a>
+        </div>
+      </div>
+
+      <!-- Blurred Mind -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Blurred Mind</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Game Design Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Development of a 2D pixel art puzzle-platform adventure in <b>Unity (C#)</b> as Game Designer and Programmer. Set in the fragmented diary pages of an elderly meteorologist suffering from Alzheimer's disease, utilizing mechanics like character swapping and double jumps as metaphors for memory retrieval.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://doppiaspada.itch.io/blurred-mind" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-itch-io"></i> Project on itch.io
+          </a>
+          <a href="https://youtu.be/pVKov_hJsJs" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-youtube"></i> Gameplay Trailer
+          </a>
+          <a href="https://canva.link/pnaqpevr8gbwxg5" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Game Design Deck on Canva
+          </a>
+        </div>
+      </div>
+
+      <!-- Fatal -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Fatal</span>
+          <span class="item-date">2026</span>
+        </div>
+        <div class="item-sub">Photography & Digital Cinema Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Creation of an Italian cinematic short film as Screenwriter and Script Supervisor. The story follows a nameless entity seeking acceptance among field workers who ignore him, leading to profound existential realization. Supported camera setup, lighting, and timeline pacing.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-film"></i> Watch Short Film (MEGA)
+          </a>
+          <a href="https://mega.nz/file/7YNC2B5B#-P9Q00B4OuBahfBi-CW4L7ytLOHNN6GGh2NQp2zYcg8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-lines"></i> Read Original Script (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Spicy Mercante -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Spicy Mercante</span>
+          <span class="item-date">2025 – 2026</span>
+        </div>
+        <div class="item-sub">Game Project with Level Up Lab — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li><b>Software Architecture:</b> Formulated and implemented a hybrid <b>MVP + Event-Driven architecture using ScriptableObjects</b> in Unity 2D (C#) for optimal team modularity.</li>
+          <li><b>Core Gameplay Engineering:</b> Programmed the interactive spice-grinding minigame with mouse rotation input, biome-based NPC customer spawning algorithms, market transactions, and an expandable herbarium system.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://federicocolombo12.itch.io/spicy-mercante" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-itch-io"></i> Project on itch.io
+          </a>
+          <a href="https://canva.link/kj3yk4rhyzxv7k5" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Pitch Deck on Canva
+          </a>
+          <a href="https://mega.nz/file/bQl0hZ7R#hBScNC0eV4sTy6f3dvO7b5dlNYKqhJN4puDm607KOnQ" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Read Project Report (MEGA)
+          </a>
+          <a href="https://mega.nz/file/nZMUkJjB#nNRPw4P6l6epUGGSARR2Besy8iFjTGieyiWhu0Pb3DI" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-lines"></i> Read Post-Mortem (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Chaos Between Us -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Chaos Between Us</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Virtual Reality Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Design and development of a desktop-based virtual reality narrative experience in <b>Unity</b> as Designer and Programmer. The user navigates a war-torn landscape in search of their brother, interacting with environment puzzles and characters to uncover difficult truths.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mgiannone.itch.io/chaos-between-us" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-itch-io"></i> Project on itch.io
+          </a>
+          <a href="https://youtu.be/8mVPTMjnibQ" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-youtube"></i> Watch Video on YouTube
+          </a>
+        </div>
+      </div>
+
+      <!-- La Contea -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">La Contea</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Digital Audio Processing Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Production of an Italian fantasy audiobook based on J.R.R. Tolkien's "The Lord of the Rings" prologue and the Ring Verse. Sound design, vocal processing, foley editing, and acoustic staging conducted using <b>Reaper</b> and <b>Pure Data</b>.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/KJ10lR7C#c-fKhDQTk9dioqp5uSTWh5qLPBXgIV_LkfU_FJ85UU0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-headphones"></i> Listen to Audiobook (MEGA)
+          </a>
+          <a href="https://mega.nz/file/uEc03awT#CanrciTMIfU5pSYp52fQuYuL9l6BOhepv8UHBgHqLYk" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Introductory Document (MEGA)
+          </a>
+          <a href="https://mega.nz/file/3ItlyYjC#RiqrKr2VzT3KIpDZuLuMjEFZ7EBGrW2dBXqFkHqKaG4" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Final Documentation (MEGA)
+          </a>
+          <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Canva Presentation
+          </a>
+        </div>
+      </div>
+
+      <!-- CRAI 3D Animation -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Copy of a 3D Animation ad (Crai)</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Computer Animation Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Replication of a commercial 3D animated advertisement in <b>Blender</b>. Undertook character bone rigging, vertex weight painting, pose-to-pose keyframing, timeline animation, procedural shading, and cloth physics simulation.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-film"></i> Watch 3D Animation (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Risonanze -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Risonanze</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Immersive Cinema 360° Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Immersive 360° VR short documentary captured at the Giuseppe Verdi Conservatory of Turin with Maestro Giuseppe Ratti. Handled 360° filming with <b>Insta360</b>, camera rigging, spatial audio mixing, and post-production in <b>DaVinci Resolve</b> exploring neuro-emotional responses to orchestral music.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://youtu.be/oAJdwwZye1o" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-youtube"></i> Watch on YouTube (360° VR)
+          </a>
+          <a href="https://mega.nz/file/zYMEmJAB#Z9pKlXlpTWx860hbQsVul8oINwLWkPwWmG18XGpPdPA" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-download"></i> Download 360° Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- El Valentin -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">El Valentin</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Immersive Cinema 360° Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Immersive 360° VR documentary filmed in Parco del Valentino, Turin. Guided natural history storytelling through VR stitch editing, binaural sound editing, and video color grading.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://youtu.be/-M6YlF9_Zh4" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-brands fa-youtube"></i> Watch on YouTube (360° VR)
+          </a>
+          <a href="https://mega.nz/file/qVUwWLrQ#BKviqpiVsBr21FIb6pZrj51RqLGbjEb4Z_wMnutnCc4" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-download"></i> Download 360° Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Game Thinking - Il Cortegiano -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Game Thinking — Il Cortegiano & Framework</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Game Thinking Project — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Exploration of game design psychology, mechanics loops, and player engagement frameworks. Authored design reports, interactive prototypes, and analytical case studies.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/fIMmABra#u1M6mRo9XgU2utNxNW5ukVm8h08KoOBY7esuDDYH-3s" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Read Project Report (MEGA)
+          </a>
+          <a href="https://mega.nz/file/2F9XXRbR#g1jAsshLjuCGbvepQnofPEgUWxN483sp2ELmd5CFOPs" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-zipper"></i> Download Prototype (MEGA)
+          </a>
+          <a href="https://canva.link/o5su76l1ja6ft3h" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> View Canva Deck
+          </a>
+        </div>
+      </div>
+
+      <!-- Ingegneria del Suono Lab -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Sound Engineering Laboratory Exercises</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Sound Engineering Course — Politecnico di Torino</div>
+        <ul class="bullet-list">
+          <li>Extensive laboratory practice in acoustic measurement, digital filter design, spatialization, dynamic range compression, and DSP in Reaper and Pure Data.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/OAEUiAxC#d6Py_Gn_a5mkwgUxtACahlRxK12U9eE1ZHkt-rGbyUg" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 1
+          </a>
+          <a href="https://mega.nz/file/eBcwWA5J#Av__7TUR-O_gyIqr495zpEBCJqHFOGjVh9BWoAJHpX0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 2
+          </a>
+          <a href="https://mega.nz/file/iF8xkZ4Z#wm-qR12JJeo53DYeO7CJmDNFipAXj5FJAGdcBDma-C4" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 3
+          </a>
+          <a href="https://mega.nz/file/nR9j3R4a#NJ6ew5Ivp2b4RU4a64xGhidK_S5kQfxknCEh4__KoqA" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 4
+          </a>
+          <a href="https://mega.nz/file/uNNl2RpR#t9rnJdTgjoSHrdQ2lEYED-eCNDls3-YvsVUR2nx5w40" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 5
+          </a>
+          <a href="https://mega.nz/file/3ZMgBQRJ#1fz-yREx7TTIbDoLq2euPOH0clPE3zBtUv1IFLnIvOY" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Report Lab 6
+          </a>
+          <a href="https://canva.link/4r31blw6rhq1a3v" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> View Canva Showcase
+          </a>
+        </div>
+      </div>
+
+      <!-- Spot Under Siege -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Spot Under Siege</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Applied Bachelor's Thesis Project — University of Bologna</div>
+        <ul class="bullet-list">
+          <li>Architected and implemented a multiplayer browser game in <b>Cocos Creator</b> with a backend in <b>Java on Apache Tomcat</b>. Evaluated signaling over <b>WebSocket</b> against low-latency peer-to-peer data transport through <b>WebRTC DataChannels</b>.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/XcUjBAhA#QTG8WV6hiCOg6ZqB8p17L_OuqWUtwH50nE9kQshIOo8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Read Bachelor Thesis (MEGA)
+          </a>
+          <a href="https://mega.nz/file/CMsF0DTI#zZdVFYKKMcekp4r6t7jnYl9rM3cO1zG23y4N0VFcK7g" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Thesis Defense Presentation (MEGA)
+          </a>
+          <a href="https://mega.nz/file/KNdxCBwQ#Djvj02XuCzi4yL_Fj81BOf_R74rBP6jZHsuOR2AI4S0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Watch Gameplay Video (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Serious Game Sea Museum of Trieste -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Serious Game for the Sea Museum of Trieste</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Curricular Internship with Indici Opponibili — University of Bologna</div>
+        <ul class="bullet-list">
+          <li>Developed an educational serious game in <b>Cocos Creator</b> for the Trieste museum interactive exhibition, integrating top-down pseudo-2D navigation and historical knowledge quizzes with responsive UI and asset optimization.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/qNUkjZDA#TIuGA5wiAYNtgW0bcvKemSkH3o-UQc6mgU09vVWEkm0" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Internship Final Report (MEGA)
+          </a>
+          <a href="https://mega.nz/file/HF8nEIIb#OkBHSj5wGMBYTumFGodoWN0qRHS7lvwdVVCySAxGAZI" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-display"></i> Internship Presentation (MEGA)
+          </a>
+          <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-video"></i> Video Final Result (MEGA)
+          </a>
+          <a href="https://mega.nz/file/eA8inJaY#QIfIRzEjHHuUnUW53EODTABOYxP21OHzdzc-5h1wY4I" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-certificate"></i> Recommendation Letter (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Healthy Helper -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Healthy Helper</span>
+          <span class="item-date">2025</span>
+        </div>
+        <div class="item-sub">Software Engineering Project — University of Bologna</div>
+        <ul class="bullet-list">
+          <li>Architected and implemented a digital healthcare record system following the Unified Process (RUP). Documented domain analysis with UML diagrams (use cases, classes, sequences) and built an interactive web portal using <b>Java (Tomcat)</b>, HTML5, CSS3, and JavaScript.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://mega.nz/file/qA9jmTCI#GAYdCfHwWDPDrLahfFjiMvOuRrvbWK9UW_GqqAobcnE" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-file-pdf"></i> Read Project Report (MEGA)
+          </a>
+        </div>
+      </div>
+
+      <!-- Warehouse Management System -->
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="item-title">Development of a Warehouse Management System (WMS)</span>
+          <span class="item-date">2022 – 2023</span>
+        </div>
+        <div class="item-sub">Project with the Unibo Motorsport Student Racing Team</div>
+        <ul class="bullet-list">
+          <li>Engineered RESTful backend microservices in <b>Python (FastAPI)</b> and reactive user interfaces in <b>Vue.js, AJAX, and JavaScript</b> for tracking components and tools for racing car and motorcycle assemblies.</li>
+        </ul>
+        <div class="btn-group">
+          <a href="https://corsi.unibo.it/laurea/IngegneriaInformatica/insegnamenti/piano/2025/9254/000/000/2022" target="_blank" rel="noopener noreferrer" class="cert-link">
+            <i class="fa-solid fa-graduation-cap"></i> View Study Context
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS (SPLIT INTO HARD SKILLS & SOFT SKILLS) -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+
+      <!-- Hard Skills -->
+      <div class="skills-category">
+        <div class="skills-category-title">
+          <i class="fa-solid fa-gears" style="color:var(--accent);"></i> Hard Skills
+        </div>
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-gamepad"></i> Game Engines & 3D Real-Time</h4>
+            <div class="skill-tags">
+              <span class="tag">Unity Engine (C#)</span>
+              <span class="tag">Unreal Engine 5</span>
+              <span class="tag">Cocos Creator</span>
+              <span class="tag">GameMaker</span>
+              <span class="tag">PCG Procedural Generation</span>
+              <span class="tag">Lumen Ray Tracing</span>
+              <span class="tag">MegaLights & Nanite</span>
+              <span class="tag">Niagara VFX</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-code"></i> Software Engineering & Architecture</h4>
+            <div class="skill-tags">
+              <span class="tag">C / C++</span>
+              <span class="tag">Java (Tomcat)</span>
+              <span class="tag">Python (FastAPI)</span>
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">Vue.js / React</span>
+              <span class="tag">MVP Architecture</span>
+              <span class="tag">ScriptableObjects</span>
+              <span class="tag">UML Modeling & RUP</span>
+              <span class="tag">SQL Relational DBs</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-network-wired"></i> Networking & Distributed Systems</h4>
+            <div class="skill-tags">
+              <span class="tag">WebRTC DataChannels P2P</span>
+              <span class="tag">WebSockets Signaling</span>
+              <span class="tag">HTTP / RESTful APIs</span>
+              <span class="tag">TCP / UDP</span>
+              <span class="tag">AJAX</span>
+              <span class="tag">Git / GitHub</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-cubes"></i> 3D Modeling, Animation & Tech Art</h4>
+            <div class="skill-tags">
+              <span class="tag">Blender (Rigging & Anim)</span>
+              <span class="tag">MetaHuman Framework</span>
+              <span class="tag">Motion Capture (MoCap)</span>
+              <span class="tag">RealityScan Photogrammetry</span>
+              <span class="tag">Postshot Gaussian Splatting</span>
+              <span class="tag">Take Recorder & Sequencer</span>
+              <span class="tag">Linear Grammar & Splines</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-photo-film"></i> Video, Cinema & Spatial Audio</h4>
+            <div class="skill-tags">
+              <span class="tag">DaVinci Resolve</span>
+              <span class="tag">Adobe After Effects</span>
+              <span class="tag">Insta360 360° VR Video</span>
+              <span class="tag">RED Cinema Cameras</span>
+              <span class="tag">Reaper DAW</span>
+              <span class="tag">Pure Data (DSP)</span>
+              <span class="tag">Spatial Audio / Ambisonics</span>
+              <span class="tag">Lavalier & Boom Mics</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-robot"></i> AI Workflows & Analysis Tools</h4>
+            <div class="skill-tags">
+              <span class="tag">Claude AI Workflows</span>
+              <span class="tag">Gemini API & Custom Skills</span>
+              <span class="tag">MATLAB & Simulink</span>
+              <span class="tag">Android Studio / SDK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skills-category" style="margin-top:24px;">
+        <div class="skills-category-title">
+          <i class="fa-solid fa-users-gear" style="color:var(--accent);"></i> Soft Skills
+        </div>
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-sitemap"></i> Systems Thinking & Problem Solving</h4>
+            <p>Decomposing complex distributed challenges into clean, decoupled components (e.g. comparing client-server vs P2P latency trade-offs, architecting modular ScriptableObject events).</p>
+            <div class="skill-tags">
+              <span class="tag">Analytical Rigor</span>
+              <span class="tag">Architectural Vision</span>
+              <span class="tag">Debugging Persistence</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-people-group"></i> Multidisciplinary Teamwork</h4>
+            <p>Collaborating seamlessly in student development teams (Level Up Lab, Unibo Motorsport) and film crews, aligning programmers, visual artists, sound designers, and directors.</p>
+            <div class="skill-tags">
+              <span class="tag">Cross-functional Sync</span>
+              <span class="tag">Agile Teamwork</span>
+              <span class="tag">Active Listening</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-heart"></i> Player & Audience Empathy</h4>
+            <p>Designing interfaces and mechanics that intuitively connect with the player's psychology, translating sensitive themes (Alzheimer's, war displacement) into respectful gameplay metaphors.</p>
+            <div class="skill-tags">
+              <span class="tag">User-Centric Design</span>
+              <span class="tag">Emotional Metaphor</span>
+              <span class="tag">Iterative Playtesting</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-chalkboard-user"></i> Technical Communication & Teaching</h4>
+            <p>Authoring detailed academic theses, internship post-mortems, and technical design documents. Experienced in teaching game development to high school students and presenting defense pitches.</p>
+            <div class="skill-tags">
+              <span class="tag">Clear Technical Writing</span>
+              <span class="tag">Public Presentation</span>
+              <span class="tag">Mentorship</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-wand-magic-sparkles"></i> Aesthetic & Acoustic Sensibility</h4>
+            <p>Balancing technical fidelity with aesthetic rhythm: lighting balance, color grading in cinema, audio dynamics in radio and audiobook productions, and timing in character animation.</p>
+            <div class="skill-tags">
+              <span class="tag">Visual Sensitivity</span>
+              <span class="tag">Pacing & Timing</span>
+              <span class="tag">Acoustic Precision</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h4><i class="fa-solid fa-compass"></i> Adaptability & Continuous Learning</h4>
+            <p>Rapidly adopting emerging technical tools and frameworks (from MegaLights and Gaussian Splatting in UE5 to generative AI connectors and WebRTC P2P protocols).</p>
+            <div class="skill-tags">
+              <span class="tag">Fast Learner</span>
+              <span class="tag">Autonomous Research</span>
+              <span class="tag">Technological Agility</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Note with Clear Online Website Reference -->
+    <div class="online-reference">
+      <p>
+        Online interactive version: <a href="https://doppiaspada.github.io/MyWorks/cv.html" target="_blank">https://doppiaspada.github.io/MyWorks/cv.html</a>
+      </p>
+      <p style="font-size:11px; color:#94a3b8; margin-top:4px;">
+        Designed and developed by Tommaso Ripanti. All referenced projects, media, and source documents are copyrighted by their respective authors.
+      </p>
+    </div>
+
+  </div>
+
+</body>
 </html>
