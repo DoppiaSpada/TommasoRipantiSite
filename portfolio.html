@@ -21,6 +21,7 @@
       --text-main: #e2e8f0;
       --text-muted: #94a3b8;
       --border-color: #334155;
+      --border: #1e293b;
       --accent-green: #10b981;
       --accent-amber: #f59e0b;
       --accent-cyan: #06b6d4;
@@ -122,44 +123,25 @@
       background: var(--primary);
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-pdf {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #1e293b;
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid #334155;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-pdf:hover {
-      background: #334155;
-      border-color: #475569;
-    }
-
-    /* Deck Container */
+    /* Deck Container (Desktop: horizontal-only scaling with fixed responsive height) */
     .deck-wrapper {
       position: relative;
-      width: 100%;
+      width: calc(100% - 32px);
       max-width: 1280px;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: auto;
+      height: clamp(580px, calc(100dvh - 154px), 740px);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
       border-radius: 14px;
       overflow: hidden;
       background: var(--bg-dark);
-      margin: 0 16px;
+      margin: 0 auto;
+    }
+
+    .deck-wrapper:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      max-width: none;
+      border-radius: 0;
     }
 
     .slide {
@@ -168,7 +150,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 40px 52px;
+      padding: clamp(24px, 3vw, 40px) clamp(28px, 4vw, 52px);
       display: none;
       flex-direction: column;
       background: var(--bg-dark);
@@ -180,6 +162,108 @@
       display: flex;
       opacity: 1;
       z-index: 10;
+    }
+
+    /* Slide 1 & Slide 16 dedicated layout classes */
+    .slide-cover {
+      background: #0f172a;
+      justify-content: center;
+      padding: 56px;
+    }
+
+    .cover-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.15;
+      max-width: 560px;
+    }
+
+    .cover-subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: #38bdf8;
+      margin-bottom: 20px;
+      max-width: 560px;
+    }
+
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid #334155;
+      padding-top: 24px;
+      align-items: center;
+    }
+
+    .cover-edu {
+      border-left: 3px solid #2563eb;
+      padding-left: 14px;
+    }
+
+    .cover-edu-main {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .cover-edu-sub {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .cover-contacts {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .slide-outro {
+      background: #0f172a;
+      justify-content: center;
+      padding: 56px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .outro-title {
+      font-size: 38px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+
+    .outro-desc {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 620px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .outro-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .outro-links {
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 10px 16px;
+      font-size: 13px;
+      color: #94a3b8;
     }
 
     /* Typography */
@@ -207,7 +291,7 @@
     .content-area {
       flex: 1;
       display: flex;
-      gap: 28px;
+      gap: clamp(16px, 2.2vw, 28px);
       align-items: stretch;
       width: 100%;
       min-height: 0;
@@ -373,6 +457,69 @@
       object-fit: cover;
     }
 
+    .frame-placeholder {
+      background: #1e293b;
+      color: #cbd5e1;
+      flex-direction: column;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .frame-placeholder.dark-bg {
+      background: #0f172a;
+    }
+
+    .frame-placeholder-icon {
+      font-size: 50px;
+      margin-bottom: 12px;
+    }
+
+    .frame-placeholder-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .frame-placeholder-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      max-width: 320px;
+      margin-top: 6px;
+    }
+
+    .frame-placeholder-btn {
+      margin-top: 14px;
+    }
+
+    /* Slide 2 Skills Overview Cards */
+    .skills-overview-body {
+      background: #0f172a;
+      flex-direction: column;
+      padding: 16px;
+      gap: 10px;
+    }
+
+    .skill-mini-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 10px 14px;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .skill-mini-title {
+      font-size: 12px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .skill-mini-text {
+      font-size: 11.5px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
     /* Slide Title Card styles */
     .portrait {
       position: absolute;
@@ -391,23 +538,30 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
+      width: calc(100% - 32px);
       max-width: 1280px;
-      margin-top: 14px;
-      padding: 0 16px;
+      margin: 14px auto 0 auto;
       color: #94a3b8;
       font-size: 13px;
       font-weight: 600;
+      gap: 12px;
+    }
+
+    #slideIndicator {
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .ctrl-btns {
       display: flex;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     .ctrl-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       background: #0f172a;
       color: #ffffff;
@@ -434,6 +588,9 @@
       display: flex;
       gap: 6px;
       align-items: center;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
     }
 
     .slide-dot {
@@ -443,6 +600,7 @@
       background: #334155;
       cursor: pointer;
       transition: all 0.2s;
+      flex-shrink: 1;
     }
 
     .slide-dot.active {
@@ -451,107 +609,413 @@
       border-radius: 6px;
     }
 
-    /* Print / PDF Styling */
-    @media print {
-      :root {
-        --bg-dark: #ffffff;
-        --bg-slate: #fafafa;
-        --text-main: #0f172a;
-        --text-muted: #475569;
-        --border-color: #e2e8f0;
-      }
-
-      body {
-        background: #ffffff !important;
-        padding: 0 !important;
-        color: #000000 !important;
-      }
-      .site-nav, .deck-controls {
-        display: none !important;
-      }
-      .deck-wrapper {
-        box-shadow: none !important;
-        border: none !important;
-        aspect-ratio: auto !important;
-        height: auto !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-      }
-      .slide {
-        position: relative !important;
-        display: flex !important;
-        opacity: 1 !important;
-        height: 100vh !important;
-        page-break-after: always !important;
-        break-after: page !important;
-        padding: 40px !important;
-        background: #ffffff !important;
-      }
-      #slide1 {
-        background: #0f172a !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      .project-card {
-        border: 1px solid #ccc !important;
-        background: #fafafa !important;
-      }
-      .project-card p {
-        color: #334155;
-      }
-      .visual-frame {
-        border: 1px solid #999 !important;
-      }
-      .card-actions, .site-btn {
-        display: none !important;
-      }
-      .print-footer {
-        display: block !important;
-        position: absolute;
-        bottom: 16px;
-        left: 40px;
-        right: 40px;
-        text-align: center;
-        font-size: 11px;
-        color: #666;
-        border-top: 1px solid #ddd;
-        padding-top: 6px;
-      }
+    /* Online Reference Footer */
+    .online-reference {
+      width: calc(100% - 32px);
+      max-width: 1280px;
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    @media (max-width: 992px) {
+    .online-reference a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .online-reference a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-menu-toggle:hover {
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+
+    /* Non-blocking status toast (replaces alert) */
+    .status-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #475569;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 2000;
+    }
+
+    .status-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =========================================================
+       MOBILE & TABLET RESPONSIVE RULES (<= 1023px)
+       ========================================================= */
+    @media (max-width: 1023px) {
+      body {
+        padding-top: 72px;
+        padding-bottom: 16px;
+      }
+
+      /* Uniform equal height for every slide */
       .deck-wrapper {
         aspect-ratio: auto;
-        height: auto;
-        min-height: 700px;
+        width: calc(100% - 24px);
+        height: clamp(560px, calc(100dvh - 134px), 740px);
       }
+
       .slide {
-        position: relative;
-        display: none;
-        height: auto;
-        padding: 24px 20px;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        padding: 16px 16px;
+        overflow: hidden;
       }
-      .slide.active {
-        display: flex;
+
+      /* Slide 1 vertically centered */
+      .slide-cover {
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 18px;
       }
+
+      .portrait {
+        position: static;
+        width: 76px;
+        height: 76px;
+        margin-bottom: 12px;
+        border-width: 3px;
+        flex-shrink: 0;
+      }
+
+      .cover-title {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
+
+      .cover-subtitle {
+        font-size: 13.5px;
+        line-height: 1.35;
+        margin-bottom: 14px;
+      }
+
+      .cover-meta {
+        width: 100%;
+        gap: 12px;
+        padding-top: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cover-edu-main {
+        font-size: 12.5px;
+      }
+
+      .cover-edu-sub {
+        font-size: 11.5px;
+      }
+
+      .cover-contacts {
+        margin-left: 0;
+        gap: 6px 12px;
+        font-size: 11.5px;
+      }
+
+      /* Slide 16 compact equal-height centering */
+      .slide-outro {
+        justify-content: center;
+        align-items: center;
+        padding: 20px 16px;
+      }
+
+      .outro-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .outro-desc {
+        font-size: 13px;
+        line-height: 1.45;
+        margin-bottom: 16px;
+      }
+
+      .outro-actions {
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+
+      .outro-actions .site-btn {
+        padding: 8px 12px !important;
+        font-size: 11.5px !important;
+      }
+
+      .outro-links {
+        padding-top: 12px;
+        font-size: 11.5px;
+        gap: 6px 12px;
+      }
+
+      /* Content slides (2–15) adapted to fit uniform height cleanly */
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.9px;
+        margin-bottom: 2px;
+        flex-shrink: 0;
+      }
+
+      .slide-title {
+        font-size: 17px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        flex-shrink: 0;
+      }
+
       .content-area {
         flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        min-height: 0;
       }
-      .portrait {
-        width: 80px;
-        height: 80px;
-        top: 24px;
-        right: 24px;
+
+      .col-left {
+        flex: 0 1 auto;
+        max-height: 58%;
+        min-height: 0;
+        gap: 6px;
+        padding-right: 2px;
+        overflow-y: auto;
       }
-      #slide1 {
-        padding: 32px 20px !important;
+
+      .project-card {
+        padding: 7px 10px;
+        border-radius: 8px;
       }
+
+      .project-card h4 {
+        font-size: 12px;
+        margin-bottom: 2px;
+        gap: 6px;
+      }
+
+      .project-card p {
+        font-size: 11px;
+        line-height: 1.32;
+      }
+
+      .card-actions {
+        gap: 4px;
+        margin-top: 5px;
+      }
+
+      .site-btn {
+        font-size: 10px;
+        padding: 4px 7px;
+        gap: 4px;
+        border-radius: 5px;
+      }
+
+      /* Media frame expands upward up to the top callouts */
+      .col-right {
+        flex: 1 1 auto;
+        height: auto;
+        min-height: 150px;
+      }
+
       .visual-frame {
-        height: 320px;
+        height: 100%;
+        border-radius: 9px;
+      }
+
+      .frame-header {
+        padding: 5px 10px;
+        font-size: 10.5px;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+      }
+
+      .frame-placeholder {
+        padding: 10px 14px;
+      }
+
+      .frame-placeholder-icon {
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+
+      .frame-placeholder-title {
+        font-size: 12.5px;
+      }
+
+      .frame-placeholder-desc {
+        font-size: 10.5px;
+        margin-top: 3px;
+        line-height: 1.3;
+      }
+
+      .frame-placeholder-btn {
+        margin-top: 8px;
+      }
+
+      /* Slide 2 compact skill overview inside visual frame */
+      .skills-overview-body {
+        padding: 8px;
+        gap: 5px;
+        overflow-y: auto;
+        justify-content: flex-start;
+      }
+
+      .skill-mini-box {
+        padding: 5px 8px;
+        border-radius: 6px;
+      }
+
+      .skill-mini-title {
+        font-size: 10.5px;
+        margin-bottom: 1px;
+      }
+
+      .skill-mini-text {
+        font-size: 9.8px;
+        line-height: 1.25;
+      }
+
+      /* Compact full-width control bar with icon-only buttons & x/16 */
+      .deck-controls {
+        width: calc(100% - 24px);
+        margin: 10px auto 0 auto;
+        padding: 6px 10px;
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 10px;
+        gap: 8px;
+        font-size: 11.5px;
+      }
+
+      .indicator-prefix {
+        display: none;
+      }
+
+      .dots-container {
+        gap: 3px;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .slide-dot {
+        width: 5px;
+        height: 5px;
+      }
+
+      .slide-dot.active {
+        width: 12px;
+        border-radius: 3px;
+      }
+
+      .ctrl-btns {
+        gap: 5px;
+      }
+
+      .ctrl-btn {
+        padding: 6px 9px;
+        font-size: 12px;
+        border-radius: 6px;
+        min-width: 30px;
+        min-height: 30px;
+      }
+
+      .ctrl-btn .btn-label {
+        display: none;
+      }
+
+      /* Mobile Navigation Drawer */
+      .btn-menu-toggle {
+        display: inline-flex;
       }
       .nav-links {
         display: none;
+      }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #1e293b;
+        padding: 12px 16px;
+        gap: 6px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+      }
+      .nav-links.open .nav-item,
+      .nav-links.open .nav-item a {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .deck-wrapper {
+        height: clamp(540px, calc(100dvh - 128px), 680px);
+      }
+      .col-right {
+        min-height: 135px;
+      }
+      .deck-controls {
+        padding: 5px 8px;
+        gap: 5px;
+        font-size: 11px;
+      }
+      .dots-container {
+        gap: 2px;
+      }
+      .slide-dot {
+        width: 4px;
+        height: 4px;
+      }
+      .slide-dot.active {
+        width: 9px;
+      }
+      .ctrl-btn {
+        padding: 5px 7px;
+        min-width: 26px;
+        min-height: 26px;
+        font-size: 11px;
       }
     }
   </style>
@@ -564,11 +1028,9 @@
       <img class="nav-avatar" src="Items/My_Portrait.jpg" alt="">
       <span>Tommaso Ripanti</span>
     </a>
-    <div class="nav-actions">
-      <button class="btn-pdf" onclick="window.print()" title="Download / Print Portfolio in PDF format">
-        <i class="fa-solid fa-file-pdf"></i> Download PDF
-      </button>
-    </div>
+    <button class="btn-menu-toggle" id="menuToggle" aria-label="Apri menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <ul class="nav-links">
       <li class="nav-item"><a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a></li>
       <li class="nav-item active"><a href="portfolio.html"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
@@ -581,21 +1043,19 @@
   <div class="deck-wrapper">
 
     <!-- SLIDE 1: Title Slide -->
-    <div class="slide active" id="slide1" style="background:#0f172a; justify-content:center; padding:56px;">
+    <div class="slide slide-cover active" id="slide1">
       <img class="portrait" src="Items/My_Portrait.jpg" alt="Profile photo of Tommaso Ripanti">
       <p class="eyebrow" style="color:#60a5fa; max-width:560px;">PORTFOLIO SHOWCASE</p>
-      <h1 style="font-size:42px; font-weight:700; color:#ffffff; margin-bottom:12px; line-height:1.15; max-width:560px;">
-        Tommaso Ripanti
-      </h1>
-      <p style="font-size:18px; font-weight:600; color:#38bdf8; margin-bottom:20px; max-width:560px;">
+      <h1 class="cover-title">Tommaso Ripanti</h1>
+      <p class="cover-subtitle">
         Bachelor of Science in Computer Engineering & Master's Student in Cinema and Digital Media Engineering
       </p>
-      <div style="display:flex; flex-wrap:wrap; gap:20px; border-top:1px solid #334155; padding-top:24px; align-items:center;">
-        <div style="border-left:3px solid #2563eb; padding-left:14px;">
-          <p style="font-size:14px; font-weight:700; color:#ffffff;">Politecnico di Torino (LM-32, 2nd Year)</p>
-          <p style="font-size:13px; color:#94a3b8;">Alma Mater Studiorum – Università di Bologna (L-8 | 109/110)</p>
+      <div class="cover-meta">
+        <div class="cover-edu">
+          <p class="cover-edu-main">Politecnico di Torino (LM-32, 2nd Year)</p>
+          <p class="cover-edu-sub">Alma Mater Studiorum – Università di Bologna (L-8 | 109/110)</p>
         </div>
-        <div style="margin-left:auto; display:flex; flex-wrap:wrap; gap:12px 18px; font-size:13px; color:#cbd5e1;">
+        <div class="cover-contacts">
           <span><i class="fa-solid fa-envelope" style="color:#60a5fa;"></i> tommaso.rip03@gmail.com</span>
           <span><i class="fa-solid fa-graduation-cap" style="color:#60a5fa;"></i> s360404@studenti.polito.it</span>
           <span><i class="fa-solid fa-phone" style="color:#60a5fa;"></i> +39 392 0486668</span>
@@ -641,18 +1101,18 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">Core Skills Overview</span>
             </div>
-            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:16px; gap:10px;">
-              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
-                <span style="font-size:12px; color:#60a5fa; font-weight:700;"><i class="fa-solid fa-gamepad"></i> Game Dev & 3D Engines:</span><br>
-                <span style="font-size:11.5px; color:#cbd5e1;">Unity (C#), Unreal Engine 5, Cocos Creator, MVP + ScriptableObjects.</span>
+            <div class="frame-body skills-overview-body">
+              <div class="skill-mini-box">
+                <span class="skill-mini-title" style="color:#60a5fa;"><i class="fa-solid fa-gamepad"></i> Game Dev & 3D Engines:</span>
+                <span class="skill-mini-text">Unity (C#), Unreal Engine 5, Cocos Creator, MVP + ScriptableObjects.</span>
               </div>
-              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
-                <span style="font-size:12px; color:#38bdf8; font-weight:700;"><i class="fa-solid fa-code"></i> Software & Web Engineering:</span><br>
-                <span style="font-size:11.5px; color:#cbd5e1;">C, C++, Java (Tomcat), Python (FastAPI), Vue.js, React, WebSockets, WebRTC P2P.</span>
+              <div class="skill-mini-box">
+                <span class="skill-mini-title" style="color:#38bdf8;"><i class="fa-solid fa-code"></i> Software & Web Engineering:</span>
+                <span class="skill-mini-text">C, C++, Java (Tomcat), Python (FastAPI), Vue.js, React, WebSockets, WebRTC P2P.</span>
               </div>
-              <div style="background:#1e293b; border:1px solid #334155; padding:10px 14px; border-radius:8px; width:100%;">
-                <span style="font-size:12px; color:#4ade80; font-weight:700;"><i class="fa-solid fa-film"></i> Digital Cinema, Audio & Technical Art:</span><br>
-                <span style="font-size:11.5px; color:#cbd5e1;">Blender, DaVinci Resolve, PCG, Lumen, Nanite, Insta360. Reaper and Pure Data come from the separate Digital Audio Processing project La Contea, not Sound Engineering.</span>
+              <div class="skill-mini-box">
+                <span class="skill-mini-title" style="color:#4ade80;"><i class="fa-solid fa-film"></i> Digital Cinema, Audio & Technical Art:</span>
+                <span class="skill-mini-text">Blender, DaVinci Resolve, PCG, Lumen, Nanite, Insta360. Reaper and Pure Data come from the separate Digital Audio Processing project La Contea, not Sound Engineering.</span>
               </div>
             </div>
           </div>
@@ -855,11 +1315,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">CRAI 3D Animation Preview</span>
             </div>
-            <div class="frame-body" style="background:#1e293b; color:#94a3b8; flex-direction:column; text-align:center; padding:24px;">
-              <i class="fa-solid fa-film" style="font-size:48px; color:#60a5fa; margin-bottom:12px;"></i>
-              <p style="font-size:14px; color:#cbd5e1; font-weight:600;">3D Animation Video Render (Blender)</p>
-              <p style="font-size:12px; margin-top:6px; max-width:320px;">Pose-to-pose character animation, procedural shading, and cloth physics.</p>
-              <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:14px;">
+            <div class="frame-body frame-placeholder">
+              <i class="fa-solid fa-film frame-placeholder-icon" style="color:#60a5fa;"></i>
+              <p class="frame-placeholder-title">3D Animation Video Render (Blender)</p>
+              <p class="frame-placeholder-desc">Pose-to-pose character animation, procedural shading, and cloth physics.</p>
+              <a href="https://mega.nz/file/aM9C3B4T#uA9IU7A4LS-6DbpR_IGgnAo8AOno2i4WnmJOCFwIDLM" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-play"></i> Watch Full Animation on MEGA
               </a>
             </div>
@@ -979,11 +1439,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">La Contea • Audio Production Showcase</span>
             </div>
-            <div class="frame-body" style="background:#1e293b; color:#cbd5e1; flex-direction:column; padding:24px; text-align:center;">
-              <i class="fa-solid fa-music" style="font-size:54px; color:#4ade80; margin-bottom:14px;"></i>
-              <p style="font-size:15px; font-weight:700; color:#ffffff;">Audiobook Product: La Contea</p>
-              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Produced in Reaper & Pure Data using custom sound design and DSP chains.</p>
-              <a href="https://mega.nz/file/KJ10lR7C#c-fKhDQTk9dioqp5uSTWh5qLPBXgIV_LkfU_FJ85UU0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+            <div class="frame-body frame-placeholder">
+              <i class="fa-solid fa-music frame-placeholder-icon" style="color:#4ade80;"></i>
+              <p class="frame-placeholder-title">Audiobook Product: La Contea</p>
+              <p class="frame-placeholder-desc">Produced in Reaper & Pure Data using custom sound design and DSP chains.</p>
+              <a href="https://mega.nz/file/KJ10lR7C#c-fKhDQTk9dioqp5uSTWh5qLPBXgIV_LkfU_FJ85UU0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-play"></i> Play Audio Track on MEGA
               </a>
             </div>
@@ -1022,11 +1482,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">Fatal • Short Film Player</span>
             </div>
-            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
-              <i class="fa-solid fa-video" style="font-size:52px; color:#f43f5e; margin-bottom:14px;"></i>
-              <p style="font-size:15px; font-weight:700; color:#ffffff;">Fatal — Short Film</p>
-              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Original Italian dramatic short film produced at Politecnico di Torino.</p>
-              <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+            <div class="frame-body frame-placeholder dark-bg">
+              <i class="fa-solid fa-video frame-placeholder-icon" style="color:#f43f5e;"></i>
+              <p class="frame-placeholder-title">Fatal — Short Film</p>
+              <p class="frame-placeholder-desc">Original Italian dramatic short film produced at Politecnico di Torino.</p>
+              <a href="https://mega.nz/file/OY9GiQqJ#_VQv5SRz8jLVx22IoruobuJOTpwduvUq9aY4IJ9Ndpw" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-play"></i> Stream Short Film on MEGA
               </a>
             </div>
@@ -1108,11 +1568,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">Spot Under Siege • Video Showcase</span>
             </div>
-            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
-              <i class="fa-solid fa-gamepad" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
-              <p style="font-size:15px; font-weight:700; color:#ffffff;">Multiplayer Cocos Creator Gameplay</p>
-              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Real-time gameplay showcase demonstrating WebSockets & WebRTC P2P networking.</p>
-              <a href="https://mega.nz/file/KNdxCBwQ#Djvj02XuCzi4yL_Fj81BOf_R74rBP6jZHsuOR2AI4S0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+            <div class="frame-body frame-placeholder dark-bg">
+              <i class="fa-solid fa-gamepad frame-placeholder-icon" style="color:#38bdf8;"></i>
+              <p class="frame-placeholder-title">Multiplayer Cocos Creator Gameplay</p>
+              <p class="frame-placeholder-desc">Real-time gameplay showcase demonstrating WebSockets & WebRTC P2P networking.</p>
+              <a href="https://mega.nz/file/KNdxCBwQ#Djvj02XuCzi4yL_Fj81BOf_R74rBP6jZHsuOR2AI4S0" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-play"></i> Watch Video on MEGA
               </a>
             </div>
@@ -1157,11 +1617,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">Sea Museum Serious Game Demo</span>
             </div>
-            <div class="frame-body" style="background:#0f172a; flex-direction:column; padding:24px; text-align:center;">
-              <i class="fa-solid fa-ship" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
-              <p style="font-size:15px; font-weight:700; color:#ffffff;">Serious Game Demo Video</p>
-              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">Interactive museum exhibition game combining platforming and nautical trivia.</p>
-              <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+            <div class="frame-body frame-placeholder dark-bg">
+              <i class="fa-solid fa-ship frame-placeholder-icon" style="color:#38bdf8;"></i>
+              <p class="frame-placeholder-title">Serious Game Demo Video</p>
+              <p class="frame-placeholder-desc">Interactive museum exhibition game combining platforming and nautical trivia.</p>
+              <a href="https://mega.nz/file/DVFyRDxB#FLkW51royjBYIpqI4olwNMdehMJ5Urdp4rWus5KSz_8" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-play"></i> Watch Game Demo on MEGA
               </a>
             </div>
@@ -1209,11 +1669,11 @@
               <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
               <span class="frame-title">Software Engineering Architecture Preview</span>
             </div>
-            <div class="frame-body" style="background:#1e293b; color:#cbd5e1; flex-direction:column; padding:24px; text-align:center;">
-              <i class="fa-solid fa-diagram-project" style="font-size:52px; color:#38bdf8; margin-bottom:14px;"></i>
-              <p style="font-size:15px; font-weight:700; color:#ffffff;">Full-Stack & Systems Architecture</p>
-              <p style="font-size:12px; color:#94a3b8; max-width:320px; margin-top:6px;">UML Use Case Models, Class Hierarchies, Sequence Diagrams, and REST APIs.</p>
-              <a href="https://mega.nz/file/qA9jmTCI#GAYdCfHwWDPDrLahfFjiMvOuRrvbWK9UW_GqqAobcnE" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega" style="margin-top:16px;">
+            <div class="frame-body frame-placeholder">
+              <i class="fa-solid fa-diagram-project frame-placeholder-icon" style="color:#38bdf8;"></i>
+              <p class="frame-placeholder-title">Full-Stack & Systems Architecture</p>
+              <p class="frame-placeholder-desc">UML Use Case Models, Class Hierarchies, Sequence Diagrams, and REST APIs.</p>
+              <a href="https://mega.nz/file/qA9jmTCI#GAYdCfHwWDPDrLahfFjiMvOuRrvbWK9UW_GqqAobcnE" target="_blank" rel="noopener noreferrer" class="site-btn btn-mega frame-placeholder-btn">
                 <i class="fa-solid fa-file-pdf"></i> Open Full Report on MEGA
               </a>
             </div>
@@ -1224,16 +1684,14 @@
     </div>
 
     <!-- SLIDE 16: Final Slide & Contact -->
-    <div class="slide" id="slide16" style="background:#0f172a; justify-content:center; padding:56px; text-align:center; align-items:center;">
+    <div class="slide slide-outro" id="slide16">
       <p class="eyebrow" style="color:#60a5fa; margin-bottom:12px;">THANK YOU FOR VIEWING</p>
-      <h2 style="font-size:38px; font-weight:700; color:#ffffff; margin-bottom:16px;">
-        Let's Connect & Create
-      </h2>
-      <p style="font-size:16px; color:#cbd5e1; max-width:620px; line-height:1.6; margin-bottom:28px;">
+      <h2 class="outro-title">Let's Connect & Create</h2>
+      <p class="outro-desc">
         Explore the comprehensive curriculum, specialized skill matrix, and chronologically organized project dump on the website:
       </p>
 
-      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-bottom:32px;">
+      <div class="outro-actions">
         <a href="index.html" class="site-btn" style="padding:10px 18px; font-size:13px;">
           <i class="fa-solid fa-file-invoice"></i> View Full CV
         </a>
@@ -1245,7 +1703,7 @@
         </a>
       </div>
 
-      <div style="border-top:1px solid #334155; padding-top:20px; width:100%; max-width:640px; display:flex; flex-wrap:wrap; justify-content:space-around; font-size:13px; color:#94a3b8;">
+      <div class="outro-links">
         <span><i class="fa-solid fa-envelope" style="color:#60a5fa;"></i> tommaso.rip03@gmail.com</span>
         <span><i class="fa-brands fa-linkedin" style="color:#60a5fa;"></i> <a href="https://linkedin.com/in/tommaso-ripanti" target="_blank" style="color:#60a5fa; text-decoration:none;">tommaso-ripanti</a></span>
         <span><i class="fa-solid fa-globe" style="color:#60a5fa;"></i> <a href="https://doppiaspada.github.io/MyWorks/portfolio.html" target="_blank" style="color:#60a5fa; text-decoration:none;">doppiaspada.github.io</a></span>
@@ -1257,13 +1715,25 @@
 
   <!-- Deck Controls -->
   <div class="deck-controls">
-    <div id="slideIndicator">Slide 1 / 16</div>
+    <div id="slideIndicator"><span class="indicator-prefix">Slide </span><span id="slideCounter">1 / 16</span></div>
     <div class="dots-container" id="dotsContainer"></div>
     <div class="ctrl-btns">
-      <button class="ctrl-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i> Previous</button>
-      <button class="ctrl-btn" id="nextBtn" onclick="nextSlide()">Next <i class="fa-solid fa-chevron-right"></i></button>
-      <button class="ctrl-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+      <button class="ctrl-btn" id="prevBtn" onclick="prevSlide()" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i><span class="btn-label"> Previous</span></button>
+      <button class="ctrl-btn" id="nextBtn" onclick="nextSlide()" aria-label="Next slide"><span class="btn-label">Next </span><i class="fa-solid fa-chevron-right"></i></button>
+      <button class="ctrl-btn" id="fsBtn" onclick="toggleFullscreen()" aria-label="Toggle fullscreen"><i class="fa-solid fa-expand"></i><span class="btn-label"> Fullscreen</span></button>
     </div>
+  </div>
+
+  <div class="status-toast" id="statusToast" role="status" aria-live="polite"></div>
+
+    <!-- Footer Note with Clear Online Website Reference -->
+  <div class="online-reference">
+    <p>
+      Online interactive version: <a href="https://doppiaspada.github.io/MyWorks/portfolio.html" target="_blank">https://doppiaspada.github.io/MyWorks/portfolio.html</a>
+    </p>
+    <p style="font-size:11px; color:#94a3b8; margin-top:6px;">
+      Designed and developed by Tommaso Ripanti with the help of AI tools. All referenced projects, media, and source documents are copyrighted by their respective authors.
+    </p>
   </div>
 
   <script>
@@ -1277,6 +1747,13 @@
       dot.className = `slide-dot ${i === 1 ? 'active' : ''}`;
       dot.onclick = () => showSlide(i);
       dotsContainer.appendChild(dot);
+    }
+
+    function updateSlideIndicatorText() {
+      const isCompact = window.innerWidth <= 1023;
+      document.getElementById('slideCounter').innerText = isCompact
+        ? `${currentSlide}/${totalSlides}`
+        : `${currentSlide} / ${totalSlides}`;
     }
 
     function showSlide(index) {
@@ -1302,7 +1779,7 @@
         }
       });
 
-      document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      updateSlideIndicatorText();
       document.getElementById('prevBtn').disabled = (currentSlide === 1);
       document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
     }
@@ -1319,16 +1796,26 @@
       }
     }
 
+    function showToast(msg) {
+      const toast = document.getElementById('statusToast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
     function toggleFullscreen() {
       const wrapper = document.querySelector('.deck-wrapper');
       if (!document.fullscreenElement) {
-        wrapper.requestFullscreen().catch(err => {
-          alert(`Fullscreen request failed: ${err.message}`);
+        wrapper.requestFullscreen().catch(() => {
+          showToast('Fullscreen not supported in this view.');
         });
       } else {
         document.exitFullscreen();
       }
     }
+
+    window.addEventListener('resize', updateSlideIndicatorText);
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -1355,6 +1842,30 @@
     // Initialize
     showSlide(1);
   </script>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
 
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-xmark');
+    });
+  </script>
+  <script>
+    const brandSpan = document.querySelector('.nav-brand span');
+
+    function fitBrandText() {
+      brandSpan.style.width = '';
+      const range = document.createRange();
+      range.selectNodeContents(brandSpan);
+      const exactTextWidth = Math.ceil(range.getBoundingClientRect().width);
+      brandSpan.style.width = exactTextWidth + 'px';
+    }
+
+    new ResizeObserver(fitBrandText).observe(document.querySelector('.site-nav'));
+    document.fonts.ready.then(fitBrandText);
+  </script>
 </body>
 </html>

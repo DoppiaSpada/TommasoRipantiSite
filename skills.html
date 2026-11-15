@@ -356,14 +356,61 @@
     .online-reference a:hover {
       text-decoration: underline;
     }
+    .btn-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-    @media (max-width: 768px) {
+    .btn-menu-toggle:hover {
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+
+    @media (max-width: 1023px) {
       body { padding-top: 64px; }
       .site-nav { padding: 0 16px; }
       .nav-item a { padding: 6px 10px; font-size: 13px; }
       .skills-header-card { padding: 20px; }
       .skills-header-card h1 { font-size: 24px; }
       .skills-grid { grid-template-columns: 1fr; }
+      .btn-menu-toggle {
+        display: inline-flex;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid #1e293b;
+        padding: 12px 16px;
+        gap: 6px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+      }
+      .nav-links.open .nav-item,
+      .nav-links.open .nav-item a {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -375,7 +422,9 @@
       <img class="nav-avatar" src="Items/My_Portrait.jpg" alt="">
       <span class="name">Tommaso Ripanti</span>
     </a>
-
+    <button class="btn-menu-toggle" id="menuToggle" aria-label="Apri menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <ul class="nav-links">
       <li class="nav-item">
         <a href="cv.html"><i class="fa-solid fa-file-invoice"></i> CV</a>
@@ -721,11 +770,36 @@
         Online interactive version: <a href="https://doppiaspada.github.io/MyWorks/skills.html" target="_blank">https://doppiaspada.github.io/MyWorks/skills.html</a>
       </p>
       <p style="font-size:11px; color:#94a3b8; margin-top:6px;">
-        Designed and developed by Tommaso Ripanti. All referenced projects, media, and source documents are copyrighted by their respective authors.
+        Designed and developed by Tommaso Ripanti with the help of AI tools. All referenced projects, media, and source documents are copyrighted by their respective authors.
       </p>
     </div>
 
   </div>
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.querySelector('.nav-links');
 
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    </script>
+    <script>
+      const brandSpan = document.querySelector('.nav-brand span');
+
+      function fitBrandText() {
+        brandSpan.style.width = ''; // reset per misurare lo stato naturale
+        const range = document.createRange();
+        range.selectNodeContents(brandSpan);
+        // getBoundingClientRect() sul Range restituisce la larghezza esatta del testo effettivo!
+        const exactTextWidth = Math.ceil(range.getBoundingClientRect().width);
+        brandSpan.style.width = exactTextWidth + 'px';
+      }
+
+      new ResizeObserver(fitBrandText).observe(document.querySelector('.site-nav'));
+      document.fonts.ready.then(fitBrandText);
+    </script>
 </body>
 </html>
